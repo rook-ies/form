@@ -15,4 +15,9 @@ class model_form extends CI_Model{
       return $forms;
   }
 
+  public function showForm($id){
+      $form =  $this->db->get_where("FORM",array('id_form'=> $id));
+      return $form;
+  }
+
 }
