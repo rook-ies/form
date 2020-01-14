@@ -13,9 +13,12 @@ class Form extends CI_Controller{
 
   function index()
   {
-      echo "string";
+      //echo "string";
       $data['forms'] = $this->model_form->listForm()->result();
-      print_r($data['forms']);
+      //print_r($data['forms']);
+      $this->load->view('template/Header');
+      $this->load->view('pages/listForm',$data);
+      $this->load->view('template/Footer');
   }
 
   function show(){
