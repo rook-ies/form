@@ -20,10 +20,14 @@ class Form extends CI_Controller{
 
   function show(){
      $data['form'] = $this->model_form->showForm($this->uri->segment(3))->row_array();
-     print_r($data['form']);
+     //print_r($data['form']);
      $this->load->view('template/Header');
+     $this->load->view('form/Header',$data);
 
 
+
+
+     $this->load->view('form/Footer');
      $this->load->view('template/Footer');
   }
 
