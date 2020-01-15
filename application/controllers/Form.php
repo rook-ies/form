@@ -8,6 +8,7 @@ class Form extends CI_Controller{
     parent::__construct();
 
     $this->load->model('model_form');
+    $this->load->model('model_place');
     //Codeigniter : Write Less Do More
     $this->load->model('model_tingkatKepuasanPelanggan');
     $this->load->model('model_tingkatKepuasanPelangganQuestion');
@@ -26,6 +27,8 @@ class Form extends CI_Controller{
 
   function show(){
      $data['form'] = $this->model_form->showForm($this->uri->segment(3))->row_array();
+     $data['place'] = $this->model_place->showPlace($data['form']['ID_PLACE']);
+      
      $data['TingkatKepuasanPelanggan'] = $this->model_tingkatKepuasanPelanggan->listTingkatKepuasanPelanggan($this->uri->segment(3))->result();
      $i=0;
      foreach ($data['TingkatKepuasanPelanggan'] as $key) {
