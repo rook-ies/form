@@ -42,7 +42,7 @@ class Form extends CI_Controller{
             echo "jumlah bayar".$data['data'][$i]['bayar']['count'];
         }
         $i++;
-     }
+    }
      print_r($data);
      $this->load->view('template/Header');
      $this->load->view('form/Header',$data);
@@ -50,6 +50,7 @@ class Form extends CI_Controller{
 
 
      $this->load->view('form/TingkatKepuasanPelanggan',$data);
+     $this->load->view('form/PrioritasAspekPelayanan',$data);
      $this->load->view('form/Footer');
      $this->load->view('template/Footer');
   }
@@ -57,6 +58,7 @@ class Form extends CI_Controller{
   public function simpan()
   {
 
+      echo "bab2";
       ///// bab 2 /////
       $jumlahBab = $this->input->post('TKMjumlahBab');
       echo "jumlah bab".$jumlahBab."-----";
@@ -85,7 +87,12 @@ class Form extends CI_Controller{
           }
       }
       // echo $count;
-
+      echo "bab5";
+      //// bab 5 ////
+      for ($i=0; $i < $jumlahBab ; $i++) {
+          echo "<br>";
+          echo $this->input->post('nilaiPrioritas'.$i);
+      }
   }
 
 }
