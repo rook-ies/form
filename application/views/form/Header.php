@@ -4,12 +4,12 @@
 </h1>
         <table border="1" cellspacing="0" cellpadding="5" width="80%">
             <tr>
-                <td width="200">NAMA PUSKESMAS</td>
-                <td colspan="3">---</td>
+                <td width="200">NAMA <?php echo $place['TYPE']; ?> </td>
+                <td colspan="3"><?php echo $place['NAMA'] ?></td>
             </tr>
             <tr>
-                <td>JENIS PUSKESMAS</td>
-                <td colspan="3">PUSKESMAS NON RAWAT INAP / PUSKESMAS RAWAT INAP</td>
+                <td>JENIS <?php echo $place['TYPE']; ?></td>
+                <td colspan="3"><?php echo $place['CATEGORY']; ?></td>
             </tr>
             <tr>
                 <td>JENIS LAYANAN</td>
@@ -19,7 +19,7 @@
                 <td>NO. RESPONDEN</td>
                 <td>---</td>
                 <td width="200">TANGGAL SURVEI</td>
-                <td>---</td>
+                <td><?php echo @date('d-m-Y'); ?></td>
             </tr>
             <tr>
                 <td>KODE SURVEYOR</td>
