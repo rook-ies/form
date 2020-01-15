@@ -8,6 +8,7 @@ class Form extends CI_Controller{
     parent::__construct();
 
     $this->load->model('model_form');
+    $this->load->model('model_place');
     //Codeigniter : Write Less Do More
   }
 
@@ -20,7 +21,8 @@ class Form extends CI_Controller{
 
   function show(){
      $data['form'] = $this->model_form->showForm($this->uri->segment(3))->row_array();
-     //print_r($data['form']);
+     $data['place'] = $this->model_place->showPlace($data['form']['ID_PLACE']);
+      
      $this->load->view('template/Header');
      $this->load->view('form/Header',$data);
 
