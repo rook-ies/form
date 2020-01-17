@@ -20,7 +20,7 @@
                 <td><?php echo $i+1?></td>
                 <td><?php echo $key->QUESTION ?></td>
                 <td><input type="range" min="1" max="9" id="get<?php echo $i; ?>" onchange="fetch(<?php echo $i; ?>)"/>
-                    <input name="nilaiPrioritas<?php echo $i;?>" type="text" id="put<?php echo "$i"; ?>" ></td>
+                    <input name="nilaiPrioritas<?php echo $i;?>" value="5" type="text" id="put<?php echo "$i"; ?>" ></td>
             </tr>
             <?php $i++; ?>
         <?php endforeach; ?>
