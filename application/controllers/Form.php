@@ -30,6 +30,7 @@ class Form extends CI_Controller{
   function show(){
      $data['form'] = $this->model_form->showForm($this->uri->segment(3))->row_array();
      $data['place'] = $this->model_place->showPlace($data['form']['ID_PLACE']);
+
      $data['identityQuestion'] = $this->model_identity_question->listQuestion()->result();
      //$data['identityOption'] = $this->model_identity_question->listOption()->result();
      $options = 0;
@@ -46,7 +47,6 @@ class Form extends CI_Controller{
        $data['additionalIdentityOption'][$additionalOptions]['option'] = $this->model_additional_identity->listOption($aiq->ID_ADDITIONAL_IDENTITY_QUESTION)->result();
        $additionalOptions++;
      }
-     
      $data['TingkatKepuasanPelanggan'] = $this->model_tingkatKepuasanPelanggan->listTingkatKepuasanPelanggan($this->uri->segment(3))->result();
      $i=0;
      foreach ($data['TingkatKepuasanPelanggan'] as $key) {
@@ -81,16 +81,20 @@ class Form extends CI_Controller{
   public function simpan()
   {
 
-      echo "bab2";
+      echo "<br>bab2";
       ///// bab 2 /////
       $jumlahBab = $this->input->post('TKMjumlahBab');
-      echo "jumlah bab".$jumlahBab."-----";
+      // echo "jumlah bab".$jumlahBab."-----";
       for ($i=0; $i < $jumlahBab ; $i++) {
+          $avg=0;
+          $pembagi=0;
+          echo "<br>";
           if($i!=3){
-              echo "<br>";
               $jumlahPertanyaan[$i] = $this->input->post('TKMjumlahQuestion'.$i);
               for ($j=0; $j <$jumlahPertanyaan[$i] ; $j++) {
                   echo $this->input->post('TKManswer'.$i.$j);
+                  $avg+=$this->input->post('TKManswer'.$i.$j);
+                  $pembagi++;
               }
           } else {
               $pilihan = $this->input->post('TKMpilihanBayar');
@@ -99,18 +103,24 @@ class Form extends CI_Controller{
                   $jumlahBayar = $this->input->post('TKMjumlahQuestionNonBayar');
                    for ($j=0; $j <$jumlahBayar ; $j++) {
                        echo $this->input->post('TKManswerNonbayar'.$i.$j);
+                       $avg+=$this->input->post('TKManswerNonbayar'.$i.$j);
+                       $pembagi++;
                    }
               }else {
                   //echo "<br>memilih bayar";
                   $jumlahBayar = $this->input->post('TKMjumlahQuestionBayar');
                   for ($j=0; $j <$jumlahBayar ; $j++) {
                       echo $this->input->post('TKManswerBayar'.$i.$j);
+                      $avg+=$this->input->post('TKManswerBayar'.$i.$j);
+                      $pembagi++;
                   }
               }
           }
+          $avg = $avg/$pembagi;
+          echo "rata rata : >".$avg."<";
       }
       // echo $count;
-      echo "bab5";
+      echo "<br>bab5";
       //// bab 5 ////
       for ($i=0; $i < $jumlahBab ; $i++) {
           echo "<br>";
