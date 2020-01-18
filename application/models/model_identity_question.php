@@ -21,4 +21,15 @@ class model_identity_question extends CI_Model{
      return $identityOption;
   }
 
+  public function countOption($idQuestion){
+    $this->db->where('ID_IDENTITY_QUESTION',$idQuestion);
+    $this->db->from("IDENTITY_OPTION");
+    $count = $this->db->count_all_results();
+    return $count;
+    // $count = $this->db->get_where('ADDITIONAL_IDENTITY_OPTION',array('ID_ADDITIONAL_IDENTITY_QUESTION'=>$idQuestion));
+    // $count = $this->db->count_all_results();
+
+    //return $count;
+  }
+
 }

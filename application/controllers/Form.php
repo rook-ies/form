@@ -34,6 +34,7 @@ class Form extends CI_Controller{
      //$data['identityOption'] = $this->model_identity_question->listOption()->result();
      $options = 0;
      foreach ($data['identityQuestion'] as $iq) {
+       $data['identity'][$options]['count'] = $this->model_identity_question->countOption($iq->ID_IDENTITY_QUESTION);
        $data['identity'][$options]['option'] = $this->model_identity_question->listOption($iq->ID_IDENTITY_QUESTION)->result();
        $options++;
      }
@@ -46,7 +47,7 @@ class Form extends CI_Controller{
        $data['additionalIdentityOption'][$additionalOptions]['option'] = $this->model_additional_identity->listOption($aiq->ID_ADDITIONAL_IDENTITY_QUESTION)->result();
        $additionalOptions++;
      }
-     
+
      $data['TingkatKepuasanPelanggan'] = $this->model_tingkatKepuasanPelanggan->listTingkatKepuasanPelanggan($this->uri->segment(3))->result();
      $i=0;
      foreach ($data['TingkatKepuasanPelanggan'] as $key) {
@@ -73,6 +74,7 @@ class Form extends CI_Controller{
 
      $this->load->view('form/TingkatKepuasanPelanggan',$data);
      $this->load->view('form/Experience');
+      $this->load->view('form/Harapan');
      $this->load->view('form/PrioritasAspekPelayanan',$data);
      $this->load->view('form/Footer');
      $this->load->view('template/Footer');
@@ -80,7 +82,35 @@ class Form extends CI_Controller{
 
   public function simpan()
   {
+      echo "header";
+      echo "<br>".$this->input->post('noResponden');
+      echo "<br>".$this->input->post('kodeSurveyor');
+      echo "<br>".$this->input->post('unitPelayanan');
+      
+      echo "Identitas";
+      $jumlahIdentitas = $this->input->post('jumlahIdentitas');
+      for ($i=0; $i < $jumlahIdentitas ; $i++) {
+        echo "<br>";
+        if($this->input->post('identity'.$i) == 'lainnya'){
+          echo $this->input->post('pekerjaanLainnya');
+        }
 
+        else{
+          echo $this->input->post('identity'.$i);
+        }
+      }
+
+      echo "Identitas tambahan";
+      $jumlahIdentitasTambahan = $this->input->post('jumlahIdentitasTambahan');
+      for ($i=0; $i < $jumlahIdentitas ; $i++) {
+        echo "<br>";
+        if($this->input->post('additionalIdentityAnswer'.$i) == 'lainnya'){
+          echo $this->input->post('additionalLainnya');
+        }
+        else{
+          echo $this->input->post('additionalIdentityAnswer'.$i);
+        }
+      }
       echo "bab2";
       ///// bab 2 /////
       $jumlahBab = $this->input->post('TKMjumlahBab');
@@ -109,6 +139,15 @@ class Form extends CI_Controller{
               }
           }
       }
+      echo "bab 3";
+      echo "<br>".$this->input->post('penglaman');
+      echo "<br>".$this->input->post('pengalamanTidakMenyenangkan');
+      echo "<br>".$this->input->post('location');
+      echo "<br>".$this->input->post('waktu');
+
+      echo "bab4";
+      echo "<br>".$this->input->post('harapanUnit');
+      echo "<br>".$this->input->post('harapanPlace');
       // echo $count;
       echo "bab5";
       //// bab 5 ////
