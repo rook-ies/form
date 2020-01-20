@@ -23,19 +23,19 @@
         <td> Pengalaman tidak menyenangkan </td>
       </tr>
       <tr>
-        <td><textarea name="pengalamanTidakMenyenangkan" style="width:400px;"></textarea>  </td>
+        <td><textarea name="pengalamanTidakMenyenangkan" style="width:40%;"></textarea>  </td>
       </tr>
       <tr>
         <td> Location </td>
       </tr>
       <tr>
-        <td><textarea name="location" style="width:100px;"></textarea></td>
+        <td><textarea name="location" style="width:20%;"></textarea></td>
       </tr>
       <tr>
         <td> Waktu </td>
       </tr>
       <tr>
-        <td><input type="date" name="usr_time"></td>
+        <td><input type="date" name="waktu" placeholder="DD-MM-YYYY"></td>
       </tr>
   </table>
 </center>
