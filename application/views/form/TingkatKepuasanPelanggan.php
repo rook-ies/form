@@ -33,7 +33,7 @@
                     <td colspan="5"><b><?php echo $key->QUESTION; ?></b></td>
                 </tr>
             <?php $j=0; ?>
-            <?php if ($i!=3) { ?>
+            <?php if (strcmp($key->QUESTION, "BIAYA/TARIF")) { ?>
                 <?php echo form_hidden('TKMjumlahQuestion'.$i, $data[$i]['count']); ?>
                 <?php foreach ($data[$i]['question'] as $key2): ?>
                     <tr>
@@ -48,6 +48,7 @@
                 <?php  ?>
                 <?php endforeach; ?>
             <?php } else { ?>
+                <?php echo form_hidden('indeksBayar', $i); ?>
                 <tr>
                     <td></td>
                     <td>Pasien BPJS/Asuransi (Non Bayar Sendiri)</td>
@@ -69,7 +70,7 @@
                 <tr>
                     <td></td>
                     <td>Pasien Umum/ Bayar Sendiri</td>
-                    <td><?php echo form_radio('TKMpilihanBayar', '2', FALSE); ?></td>
+                    <td colspan="4"><?php echo form_radio('TKMpilihanBayar', '2', FALSE); ?></td>
                 </tr>
                 <?php $k=0; ?>
                 <?php echo form_hidden('TKMjumlahQuestionBayar', $data[$i]['bayar']['count']); ?>
