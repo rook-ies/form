@@ -48,7 +48,7 @@ class Form extends CI_Controller{
        $data['additionalIdentityOption'][$additionalOptions]['option'] = $this->model_additional_identity->listOption($aiq->ID_ADDITIONAL_IDENTITY_QUESTION)->result();
        $additionalOptions++;
      }
-    
+
      $data['TingkatKepuasanPelanggan'] = $this->model_tingkatKepuasanPelanggan->listTingkatKepuasanPelanggan($this->uri->segment(3))->result();
      $i=0;
      foreach ($data['TingkatKepuasanPelanggan'] as $key) {
@@ -87,7 +87,7 @@ class Form extends CI_Controller{
       echo "<br>".$this->input->post('noResponden');
       echo "<br>".$this->input->post('kodeSurveyor');
       echo "<br>".$this->input->post('unitPelayanan');
-      
+
       echo "Identitas";
       $jumlahIdentitas = $this->input->post('jumlahIdentitas');
       for ($i=0; $i < $jumlahIdentitas ; $i++) {
@@ -116,12 +116,14 @@ class Form extends CI_Controller{
 
       ///// bab 2 /////
       $jumlahBab = $this->input->post('TKMjumlahBab');
+      $indk = $this->input->post('indeksBayar');
+      echo "indek bayar".$indk;
       // echo "jumlah bab".$jumlahBab."-----";
       for ($i=0; $i < $jumlahBab ; $i++) {
           $avg=0;
           $pembagi=0;
           echo "<br>";
-          if($i!=3){
+          if($i!=$indk){
               $jumlahPertanyaan[$i] = $this->input->post('TKMjumlahQuestion'.$i);
               for ($j=0; $j <$jumlahPertanyaan[$i] ; $j++) {
                   echo $this->input->post('TKManswer'.$i.$j);
