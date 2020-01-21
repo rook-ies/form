@@ -29,9 +29,9 @@ class SuperAdmin extends CI_Controller{
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
         if($this->form_validation->run() == false){
-            $this->load->view('superAdmin/template/header', $data);
+            //$this->load->view('superAdmin/template/header', $data);
             $this->load->view('superAdmin/login', $data);
-            $this->load->view('superAdmin/template/footer', $data);
+            //$this->load->view('superAdmin/template/footer', $data);
         }
         else {
             $email = $this->security->xss_clean($this->input->post('username'));
