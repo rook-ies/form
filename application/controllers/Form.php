@@ -11,6 +11,7 @@ class Form extends CI_Controller{
     $this->load->model('model_place');
     $this->load->model('model_identity_question');
     $this->load->model('model_additional_identity');
+    $this->load->model('model_service_type');
     //Codeigniter : Write Less Do More
     $this->load->model('model_tingkatKepuasanPelanggan');
     $this->load->model('model_tingkatKepuasanPelangganQuestion');
@@ -66,6 +67,8 @@ class Form extends CI_Controller{
         }
         $i++;
     }
+    $data['service'] = $this->model_service_type->showService($this->uri->segment(3))->row_array();
+
      print_r($data);
      $this->load->view('template/Header');
      $this->load->view('form/Header',$data);
@@ -75,7 +78,7 @@ class Form extends CI_Controller{
 
      $this->load->view('form/TingkatKepuasanPelanggan',$data);
      $this->load->view('form/Experience');
-      $this->load->view('form/Harapan');
+      $this->load->view('form/Harapan',$data);
      $this->load->view('form/PrioritasAspekPelayanan',$data);
      $this->load->view('form/Footer');
      $this->load->view('template/Footer');
