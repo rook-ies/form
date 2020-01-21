@@ -13,7 +13,7 @@
            <tr>
                <td><?php echo chr($i+65).". ".$key->QUESTION; ?></td>
                <?php if ($identity[$i]['count']==0) {?>
-                <td><textarea name="identity<?php echo $i; ?>" width="100%" ></textarea> </td>
+                <td><input type="text" name="identity<?php echo $i; ?>" style="width:200px;"></input> </td>
            </tr>
                 <?php } ?>
             <?php foreach ($identity[$i]['option'] as $key2 ): ?>
