@@ -19,7 +19,10 @@ class Service_type extends CI_Controller{
         $data['service_type'] = $this->Model_service_type->get_all_service_type();
 
         $data['_view'] = 'service_type/index';
+        $data['title'] = 'service type [all]';
+        $this->load->view('superAdmin/template/header',$data);
         $this->load->view('SuperAdmin/service_type/index',$data);
+        $this->load->view('superAdmin/template/footer',$data);
     }
 
     /*
@@ -43,7 +46,10 @@ class Service_type extends CI_Controller{
         else
         {
             $data['_view'] = 'service_type/add';
+            $data['title'] = 'add service type';
+            $this->load->view('superAdmin/template/header',$data);
             $this->load->view('SuperAdmin/service_type/add',$data);
+            $this->load->view('superAdmin/template/footer',$data);
         }
     }
 
@@ -73,7 +79,10 @@ class Service_type extends CI_Controller{
             else
             {
                 $data['_view'] = 'service_type/edit';
+                $data['title'] = 'edit service type';
+                $this->load->view('superAdmin/template/header',$data);
                 $this->load->view('SuperAdmin/service_type/edit',$data);
+                $this->load->view('superAdmin/template/footer',$data);
             }
         }
         else
