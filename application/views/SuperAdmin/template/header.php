@@ -77,7 +77,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>/#">
+            <a class="nav-link" href="<?php echo base_url(); ?>admin">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">CRUD ADMIN</span>
             </a>
@@ -98,7 +98,7 @@
               <span class="menu-title">CRUD PLACE TYPE</span>
             </a>
           </li><li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>/#">
+            <a class="nav-link" href="<?php echo base_url(); ?>/service_type">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">CRUD SERVICE TYPE</span>
             </a>

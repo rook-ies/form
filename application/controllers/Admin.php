@@ -19,7 +19,10 @@ class Admin extends CI_Controller{
         $data['admin'] = $this->Model_admin->get_all_admin();
 
         $data['_view'] = 'admin/index';
+        $data['title'] = 'admin [all]';
+        $this->load->view('superAdmin/template/header',$data);
         $this->load->view('SuperAdmin/admin/index',$data);
+        $this->load->view('superAdmin/template/footer',$data);
     }
 
     /*
@@ -52,7 +55,10 @@ class Admin extends CI_Controller{
 			$data['all_place'] = $this->Model_place->get_all_place();
 
             $data['_view'] = 'admin/add';
+            $data['title'] = 'admin [all]';
+            $this->load->view('superAdmin/template/header',$data);
             $this->load->view('SuperAdmin/admin/add',$data);
+            $this->load->view('superAdmin/template/footer',$data);
         }
     }
 
@@ -89,9 +95,11 @@ class Admin extends CI_Controller{
             {
 				$this->load->model('Model_place');
 				$data['all_place'] = $this->Model_place->get_all_place();
-
-                $data['_view'] = 'admin/edit';
+            
+                $data['title'] = 'admin edit';
+                $this->load->view('superAdmin/template/header',$data);
                 $this->load->view('SuperAdmin/admin/edit',$data);
+                $this->load->view('superAdmin/template/footer',$data);
             }
         }
         else
