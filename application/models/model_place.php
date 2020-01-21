@@ -22,5 +22,44 @@ class model_place extends CI_Model{
     return $resultp;
   }
 
+  function get_place($ID_PLACE)
+  {
+      return $this->db->get_where('PLACE',array('ID_PLACE'=>$ID_PLACE))->row_array();
+  }
+
+  /*
+   * Get all place
+   */
+  function get_all_place()
+  {
+      $this->db->order_by('ID_PLACE', 'desc');
+      return $this->db->get('PLACE')->result_array();
+  }
+
+  /*
+   * function to add new place
+   */
+  function add_place($params)
+  {
+      $this->db->insert('PLACE',$params);
+      return $this->db->insert_id();
+  }
+
+  /*
+   * function to update place
+   */
+  function update_place($ID_PLACE,$params)
+  {
+      $this->db->where('ID_PLACE',$ID_PLACE);
+      return $this->db->update('PLACE',$params);
+  }
+
+  /*
+   * function to delete place
+   */
+  function delete_place($ID_PLACE)
+  {
+      return $this->db->delete('PLACE',array('ID_PLACE'=>$ID_PLACE));
+  }
 
 }
