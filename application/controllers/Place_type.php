@@ -18,8 +18,11 @@ class Place_type extends CI_Controller{
     {
         $data['place_type'] = $this->Model_place_type->get_all_place_type();
 
+        $data['title'] = 'Place Type';
         $data['_view'] = 'place_type/index';
+        $this->load->view('SuperAdmin/template/header',$data);
         $this->load->view('SuperAdmin/place_type/index',$data);
+        $this->load->view('SuperAdmin/template/footer',$data);
     }
 
     /*
@@ -42,8 +45,11 @@ class Place_type extends CI_Controller{
         }
         else
         {
+            $data['title'] = 'Add Place Type';
             $data['_view'] = 'place_type/add';
+            $this->load->view('SuperAdmin/template/header',$data);
             $this->load->view('SuperAdmin/place_type/add',$data);
+            $this->load->view('SuperAdmin/template/footer',$data);
         }
     }
 
@@ -72,8 +78,11 @@ class Place_type extends CI_Controller{
             }
             else
             {
+                $data['title'] = 'Edit Place Type';
                 $data['_view'] = 'place_type/edit';
+                $this->load->view('SuperAdmin/template/header',$data);
                 $this->load->view('SuperAdmin/place_type/edit',$data);
+                $this->load->view('SuperAdmin/template/footer',$data);
             }
         }
         else
