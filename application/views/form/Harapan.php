@@ -14,7 +14,7 @@
         <td><textarea name="harapanUnit" style="width:40%;"></textarea>  </td>
       </tr>
       <tr>
-        <td>b.	Mohon sebutkan harapan Anda agar pelayanan Puskesmas menjadi lebih baik</td>
+        <td>b.	Mohon sebutkan harapan Anda agar pelayanan <?php echo $place['TYPE']; ?> menjadi lebih baik</td>
       </tr>
       <tr>
         <td><textarea name="harapanPlace" style="width:40%;"></textarea>  </td>

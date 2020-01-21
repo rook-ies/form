@@ -13,7 +13,7 @@
             </tr>
             <tr>
                 <td>JENIS LAYANAN</td>
-                <td colspan="3">RAWAT JALAN</td>
+                <td colspan="3"><?php echo $service['SERVICE_TYPE']; ?></td>
             </tr>
             <tr>
                 <td>NO. RESPONDEN</td>
