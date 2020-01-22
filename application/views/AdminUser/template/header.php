@@ -409,7 +409,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="<?php echo base_url() ?>/AdminUser/gantiPassword">
                                         <i class="metismenu-icon pe-7s-rocket"></i>
                                         Ganti Password
                                     </a>
