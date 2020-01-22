@@ -11,6 +11,19 @@ class Model_admin extends CI_Model
         parent::__construct();
     }
 
+    public function login($email, $password)
+      {
+          $this->db->where('EMAIL', $email);
+          $this->db->where('PASSWORD', sha1($password));
+          $query = $this->db->get('ADMIN');
+
+          if($query->num_rows() == 1) {
+              return $query->row();
+          }
+
+          return false;
+      }
+
     /*
      * Get admin by ID_ADMIN
      */

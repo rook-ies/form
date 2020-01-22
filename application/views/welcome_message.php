@@ -87,6 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<?php echo anchor('form', 'form')."<br>"; ?>
 	<?php echo anchor('dashboardAdmin', 'super admin'); ?>
+	<?php echo anchor('dashboardAdminBiasa', 'admin biasa'); ?>
 
 </body>
 </html>
