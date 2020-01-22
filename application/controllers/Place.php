@@ -18,8 +18,11 @@ class Place extends CI_Controller{
     {
         $data['place'] = $this->Model_place->get_all_place();
 
+        $data['title'] = 'Place';
         $data['_view'] = 'place/index';
+        $this->load->view('SuperAdmin/template/header',$data);
         $this->load->view('SuperAdmin/place/index',$data);
+        $this->load->view('SuperAdmin/template/footer',$data);
     }
 
     /*
@@ -52,8 +55,11 @@ class Place extends CI_Controller{
 			$this->load->model('Model_place_category');
 			$data['all_place_category'] = $this->Model_place_category->get_all_place_category();
 
+            $data['title'] = 'Add place';
             $data['_view'] = 'place/add';
+            $this->load->view('SuperAdmin/template/header',$data);
             $this->load->view('SuperAdmin/place/add',$data);
+            $this->load->view('SuperAdmin/template/footer',$data);
         }
     }
 
@@ -92,8 +98,11 @@ class Place extends CI_Controller{
 				$this->load->model('Model_place_category');
 				$data['all_place_category'] = $this->Model_place_category->get_all_place_category();
 
+                $data['title'] = 'Edit place';
                 $data['_view'] = 'place/edit';
+                $this->load->view('SuperAdmin/template/header',$data);
                 $this->load->view('SuperAdmin/place/edit',$data);
+                $this->load->view('SuperAdmin/template/footer',$data);
             }
         }
         else
