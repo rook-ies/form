@@ -8,12 +8,12 @@
             <div class="form-group row">
               <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Type</label>
               <div class="col-sm-9">
-                <input type="email" class="form-control" name="TYPE" value="<?php echo $this->input->post('TYPE'); ?>">
+                <input type="text" class="form-control" name="TYPE" value="<?php echo $this->input->post('TYPE'); ?>">
 								<span class="text-danger"><?php echo form_error('TYPE');?></span>
 							</div>
             </div>
             <button type="submit" class="btn btn-success mr-2">Save</button>
-            <a href="index">Cancel</a>
+            <?php echo anchor(base_url('place_type'), 'Cancel'); ?>
           <?php echo form_close(); ?>
         </div>
       </div>

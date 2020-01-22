@@ -13,7 +13,7 @@
 							</div>
             </div>
             <button type="submit" class="btn btn-success mr-2">Save</button>
-            <a href="index">Cancel</a>
+            <?php echo anchor(base_url('place_type'), 'Cancel'); ?>
           <?php echo form_close(); ?>
         </div>
       </div>
