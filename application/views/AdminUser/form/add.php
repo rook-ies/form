@@ -9,7 +9,7 @@
                 <?php echo form_open('form/add'); ?>
               	<div class="box-body">
               		<div class="row clearfix">
-    					<div class="col-md-6">
+    					<!-- <div class="col-md-6">
     						<label for="ID_PLACE" class="control-label"><span class="text-danger">*</span>Place</label>
     						<div class="form-group">
     							<select name="ID_PLACE" class="form-control">
@@ -25,7 +25,8 @@
     							</select>
     							<span class="text-danger"><?php echo form_error('ID_PLACE');?></span>
     						</div>
-    					</div>
+    					</div> -->
+                        <?php echo form_hidden('ID_PLACE',$this->session->id_place); ?>
     					<div class="col-md-6">
     						<label for="ID_SERVICE_TYPE" class="control-label"><span class="text-danger">*</span>Service Type</label>
     						<div class="form-group">
