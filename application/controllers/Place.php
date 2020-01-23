@@ -8,9 +8,14 @@ class Place extends CI_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Model_place');
+        $this->load->model('Model_place');$this->logged_in();
     }
 
+    private function logged_in() {
+        if(! $this->session->userdata('authenticated')) {
+            redirect('superAdmin/login');
+        }
+    }
     /*
      * Listing of place
      */

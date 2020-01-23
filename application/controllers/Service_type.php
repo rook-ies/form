@@ -9,8 +9,14 @@ class Service_type extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Model_service_type');
+        $this->logged_in();
     }
 
+      private function logged_in() {
+        if(! $this->session->userdata('authenticated')) {
+            redirect('superAdmin/login');
+        }
+    }
     /*
      * Listing of service_type
      */
