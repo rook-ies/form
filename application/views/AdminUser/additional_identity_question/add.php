@@ -9,7 +9,7 @@
                 <?php echo form_open('additional_identity_question/add'); ?>
               	<div class="box-body">
               		<div class="row clearfix">
-    					<div class="col-md-6">
+    					<!-- <div class="col-md-6">
     						<label for="ID_FORM" class="control-label"><span class="text-danger">*</span>Form</label>
     						<div class="form-group">
     							<select name="ID_FORM" class="form-control">
@@ -25,7 +25,8 @@
     							</select>
     							<span class="text-danger"><?php echo form_error('ID_FORM');?></span>
     						</div>
-    					</div>
+    					</div> -->
+                        <?php echo form_hidden('ID_FORM',$idForm); ?>
     					<div class="col-md-6">
     						<label for="QUESTION" class="control-label"><span class="text-danger">*</span>QUESTION</label>
     						<div class="form-group">
@@ -39,7 +40,7 @@
                 	<button type="submit" class="btn btn-success">
                 		<i class="fa fa-check"></i> Save
                 	</button>
-                  <?php echo anchor(base_url('additional_identity_question'), 'Cancel'); ?>
+                  <?php echo anchor(base_url('form/edit/'.$idForm), 'Cancel'); ?>
               	</div>
                 <?php echo form_close(); ?>
           	</div>

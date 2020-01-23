@@ -264,14 +264,14 @@ class Form extends CI_Controller{
 			$this->load->model('Model_service_type');
 			$data['all_service_type'] = $this->Model_service_type->get_all_service_type();
 
-            //$data['additional_identity_question'] = $this->Model_additional_identity->listQuestion($ID_FORM)->result_array();
+            $data['additional_identity_question'] = $this->Model_additional_identity->listQuestion($ID_FORM)->result_array();
 
               $data['title'] = 'Edit form';
               $data['_view'] = 'form/edit';
 
               $this->load->view('AdminUser/template/header',$data);
               $this->load->view('AdminUser/form/edit',$data);
-              //$this->load->view('AdminUser/additional_identity_question/index',$data);
+              $this->load->view('AdminUser/additional_identity_question/index',$data);
               $this->load->view('AdminUser/template/footer',$data);
           }
       }

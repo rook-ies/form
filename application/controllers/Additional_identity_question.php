@@ -44,12 +44,13 @@ class Additional_identity_question extends CI_Controller{
             );
 
             $additional_identity_question_id = $this->Model_additional_identity_question->add_additional_identity_question($params);
-            redirect('additional_identity_question/index');
+            redirect('form/edit/'.$this->input->post('ID_FORM'));
         }
         else
         {
 			$this->load->model('Model_form');
-			$data['all_form'] = $this->Model_form->get_all_form();
+			//$data['all_form'] = $this->Model_form->get_all_form();
+            $data['idForm'] = $this->input->post('ID_FORM');
 
             $data['_view'] = 'additional_identity_question/add';
             $data['title'] = 'Add additional identity question';
@@ -83,7 +84,7 @@ class Additional_identity_question extends CI_Controller{
                 );
 
                 $this->Model_additional_identity_question->update_additional_identity_question($ID_ADDITIONAL_IDENTITY_QUESTION,$params);
-                redirect('additional_identity_question/index');
+                redirect('form/edit/'.$this->input->post('ID_FORM'));
             }
             else
             {
@@ -105,7 +106,7 @@ class Additional_identity_question extends CI_Controller{
     /*
      * Deleting additional_identity_question
      */
-    function remove($ID_ADDITIONAL_IDENTITY_QUESTION)
+    function remove($ID_ADDITIONAL_IDENTITY_QUESTION,$idForm)
     {
         $additional_identity_question = $this->Model_additional_identity_question->get_additional_identity_question($ID_ADDITIONAL_IDENTITY_QUESTION);
 
@@ -113,7 +114,7 @@ class Additional_identity_question extends CI_Controller{
         if(isset($additional_identity_question['ID_ADDITIONAL_IDENTITY_QUESTION']))
         {
             $this->Model_additional_identity_question->delete_additional_identity_question($ID_ADDITIONAL_IDENTITY_QUESTION);
-            redirect('additional_identity_question/index');
+            redirect('form/edit/'.$idForm);
         }
         else
             show_error('The additional_identity_question you are trying to delete does not exist.');
