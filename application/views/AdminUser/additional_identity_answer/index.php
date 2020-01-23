@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Additional Identity Answer Listing</h3>
+                <h3 class="box-title"><?php echo $title; ?></h3>
             	<div class="box-tools">
                 </div>
             </div>
@@ -13,7 +13,6 @@
 						<th>ID SUBMIT</th>
 						<th>ID ADDITIONAL IDENTITY QUESTION</th>
 						<th>VALUE</th>
-						<th>Actions</th>
                     </tr>
                     <?php foreach($additional_identity_answer as $A){ ?>
                     <tr>
