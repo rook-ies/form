@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
+    <title><?php echo $title ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
@@ -403,14 +403,14 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Dashboards</li>
                                 <li>
-                                    <a href="index.html" class="mm-active">
+                                    <a href="<?php echo base_url() ?>dashboardAdminBiasa">
                                         <i class="metismenu-icon pe-7s-rocket"></i>
                                         Dashboard Example 1
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url() ?>/AdminUser/gantiPassword">
-                                        <i class="metismenu-icon pe-7s-rocket"></i>
+                                    <a href="<?php echo base_url() ?>AdminUser/gantiPassword">
+                                        <i class="metismenu-icon pe-7s-key"></i>
                                         Ganti Password
                                     </a>
                                 </li>
@@ -437,6 +437,18 @@
                                     <a href="#">
                                         <i class="metismenu-icon pe-7s-magic-wand">
                                         </i>FORM BARU
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url() ?>form/list">
+                                        <i class="metismenu-icon pe-7s-magic-wand">
+                                        </i>My Form
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon pe-7s-magic-wand">
+                                        </i>dll
                                     </a>
                                 </li>
                             </ul>

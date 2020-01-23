@@ -21,6 +21,19 @@ class Form extends CI_Controller{
   function index()
   {
       $data['form'] = $this->Model_form->get_all_form();
+      //$data['form'] = $this->Model_form->getFormPerPlace($this->session->id_place)->row_array();
+
+      $data['title'] = 'Form';
+      $data['_view'] = 'form/index';
+
+      $this->load->view('AdminUser/template/header',$data);
+      $this->load->view('AdminUser/form/index',$data);
+      $this->load->view('AdminUser/template/footer',$data);
+  }
+  function list()
+  {
+      $data['form'] = $this->Model_form->get_all_form_per_place($this->session->id_place);
+      //$data['form'] = $this->Model_form->getFormPerPlace($this->session->id_place)->row_array();
 
       $data['title'] = 'Form';
       $data['_view'] = 'form/index';
@@ -251,11 +264,14 @@ class Form extends CI_Controller{
 			$this->load->model('Model_service_type');
 			$data['all_service_type'] = $this->Model_service_type->get_all_service_type();
 
+            //$data['additional_identity_question'] = $this->Model_additional_identity->listQuestion($ID_FORM)->result_array();
+
               $data['title'] = 'Edit form';
               $data['_view'] = 'form/edit';
 
               $this->load->view('AdminUser/template/header',$data);
               $this->load->view('AdminUser/form/edit',$data);
+              //$this->load->view('AdminUser/additional_identity_question/index',$data);
               $this->load->view('AdminUser/template/footer',$data);
           }
       }
