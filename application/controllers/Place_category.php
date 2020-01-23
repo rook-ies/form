@@ -9,8 +9,14 @@ class Place_category extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Model_place_category');
+        $this->logged_in();
     }
 
+    private function logged_in() {
+        if(! $this->session->userdata('authenticated')) {
+            redirect('superAdmin/login');
+        }
+    }
     /*
      * Listing of place_category
      */

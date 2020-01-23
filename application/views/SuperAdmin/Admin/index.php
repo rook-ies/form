@@ -8,7 +8,7 @@
                       <thead>
                         <tr>
                             <th>ID ADMIN</th>
-                    		<th>ID PLACE</th>
+                    		<th>PLACE</th>
                     		<th>NAMA</th>
                     		<th>EMAIL</th>
                     		<th>Actions</th>

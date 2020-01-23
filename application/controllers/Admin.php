@@ -8,9 +8,14 @@ class Admin extends CI_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Model_admin');
+        $this->load->model('Model_admin');$this->logged_in();
     }
 
+    private function logged_in() {
+        if(! $this->session->userdata('authenticated')) {
+            redirect('superAdmin/login');
+        }
+    }
     /*
      * Listing of admin
      */
@@ -95,7 +100,7 @@ class Admin extends CI_Controller{
             {
 				$this->load->model('Model_place');
 				$data['all_place'] = $this->Model_place->get_all_place();
-            
+
                 $data['title'] = 'admin edit';
                 $this->load->view('superAdmin/template/header',$data);
                 $this->load->view('SuperAdmin/admin/edit',$data);
