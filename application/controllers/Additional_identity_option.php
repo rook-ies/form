@@ -53,8 +53,8 @@ class Additional_identity_option extends CI_Controller{
 			$this->load->model('Model_additional_identity_question');
 			$data['all_additional_identity_question'] = $this->Model_additional_identity_question->get_all_additional_identity_question();
 
-			$this->load->model('Input_type_model');
-			$data['all_input_type'] = $this->Input_type_model->get_all_input_type();
+			$this->load->model('model_input_type');
+			$data['all_input_type'] = $this->model_input_type->get_all_input_type();
 
             $data['_view'] = 'additional_identity_option/add';
             $data['title'] = 'Add additional identity option';
@@ -97,8 +97,8 @@ class Additional_identity_option extends CI_Controller{
 				$this->load->model('Model_additional_identity_question');
 				$data['all_additional_identity_question'] = $this->Model_additional_identity_question->get_all_additional_identity_question();
 
-				$this->load->model('Input_type_model');
-				$data['all_input_type'] = $this->Input_type_model->get_all_input_type();
+				$this->load->model('model_input_type');
+				$data['all_input_type'] = $this->model_input_type->get_all_input_type();
 
                 $data['_view'] = 'additional_identity_option/edit';
                 $data['title'] = 'Edit additional identity option';
