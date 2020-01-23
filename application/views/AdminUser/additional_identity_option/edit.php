@@ -6,26 +6,10 @@
                 <div class="box-header with-border">
                   	<h3 class="box-title"><?php echo $title; ?></h3>
                 </div>
-    			<?php echo form_open('additional_identity_option/edit/'.$additional_identity_option['ID_ADDITIONAL_IDENTITY_OPTION']); ?>
+    			<?php echo form_open('additional_identity_option/edit/'.$additional_identity_option['ID_ADDITIONAL_IDENTITY_OPTION'].'/'.$this->uri->segment(4).'/'.$this->uri->segment(5)); ?>
     			<div class="box-body">
     				<div class="row clearfix">
-    					<div class="col-md-6">
-    						<label for="ID_ADDITIONAL_IDENTITY_QUESTION" class="control-label"><span class="text-danger">*</span>Additional Identity Question</label>
-    						<div class="form-group">
-    							<select name="ID_ADDITIONAL_IDENTITY_QUESTION" class="form-control">
-    								<option value="">select additional_identity_question</option>
-    								<?php
-    								foreach($all_additional_identity_question as $additional_identity_question)
-    								{
-    									$selected = ($additional_identity_question['ID_ADDITIONAL_IDENTITY_QUESTION'] == $additional_identity_option['ID_ADDITIONAL_IDENTITY_QUESTION']) ? ' selected="selected"' : "";
-
-    									echo '<option value="'.$additional_identity_question['ID_ADDITIONAL_IDENTITY_QUESTION'].'" '.$selected.'>'.$additional_identity_question['QUESTION'].'</option>';
-    								}
-    								?>
-    							</select>
-    							<span class="text-danger"><?php echo form_error('ID_ADDITIONAL_IDENTITY_QUESTION');?></span>
-    						</div>
-    					</div>
+                        <?php echo form_hidden('ID_ADDITIONAL_IDENTITY_QUESTION',$this->session->currentAdditionalIdentityQuestion); ?>
     					<div class="col-md-6">
     						<label for="ID_INPUT_TYPE" class="control-label"><span class="text-danger">*</span>Input Type</label>
     						<div class="form-group">
@@ -56,7 +40,7 @@
                 	<button type="submit" class="btn btn-success">
     					<i class="fa fa-check"></i> Save
     				</button>
-            <?php echo anchor(base_url('additional_identity_option'), 'Cancel'); ?>
+            <?php echo anchor(base_url('additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion), 'back'); ?>
     	        </div>
     			<?php echo form_close(); ?>
     		</div>

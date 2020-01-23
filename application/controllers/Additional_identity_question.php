@@ -10,6 +10,7 @@ class Additional_identity_question extends CI_Controller{
         parent::__construct();
         $this->load->model('Model_additional_identity_question');
         $this->load->model('Model_additional_identity_option');
+        $this->load->model('Model_input_type');
     }
 
     /*
@@ -69,7 +70,7 @@ class Additional_identity_question extends CI_Controller{
     {
         // check if the additional_identity_question exists before trying to edit it
         $data['additional_identity_question'] = $this->Model_additional_identity_question->get_additional_identity_question($ID_ADDITIONAL_IDENTITY_QUESTION);
-
+        $this->session->currentAdditionalIdentityQuestion = $ID_ADDITIONAL_IDENTITY_QUESTION;
         if(isset($data['additional_identity_question']['ID_ADDITIONAL_IDENTITY_QUESTION']))
         {
             $this->load->library('form_validation');
@@ -85,17 +86,18 @@ class Additional_identity_question extends CI_Controller{
                 );
 
                 $this->Model_additional_identity_question->update_additional_identity_question($ID_ADDITIONAL_IDENTITY_QUESTION,$params);
-                redirect('form/edit/'.$this->input->post('ID_FORM'));
+                redirect('form/edit/'.$this->session->currentForm);
             }
             else
             {
 				$this->load->model('Model_form');
 				$data['all_form'] = $this->Model_form->get_all_form();
+				$data['all_input_type'] = $this->Model_input_type->get_all_input_type();
 
                 $data['_view'] = 'additional_identity_question/edit';
                 $data['title'] = 'Edit additional identity question';
 
-                $data['additional_identity_option'] = $this->Model_additional_identity_option->get_all_additional_identity_option();
+                $data['additional_identity_option'] = $this->Model_additional_identity_option->get_all_additional_identity_option_per_id($this->uri->segment(3));
 
                 $this->load->view('AdminUser/template/header',$data);
                 $this->load->view('AdminUser/additional_identity_question/edit',$data);

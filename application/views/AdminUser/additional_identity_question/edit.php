@@ -26,7 +26,7 @@
     							<span class="text-danger"><?php echo form_error('ID_FORM');?></span>
     						</div>
     					</div> -->
-                        <?php echo form_hidden('ID_FORM', $this->uri->segment(4)); ?>
+                        <?php echo form_hidden('ID_FORM', $this->session->currentForm); ?>
     					<div class="col-md-6">
     						<label for="QUESTION" class="control-label"><span class="text-danger">*</span>QUESTION</label>
     						<div class="form-group">
@@ -40,7 +40,7 @@
                 	<button type="submit" class="btn btn-success">
     					<i class="fa fa-check"></i> Save
     				</button>
-            <?php echo anchor(base_url('form/edit/'.$this->uri->segment(4)), 'Cancel'); ?>
+            <?php echo anchor(base_url('form/edit/'.$this->session->currentForm), 'Back'); ?>
     	        </div>
     			<?php echo form_close(); ?>
     		</div>

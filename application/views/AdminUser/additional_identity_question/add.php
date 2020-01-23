@@ -26,7 +26,7 @@
     							<span class="text-danger"><?php echo form_error('ID_FORM');?></span>
     						</div>
     					</div> -->
-                        <?php echo form_hidden('ID_FORM',$idForm); ?>
+                        <?php echo form_hidden('ID_FORM',$this->session->currentForm); ?>
     					<div class="col-md-6">
     						<label for="QUESTION" class="control-label"><span class="text-danger">*</span>QUESTION</label>
     						<div class="form-group">
