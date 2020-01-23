@@ -31,5 +31,49 @@ class model_identity_question extends CI_Model{
 
     //return $count;
   }
+  
+    /*
+     * Get identity_question by ID_IDENTITY_QUESTION
+     */
+    function get_identity_question($ID_IDENTITY_QUESTION)
+    {
+        return $this->db->get_where('IDENTITY_QUESTION',array('ID_IDENTITY_QUESTION'=>$ID_IDENTITY_QUESTION))->row_array();
+    }
+
+    /*
+     * Get all identity_question
+     */
+    function get_all_identity_question()
+    {
+        $this->db->order_by('ID_IDENTITY_QUESTION', 'desc');
+        return $this->db->get('IDENTITY_QUESTION')->result_array();
+    }
+
+    /*
+     * function to add new identity_question
+     */
+    function add_identity_question($params)
+    {
+        $this->db->insert('IDENTITY_QUESTION',$params);
+        return $this->db->insert_id();
+    }
+
+    /*
+     * function to update identity_question
+     */
+    function update_identity_question($ID_IDENTITY_QUESTION,$params)
+    {
+        $this->db->where('ID_IDENTITY_QUESTION',$ID_IDENTITY_QUESTION);
+        return $this->db->update('IDENTITY_QUESTION',$params);
+    }
+
+    /*
+     * function to delete identity_question
+     */
+    function delete_identity_question($ID_IDENTITY_QUESTION)
+    {
+        return $this->db->delete('IDENTITY_QUESTION',array('ID_IDENTITY_QUESTION'=>$ID_IDENTITY_QUESTION));
+    }
+
 
 }

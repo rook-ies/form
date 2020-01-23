@@ -7,67 +7,70 @@ class Form extends CI_Controller{
   {
     parent::__construct();
 
-    $this->load->model('model_form');
-    $this->load->model('model_place');
-    $this->load->model('model_identity_question');
-    $this->load->model('model_additional_identity');
-    $this->load->model('model_service_type');
+    $this->load->model('Model_form');
+    $this->load->model('Model_place');
+    $this->load->model('Model_identity_question');
+    $this->load->model('Model_additional_identity');
+    $this->load->model('Model_service_type');
     //Codeigniter : Write Less Do More
-    $this->load->model('model_tingkatKepuasanPelanggan');
-    $this->load->model('model_tingkatKepuasanPelangganQuestion');
-    $this->load->model('model_biayaQuestion');
+    $this->load->model('Model_tingkatKepuasanPelanggan');
+    $this->load->model('Model_tingkatKepuasanPelangganQuestion');
+    $this->load->model('Model_biaya_question');
   }
 
   function index()
   {
-      //echo "string";
-      $data['forms'] = $this->model_form->listForm()->result();
-      //print_r($data['forms']);
-      $this->load->view('template/Header');
-      $this->load->view('pages/listForm',$data);
-      $this->load->view('template/Footer');
+      $data['form'] = $this->Model_form->get_all_form();
+
+      $data['title'] = 'Form';
+      $data['_view'] = 'form/index';
+
+      $this->load->view('AdminUser/template/header',$data);
+      $this->load->view('AdminUser/form/index',$data);
+      $this->load->view('AdminUser/template/footer',$data);
   }
 
-  function show(){
-     $data['form'] = $this->model_form->showForm($this->uri->segment(3))->row_array();
-     $data['place'] = $this->model_place->showPlace($data['form']['ID_PLACE']);
 
-     $data['identityQuestion'] = $this->model_identity_question->listQuestion()->result();
-     //$data['identityOption'] = $this->model_identity_question->listOption()->result();
+  function show(){
+     $data['form'] = $this->Model_form->showForm($this->uri->segment(3))->row_array();
+     $data['place'] = $this->Model_place->showPlace($data['form']['ID_PLACE']);
+
+     $data['identityQuestion'] = $this->Model_identity_question->listQuestion()->result();
+     //$data['identityOption'] = $this->Model_identity_question->listOption()->result();
      $options = 0;
      foreach ($data['identityQuestion'] as $iq) {
-       $data['identity'][$options]['count'] = $this->model_identity_question->countOption($iq->ID_IDENTITY_QUESTION);
-       $data['identity'][$options]['option'] = $this->model_identity_question->listOption($iq->ID_IDENTITY_QUESTION)->result();
+       $data['identity'][$options]['count'] = $this->Model_identity_question->countOption($iq->ID_IDENTITY_QUESTION);
+       $data['identity'][$options]['option'] = $this->Model_identity_question->listOption($iq->ID_IDENTITY_QUESTION)->result();
        $options++;
      }
-     $data['additionalIdentityQuestion'] = $this->model_additional_identity->listQuestion($this->uri->segment(3))->result();
+     $data['additionalIdentityQuestion'] = $this->Model_additional_identity->listQuestion($this->uri->segment(3))->result();
 
      $additionalOptions = 0;
      foreach ($data['additionalIdentityQuestion'] as $aiq) {
-       $data['additionalIdentityOption'][$additionalOptions]['count'] = $this->model_additional_identity->countOption($aiq->ID_ADDITIONAL_IDENTITY_QUESTION);
+       $data['additionalIdentityOption'][$additionalOptions]['count'] = $this->Model_additional_identity->countOption($aiq->ID_ADDITIONAL_IDENTITY_QUESTION);
        echo "count ".$additionalOptions."=".$data['additionalIdentityOption'][$additionalOptions]['count'];
-       $data['additionalIdentityOption'][$additionalOptions]['option'] = $this->model_additional_identity->listOption($aiq->ID_ADDITIONAL_IDENTITY_QUESTION)->result();
+       $data['additionalIdentityOption'][$additionalOptions]['option'] = $this->Model_additional_identity->listOption($aiq->ID_ADDITIONAL_IDENTITY_QUESTION)->result();
        $additionalOptions++;
      }
 
-     $data['TingkatKepuasanPelanggan'] = $this->model_tingkatKepuasanPelanggan->listTingkatKepuasanPelanggan($this->uri->segment(3))->result();
+     $data['TingkatKepuasanPelanggan'] = $this->Model_tingkatKepuasanPelanggan->listTingkatKepuasanPelanggan($this->uri->segment(3))->result();
      $i=0;
      foreach ($data['TingkatKepuasanPelanggan'] as $key) {
          if($i!=3){
-             $data['data'][$i]['count'] = $this->model_tingkatKepuasanPelangganQuestion->countlistQuestion($key->ID_TKM);
+             $data['data'][$i]['count'] = $this->Model_tingkatKepuasanPelangganQuestion->countlistQuestion($key->ID_TKM);
              echo "find questi where id tkm = ".$key->ID_TKM;
-             $data['data'][$i]['question'] = $this->model_tingkatKepuasanPelangganQuestion->listQuestion($key->ID_TKM)->result();
+             $data['data'][$i]['question'] = $this->Model_tingkatKepuasanPelangganQuestion->listQuestion($key->ID_TKM)->result();
         }else {
-            $data['data'][$i]['non_bayar']['count'] = $this->model_biayaQuestion->countlistQuestion($this->uri->segment(3),1);
-            $data['data'][$i]['non_bayar']['question'] = $this->model_biayaQuestion->listQuestion($this->uri->segment(3),1)->result();
-            $data['data'][$i]['bayar']['count'] = $this->model_biayaQuestion->countlistQuestion($this->uri->segment(3),2);
-            $data['data'][$i]['bayar']['question'] = $this->model_biayaQuestion->listQuestion($this->uri->segment(3),2)->result();
+            $data['data'][$i]['non_bayar']['count'] = $this->Model_biaya_question->countlistQuestion($this->uri->segment(3),1);
+            $data['data'][$i]['non_bayar']['question'] = $this->Model_biaya_question->listQuestion($this->uri->segment(3),1)->result();
+            $data['data'][$i]['bayar']['count'] = $this->Model_biaya_question->countlistQuestion($this->uri->segment(3),2);
+            $data['data'][$i]['bayar']['question'] = $this->Model_biaya_question->listQuestion($this->uri->segment(3),2)->result();
             echo "jumlah non bayar".$data['data'][$i]['non_bayar']['count'];
             echo "jumlah bayar".$data['data'][$i]['bayar']['count'];
         }
         $i++;
     }
-    $data['service'] = $this->model_service_type->showService($this->uri->segment(3))->row_array();
+    $data['service'] = $this->Model_service_type->showService($this->uri->segment(3))->row_array();
 
      print_r($data);
      $this->load->view('template/Header');
@@ -174,4 +177,106 @@ class Form extends CI_Controller{
       }
   }
 
+  function add()
+  {
+      $this->load->library('form_validation');
+
+	$this->form_validation->set_rules('TITLE','TITLE','required|max_length[1024]');
+	$this->form_validation->set_rules('DESCRIPTION','DESCRIPTION','required|max_length[1024]');
+	$this->form_validation->set_rules('ID_PLACE','ID PLACE','required');
+	$this->form_validation->set_rules('ID_SERVICE_TYPE','ID SERVICE TYPE','required');
+
+	if($this->form_validation->run())
+      {
+          $params = array(
+			'ID_PLACE' => $this->input->post('ID_PLACE'),
+			'ID_SERVICE_TYPE' => $this->input->post('ID_SERVICE_TYPE'),
+			'TITLE' => $this->input->post('TITLE'),
+			'DESCRIPTION' => $this->input->post('DESCRIPTION'),
+          );
+
+          $form_id = $this->Model_form->add_form($params);
+          redirect('form/index');
+      }
+      else
+      {
+  		$this->load->model('Model_place');
+  		$data['all_place'] = $this->Model_place->get_all_place();
+
+  		$this->load->model('Model_service_type');
+  		$data['all_service_type'] = $this->Model_service_type->get_all_service_type();
+
+          $data['title'] = 'Add form';
+          $data['_view'] = 'form/add';
+          $this->load->view('AdminUser/template/header',$data);
+          $this->load->view('AdminUser/form/add',$data);
+          $this->load->view('AdminUser/template/footer',$data);
+      }
+  }
+
+  /*
+   * Editing a form
+   */
+  function edit($ID_FORM)
+  {
+      // check if the form exists before trying to edit it
+      $data['form'] = $this->Model_form->get_form($ID_FORM);
+
+      if(isset($data['form']['ID_FORM']))
+      {
+          $this->load->library('form_validation');
+
+		$this->form_validation->set_rules('TITLE','TITLE','required|max_length[1024]');
+		$this->form_validation->set_rules('DESCRIPTION','DESCRIPTION','required|max_length[1024]');
+		$this->form_validation->set_rules('ID_PLACE','ID PLACE','required');
+		$this->form_validation->set_rules('ID_SERVICE_TYPE','ID SERVICE TYPE','required');
+
+		if($this->form_validation->run())
+          {
+              $params = array(
+				'ID_PLACE' => $this->input->post('ID_PLACE'),
+				'ID_SERVICE_TYPE' => $this->input->post('ID_SERVICE_TYPE'),
+				'TITLE' => $this->input->post('TITLE'),
+				'DESCRIPTION' => $this->input->post('DESCRIPTION'),
+              );
+
+              $this->Model_form->update_form($ID_FORM,$params);
+              redirect('form/index');
+          }
+          else
+          {
+			$this->load->model('Model_place');
+			$data['all_place'] = $this->Model_place->get_all_place();
+
+			$this->load->model('Model_service_type');
+			$data['all_service_type'] = $this->Model_service_type->get_all_service_type();
+
+              $data['title'] = 'Edit form';
+              $data['_view'] = 'form/edit';
+
+              $this->load->view('AdminUser/template/header',$data);
+              $this->load->view('AdminUser/form/edit',$data);
+              $this->load->view('AdminUser/template/footer',$data);
+          }
+      }
+      else
+          show_error('The form you are trying to edit does not exist.');
+  }
+
+  /*
+   * Deleting form
+   */
+  function remove($ID_FORM)
+  {
+      $form = $this->Model_form->get_form($ID_FORM);
+
+      // check if the form exists before trying to delete it
+      if(isset($form['ID_FORM']))
+      {
+          $this->Model_form->delete_form($ID_FORM);
+          redirect('form/index');
+      }
+      else
+          show_error('The form you are trying to delete does not exist.');
+  }
 }
