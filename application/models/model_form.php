@@ -15,6 +15,11 @@ class model_form extends CI_Model{
       return $forms;
   }
 
+  public function getFormPerPlace($ID_PLACE){
+      //$this->db->where('ID_PLACE'=>$ID_PLACE);
+      return $this->db->get_where("FORM",array('ID_PLACE'=>$ID_PLACE));
+  }
+
   public function showForm($id){
       $form =  $this->db->get_where("FORM",array('id_form'=> $id));
       return $form;
@@ -30,6 +35,14 @@ class model_form extends CI_Model{
      */
     function get_all_form()
     {
+        // $this->db->where('ID_PLACE',$ID_PLACE);
+        $this->db->order_by('ID_FORM', 'desc');
+        return $this->db->get('FORM')->result_array();
+    }
+
+    function get_all_form_per_place($ID_PLACE)
+    {
+        $this->db->where('ID_PLACE',$ID_PLACE);
         $this->db->order_by('ID_FORM', 'desc');
         return $this->db->get('FORM')->result_array();
     }
