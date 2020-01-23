@@ -9,6 +9,7 @@ class Additional_identity_question extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Model_additional_identity_question');
+        $this->load->model('Model_additional_identity_option');
     }
 
     /*
@@ -94,8 +95,11 @@ class Additional_identity_question extends CI_Controller{
                 $data['_view'] = 'additional_identity_question/edit';
                 $data['title'] = 'Edit additional identity question';
 
+                $data['additional_identity_option'] = $this->Model_additional_identity_option->get_all_additional_identity_option();
+
                 $this->load->view('AdminUser/template/header',$data);
                 $this->load->view('AdminUser/additional_identity_question/edit',$data);
+                $this->load->view('AdminUser/additional_identity_option/index',$data);
                 $this->load->view('AdminUser/template/footer',$data);
             }
         }

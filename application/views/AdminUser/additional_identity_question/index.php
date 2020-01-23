@@ -23,7 +23,7 @@
     						<td><?php echo $A['ID_FORM']; ?></td> -->
     						<td><?php echo $A['QUESTION']; ?></td>
     						<td>
-                                <a href="<?php echo base_url('additional_identity_question/edit/'.$A['ID_ADDITIONAL_IDENTITY_QUESTION']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
+                                <a href="<?php echo base_url('additional_identity_question/edit/'.$A['ID_ADDITIONAL_IDENTITY_QUESTION']); ?>/<?php echo $A['ID_FORM']; ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
                                 <a href="<?php echo base_url('additional_identity_question/remove/'.$A['ID_ADDITIONAL_IDENTITY_QUESTION']); ?>/<?php echo $A['ID_FORM']; ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                             </td>
                         </tr>
