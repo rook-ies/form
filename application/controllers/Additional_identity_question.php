@@ -9,6 +9,8 @@ class Additional_identity_question extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Model_additional_identity_question');
+        $this->load->model('Model_additional_identity_option');
+        $this->load->model('Model_input_type');
     }
 
     /*
@@ -44,12 +46,13 @@ class Additional_identity_question extends CI_Controller{
             );
 
             $additional_identity_question_id = $this->Model_additional_identity_question->add_additional_identity_question($params);
-            redirect('additional_identity_question/index');
+            redirect('form/edit/'.$this->input->post('ID_FORM'));
         }
         else
         {
 			$this->load->model('Model_form');
-			$data['all_form'] = $this->Model_form->get_all_form();
+			//$data['all_form'] = $this->Model_form->get_all_form();
+            $data['idForm'] = $this->input->post('ID_FORM');
 
             $data['_view'] = 'additional_identity_question/add';
             $data['title'] = 'Add additional identity question';
@@ -67,7 +70,7 @@ class Additional_identity_question extends CI_Controller{
     {
         // check if the additional_identity_question exists before trying to edit it
         $data['additional_identity_question'] = $this->Model_additional_identity_question->get_additional_identity_question($ID_ADDITIONAL_IDENTITY_QUESTION);
-
+        $this->session->currentAdditionalIdentityQuestion = $ID_ADDITIONAL_IDENTITY_QUESTION;
         if(isset($data['additional_identity_question']['ID_ADDITIONAL_IDENTITY_QUESTION']))
         {
             $this->load->library('form_validation');
@@ -83,18 +86,22 @@ class Additional_identity_question extends CI_Controller{
                 );
 
                 $this->Model_additional_identity_question->update_additional_identity_question($ID_ADDITIONAL_IDENTITY_QUESTION,$params);
-                redirect('additional_identity_question/index');
+                redirect('form/edit/'.$this->session->currentForm);
             }
             else
             {
 				$this->load->model('Model_form');
 				$data['all_form'] = $this->Model_form->get_all_form();
+				$data['all_input_type'] = $this->Model_input_type->get_all_input_type();
 
                 $data['_view'] = 'additional_identity_question/edit';
                 $data['title'] = 'Edit additional identity question';
 
+                $data['additional_identity_option'] = $this->Model_additional_identity_option->get_all_additional_identity_option_per_id($this->uri->segment(3));
+
                 $this->load->view('AdminUser/template/header',$data);
                 $this->load->view('AdminUser/additional_identity_question/edit',$data);
+                $this->load->view('AdminUser/additional_identity_option/index',$data);
                 $this->load->view('AdminUser/template/footer',$data);
             }
         }
@@ -105,7 +112,7 @@ class Additional_identity_question extends CI_Controller{
     /*
      * Deleting additional_identity_question
      */
-    function remove($ID_ADDITIONAL_IDENTITY_QUESTION)
+    function remove($ID_ADDITIONAL_IDENTITY_QUESTION,$idForm)
     {
         $additional_identity_question = $this->Model_additional_identity_question->get_additional_identity_question($ID_ADDITIONAL_IDENTITY_QUESTION);
 
@@ -113,7 +120,7 @@ class Additional_identity_question extends CI_Controller{
         if(isset($additional_identity_question['ID_ADDITIONAL_IDENTITY_QUESTION']))
         {
             $this->Model_additional_identity_question->delete_additional_identity_question($ID_ADDITIONAL_IDENTITY_QUESTION);
-            redirect('additional_identity_question/index');
+            redirect('form/edit/'.$idForm);
         }
         else
             show_error('The additional_identity_question you are trying to delete does not exist.');

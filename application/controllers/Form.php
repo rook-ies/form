@@ -209,7 +209,7 @@ class Form extends CI_Controller{
           );
 
           $form_id = $this->Model_form->add_form($params);
-          redirect('form/index');
+          redirect('form/list');
       }
       else
       {
@@ -234,7 +234,7 @@ class Form extends CI_Controller{
   {
       // check if the form exists before trying to edit it
       $data['form'] = $this->Model_form->get_form($ID_FORM);
-
+      $this->session->currentForm = $ID_FORM;
       if(isset($data['form']['ID_FORM']))
       {
           $this->load->library('form_validation');
@@ -264,14 +264,14 @@ class Form extends CI_Controller{
 			$this->load->model('Model_service_type');
 			$data['all_service_type'] = $this->Model_service_type->get_all_service_type();
 
-            //$data['additional_identity_question'] = $this->Model_additional_identity->listQuestion($ID_FORM)->result_array();
+            $data['additional_identity_question'] = $this->Model_additional_identity->listQuestion($this->session->currentForm)->result_array();
 
               $data['title'] = 'Edit form';
               $data['_view'] = 'form/edit';
 
               $this->load->view('AdminUser/template/header',$data);
               $this->load->view('AdminUser/form/edit',$data);
-              //$this->load->view('AdminUser/additional_identity_question/index',$data);
+              $this->load->view('AdminUser/additional_identity_question/index',$data);
               $this->load->view('AdminUser/template/footer',$data);
           }
       }

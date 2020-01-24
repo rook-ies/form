@@ -9,7 +9,7 @@
                 <?php echo form_open('additional_identity_option/add'); ?>
               	<div class="box-body">
               		<div class="row clearfix">
-    					<div class="col-md-6">
+    					<!-- <div class="col-md-6">
     						<label for="ID_ADDITIONAL_IDENTITY_QUESTION" class="control-label"><span class="text-danger">*</span>Additional Identity Question</label>
     						<div class="form-group">
     							<select name="ID_ADDITIONAL_IDENTITY_QUESTION" class="form-control">
@@ -25,7 +25,8 @@
     							</select>
     							<span class="text-danger"><?php echo form_error('ID_ADDITIONAL_IDENTITY_QUESTION');?></span>
     						</div>
-    					</div>
+    					</div> -->
+                        <?php echo form_hidden('ID_ADDITIONAL_IDENTITY_QUESTION',$this->session->currentAdditionalIdentityQuestion); ?>
     					<div class="col-md-6">
     						<label for="ID_INPUT_TYPE" class="control-label"><span class="text-danger">*</span>Input Type</label>
     						<div class="form-group">
@@ -56,7 +57,7 @@
                 	<button type="submit" class="btn btn-success">
                 		<i class="fa fa-check"></i> Save
                 	</button>
-                  <?php echo anchor(base_url('additional_identity_option'), 'Cancel'); ?>
+                  <?php echo anchor(base_url('additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion), 'Cancel'); ?>
               	</div>
                 <?php echo form_close(); ?>
           	</div>

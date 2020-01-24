@@ -46,7 +46,7 @@ class Additional_identity_option extends CI_Controller{
             );
 
             $additional_identity_option_id = $this->Model_additional_identity_option->add_additional_identity_option($params);
-            redirect('additional_identity_option/index');
+            redirect('additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion);
         }
         else
         {
@@ -77,20 +77,21 @@ class Additional_identity_option extends CI_Controller{
         {
             $this->load->library('form_validation');
 
-			$this->form_validation->set_rules('ID_ADDITIONAL_IDENTITY_QUESTION','ID ADDITIONAL IDENTITY QUESTION','required');
+			//$this->form_validation->set_rules('ID_ADDITIONAL_IDENTITY_QUESTION','ID ADDITIONAL IDENTITY QUESTION','required');
 			$this->form_validation->set_rules('ID_INPUT_TYPE','ID INPUT TYPE','required');
 			$this->form_validation->set_rules('OPTION','OPTION','required|max_length[1024]');
 
 			if($this->form_validation->run())
             {
                 $params = array(
-					'ID_ADDITIONAL_IDENTITY_QUESTION' => $this->input->post('ID_ADDITIONAL_IDENTITY_QUESTION'),
+					//'ID_ADDITIONAL_IDENTITY_QUESTION' => $this->input->post('ID_ADDITIONAL_IDENTITY_QUESTION'),
 					'ID_INPUT_TYPE' => $this->input->post('ID_INPUT_TYPE'),
 					'OPTION' => $this->input->post('OPTION'),
                 );
 
                 $this->Model_additional_identity_option->update_additional_identity_option($ID_ADDITIONAL_IDENTITY_OPTION,$params);
-                redirect('additional_identity_option/index');
+                //echo "bisa";
+                redirect('additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion);
             }
             else
             {
@@ -103,6 +104,7 @@ class Additional_identity_option extends CI_Controller{
                 $data['_view'] = 'additional_identity_option/edit';
                 $data['title'] = 'Edit additional identity option';
 
+                //echo "gabisa";
                 $this->load->view('AdminUser/template/header',$data);
                 $this->load->view('AdminUser/additional_identity_option/edit',$data);
                 $this->load->view('AdminUser/template/footer',$data);
@@ -123,7 +125,7 @@ class Additional_identity_option extends CI_Controller{
         if(isset($additional_identity_option['ID_ADDITIONAL_IDENTITY_OPTION']))
         {
             $this->Model_additional_identity_option->delete_additional_identity_option($ID_ADDITIONAL_IDENTITY_OPTION);
-            redirect('additional_identity_option/index');
+            redirect('additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion);
         }
         else
             show_error('The additional_identity_option you are trying to delete does not exist.');
