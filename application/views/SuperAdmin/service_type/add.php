@@ -6,7 +6,7 @@
         <div class="form-group row">
           <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Service Type</label>
           <div class="col-sm-9">
-            <input type="text" name="SERVICE_TYPE" value="<?php echo $this->input->post('SERVICE_TYPE'); ?>" />
+            <input class="form-control" type="text" name="SERVICE_TYPE" value="<?php echo $this->input->post('SERVICE_TYPE'); ?>" />
           </div>
         </div>
 		<span class="text-danger"><?php echo form_error('SERVICE_TYPE');?></span>
