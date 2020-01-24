@@ -9,17 +9,17 @@
                 <div class="box-body">
                     <table class="table table-striped">
                         <tr>
-    						<th>ID ADDITIONAL IDENTITY OPTION</th>
-    						<th>ID ADDITIONAL IDENTITY QUESTION</th>
-    						<th>ID INPUT TYPE</th>
+    						<!-- <th>ID ADDITIONAL IDENTITY OPTION</th>
+    						<th>ID ADDITIONAL IDENTITY QUESTION</th> -->
+    						<th>INPUT TYPE</th>
     						<th>OPTION</th>
     						<th>Actions</th>
                         </tr>
                         <?php foreach($additional_identity_option as $A){ ?>
                         <tr>
-    						<td><?php echo $A['ID_ADDITIONAL_IDENTITY_OPTION']; ?></td>
-    						<td><?php echo $A['ID_ADDITIONAL_IDENTITY_QUESTION']; ?></td>
-    						<td><?php echo $A['ID_INPUT_TYPE']; ?></td>
+    						<!-- <td><?php echo $A['ID_ADDITIONAL_IDENTITY_OPTION']; ?></td>
+    						<td><?php echo $A['ID_ADDITIONAL_IDENTITY_QUESTION']; ?></td> -->
+    						<td><?php echo $A['TYPE']; ?></td>
     						<td><?php echo $A['OPTION']; ?></td>
     						<td>
                                 <a href="<?php echo site_url('additional_identity_option/edit/'.$A['ID_ADDITIONAL_IDENTITY_OPTION']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>

@@ -33,7 +33,7 @@ class Biaya_question extends CI_Controller{
         $data['all_tipe_bayar'] = $this->Model_tipe_bayar->get_all_tipe_bayar();
 
         $data['title'] = 'Biaya question';
-
+        // print_r($data['biaya_question']);
         $this->load->view('AdminUser/template/header',$data);
         $this->load->view('AdminUser/biaya_question/index',$data);
         $this->load->view('AdminUser/template/footer',$data);

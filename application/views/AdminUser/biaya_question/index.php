@@ -20,7 +20,7 @@
                         <?php foreach($biaya_question as $B){ ?>
                         <tr>
     						<!-- <td><?php echo $B['ID_BIAYA_QUESTION']; ?></td> -->
-    						<td><?php echo $B['ID_TIPE_BAYAR']; ?></td>
+    						<td><?php echo $B['NAMA_TYPE_BAYAR']; ?></td>
     						<!-- <td><?php echo $B['ID_FORM']; ?></td> -->
     						<td><?php echo $B['QUESTION']; ?></td>
     						<td>

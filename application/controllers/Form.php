@@ -76,7 +76,8 @@ class Form extends CI_Controller{
      $data['TingkatKepuasanPelanggan'] = $this->Model_tingkatKepuasanPelanggan->listTingkatKepuasanPelanggan($this->uri->segment(3))->result();
      $i=0;
      foreach ($data['TingkatKepuasanPelanggan'] as $key) {
-         if($i!=3){
+         // if($i!=3){
+        if($key->QUESTION!='BIAYA/TARIF'){
              $data['data'][$i]['count'] = $this->Model_tingkatKepuasanPelangganQuestion->countlistQuestion($key->ID_TKM);
              echo "find questi where id tkm = ".$key->ID_TKM;
              $data['data'][$i]['question'] = $this->Model_tingkatKepuasanPelangganQuestion->listQuestion($key->ID_TKM)->result();
@@ -92,7 +93,7 @@ class Form extends CI_Controller{
     }
     $data['service'] = $this->Model_service_type->showService($this->uri->segment(3))->row_array();
 
-     print_r($data);
+     // print_r($data);
      $this->load->view('template/Header');
      $this->load->view('form/Header',$data);
      $this->load->view('form/Identitas',$data);
