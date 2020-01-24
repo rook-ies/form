@@ -64,7 +64,7 @@
                 	<button type="submit" class="btn btn-success">
                 		<i class="fa fa-check"></i> Save
                 	</button>
-                  <?php echo anchor(base_url('form'), 'Cancel'); ?>
+                  <?php echo anchor(base_url('form/list'), 'Cancel'); ?>
               	</div>
                 <?php echo form_close(); ?>
           	</div>
