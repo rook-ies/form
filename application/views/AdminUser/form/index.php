@@ -60,7 +60,7 @@
     <div class="col-12 col-lg-4">
         <div class="mb-3 text-center card card-body">
             <h5 class="card-title"><?php echo $F['TITLE']; ?></h5>
-            <h5 class="card-title"><?php echo $F['ID_SERVICE_TYPE']; ?></h5>
+            <h5 class="card-title"><?php echo $F['SERVICE_TYPE']; ?></h5>
             <?php echo $F['DESCRIPTION']; ?>
             <br><br>
             <a href="<?php echo site_url('form/edit/'.$F['ID_FORM']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>

@@ -16,7 +16,14 @@ class Form extends CI_Controller{
     $this->load->model('Model_tingkatKepuasanPelanggan');
     $this->load->model('Model_tingkatKepuasanPelangganQuestion');
     $this->load->model('Model_biaya_question');
-  }
+    $this->logged_in();
+    }
+
+      private function logged_in() {
+        if(! $this->session->userdata('authenticated')) {
+            redirect('AdminUser/login');
+        }
+    }
 
   function index()
   {
@@ -37,7 +44,7 @@ class Form extends CI_Controller{
 
       $data['title'] = 'Form';
       $data['_view'] = 'form/index';
-
+      // print_r($data['form']);
       $this->load->view('AdminUser/template/header',$data);
       $this->load->view('AdminUser/form/index',$data);
       $this->load->view('AdminUser/template/footer',$data);

@@ -42,9 +42,15 @@ class model_form extends CI_Model{
 
     function get_all_form_per_place($ID_PLACE)
     {
-        $this->db->where('ID_PLACE',$ID_PLACE);
-        $this->db->order_by('ID_FORM', 'desc');
-        return $this->db->get('FORM')->result_array();
+        $form = $this->db->select('F.ID_FORM,F.TITLE,F.DESCRIPTION,ST.SERVICE_TYPE')
+              ->from('FORM AS F,SERVICE_TYPE AS ST')
+              ->where('F.ID_SERVICE_TYPE = ST.ID_SERVICE_TYPE')
+              ->where('F.ID_PLACE',$ID_PLACE);
+          $form = $this->db->get();
+          return $form->result_array();
+        // $this->db->where('ID_PLACE',$ID_PLACE);
+        // $this->db->order_by('ID_FORM', 'desc');
+        // return $this->db->get('FORM')->result_array();
     }
 
     /*
