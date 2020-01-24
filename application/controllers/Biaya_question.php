@@ -9,6 +9,7 @@ class Biaya_question extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Model_biaya_question');
+        $this->load->model('Model_tipe_bayar');
     }
 
     /*
@@ -20,6 +21,18 @@ class Biaya_question extends CI_Controller{
 
         $data['title'] = 'Biaya question';
         $data['_view'] = 'biaya_question/index';
+
+        $this->load->view('AdminUser/template/header',$data);
+        $this->load->view('AdminUser/biaya_question/index',$data);
+        $this->load->view('AdminUser/template/footer',$data);
+    }
+
+    public function load($ID_FORM)
+    {
+        $data['biaya_question'] = $this->Model_biaya_question->get_all_biaya_question_per_form($ID_FORM);
+        $data['all_tipe_bayar'] = $this->Model_tipe_bayar->get_all_tipe_bayar();
+
+        $data['title'] = 'Biaya question';
 
         $this->load->view('AdminUser/template/header',$data);
         $this->load->view('AdminUser/biaya_question/index',$data);
@@ -46,7 +59,7 @@ class Biaya_question extends CI_Controller{
             );
 
             $biaya_question_id = $this->Model_biaya_question->add_biaya_question($params);
-            redirect('biaya_question/index');
+            redirect('biaya_question/load/'.$this->session->currentForm);
         }
         else
         {
@@ -89,7 +102,7 @@ class Biaya_question extends CI_Controller{
                 );
 
                 $this->Model_biaya_question->update_biaya_question($ID_BIAYA_QUESTION,$params);
-                redirect('biaya_question/index');
+                redirect('biaya_question/load/'.$this->session->currentForm);
             }
             else
             {
@@ -121,7 +134,7 @@ class Biaya_question extends CI_Controller{
         if(isset($biaya_question['ID_BIAYA_QUESTION']))
         {
             $this->Model_biaya_question->delete_biaya_question($ID_BIAYA_QUESTION);
-            redirect('biaya_question/index');
+            redirect('biaya_question/load/'.$this->session->currentForm);
         }
         else
             show_error('The biaya_question you are trying to delete does not exist.');

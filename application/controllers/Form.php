@@ -265,6 +265,8 @@ class Form extends CI_Controller{
 			$data['all_service_type'] = $this->Model_service_type->get_all_service_type();
 
             $data['additional_identity_question'] = $this->Model_additional_identity->listQuestion($this->session->currentForm)->result_array();
+            // $data['tkm_question'] = $this->Model_tkm_question->get_all_tkm_question_per_Form($this->session->currentForm);
+            $data['tkm'] = $this->Model_tingkatKepuasanPelanggan->listTingkatKepuasanPelanggan($this->session->currentForm)->result_array();
 
               $data['title'] = 'Edit form';
               $data['_view'] = 'form/edit';
@@ -272,6 +274,7 @@ class Form extends CI_Controller{
               $this->load->view('AdminUser/template/header',$data);
               $this->load->view('AdminUser/form/edit',$data);
               $this->load->view('AdminUser/additional_identity_question/index',$data);
+              $this->load->view('AdminUser/tkm/index',$data);
               $this->load->view('AdminUser/template/footer',$data);
           }
       }

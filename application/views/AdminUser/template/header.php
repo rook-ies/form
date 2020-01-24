@@ -416,39 +416,9 @@
                                 </li>
                                 <li class="app-sidebar__heading">Forms</li>
                                 <li>
-                                    <a href="forms-controls.html">
-                                        <i class="metismenu-icon pe-7s-mouse">
-                                        </i>Forms Controls
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="forms-layouts.html">
-                                        <i class="metismenu-icon pe-7s-eyedropper">
-                                        </i>Forms Layouts
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="forms-validation.html">
-                                        <i class="metismenu-icon pe-7s-pendrive">
-                                        </i>Forms Validation
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="metismenu-icon pe-7s-magic-wand">
-                                        </i>FORM BARU
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="<?php echo base_url() ?>form/list">
                                         <i class="metismenu-icon pe-7s-magic-wand">
                                         </i>My Form
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="metismenu-icon pe-7s-magic-wand">
-                                        </i>dll
                                     </a>
                                 </li>
                             </ul>

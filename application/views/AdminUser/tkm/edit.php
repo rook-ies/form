@@ -9,23 +9,7 @@
     			<?php echo form_open('tkm/edit/'.$tkm['ID_TKM']); ?>
     			<div class="box-body">
     				<div class="row clearfix">
-    					<div class="col-md-6">
-    						<label for="ID_FORM" class="control-label"><span class="text-danger">*</span>Form</label>
-    						<div class="form-group">
-    							<select name="ID_FORM" class="form-control">
-    								<option value="">select form</option>
-    								<?php
-    								foreach($all_form as $form)
-    								{
-    									$selected = ($form['ID_FORM'] == $tkm['ID_FORM']) ? ' selected="selected"' : "";
-
-    									echo '<option value="'.$form['ID_FORM'].'" '.$selected.'>'.$form['TITLE'].'</option>';
-    								}
-    								?>
-    							</select>
-    							<span class="text-danger"><?php echo form_error('ID_FORM');?></span>
-    						</div>
-    					</div>
+                        <?php echo form_hidden('ID_FORM',$this->session->currentForm); ?>
     					<div class="col-md-6">
     						<label for="QUESTION" class="control-label"><span class="text-danger">*</span>QUESTION</label>
     						<div class="form-group">
@@ -39,7 +23,7 @@
                 	<button type="submit" class="btn btn-success">
     					<i class="fa fa-check"></i> Save
     				</button>
-            <?php echo anchor(base_url('tkm'), 'Cancel'); ?>
+            <?php echo anchor(base_url('/form/edit/'.$this->session->currentForm), 'back'); ?>
     	        </div>
     			<?php echo form_close(); ?>
     		</div>
