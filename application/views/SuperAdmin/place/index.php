@@ -18,8 +18,8 @@
                 <?php foreach($place as $P){ ?>
                   <tr>
               		<td><?php echo $P['ID_PLACE']; ?></td>
-              		<td><?php echo $P['ID_PLACE_TYPE']; ?></td>
-              		<td><?php echo $P['ID_PLACE_CATEGORY']; ?></td>
+              		<td><?php echo $P['TYPE']; ?></td>
+              		<td><?php echo $P['CATEGORY']; ?></td>
               		<td><?php echo $P['NAMA']; ?></td>
               		<td>
                           <a href="<?php echo site_url('place/edit/'.$P['ID_PLACE']); ?>">Edit</a> |
@@ -29,7 +29,7 @@
               	<?php } ?>
               </tbody>
             </table>
-             <a href=<?php echo base_url('place_category/add') ?>><button class="btn btn-success mr-2">Tambah</button></a>
+             <a href=<?php echo base_url('place/add') ?>><button class="btn btn-success mr-2">Tambah</button></a>
           </div>
         </div>
     </div>

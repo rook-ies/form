@@ -30,9 +30,14 @@ class Model_additional_identity_option extends CI_Model
 
     function get_all_additional_identity_option_per_id($ID_ADDITIONAL_IDENTITY_OPTION)
     {
-        $this->db->where('ID_ADDITIONAL_IDENTITY_QUESTION',	$ID_ADDITIONAL_IDENTITY_OPTION);
-        $this->db->order_by('ID_ADDITIONAL_IDENTITY_OPTION', 'asc');
-        return $this->db->get('ADDITIONAL_IDENTITY_OPTION')->result_array();
+        $this->db->select('AOI.ID_ADDITIONAL_IDENTITY_OPTION, AOI.OPTION, IT.TYPE')
+           ->from('ADDITIONAL_IDENTITY_OPTION AS AOI,INPUT_TYPE AS IT')
+           ->where('AOI.ID_INPUT_TYPE = IT.ID_INPUT_TYPE ')
+           ->where('AOI.ID_ADDITIONAL_IDENTITY_QUESTION',	$ID_ADDITIONAL_IDENTITY_OPTION);
+        return $this->db->get()->result_array();
+        // $this->db->where('ID_ADDITIONAL_IDENTITY_QUESTION',	$ID_ADDITIONAL_IDENTITY_OPTION);
+        // $this->db->order_by('ID_ADDITIONAL_IDENTITY_OPTION', 'asc');
+        // return $this->db->get('ADDITIONAL_IDENTITY_OPTION')->result_array();
     }
     /*
      * function to add new additional_identity_option

@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title"><?php echo $title; ?></h3>
+                    <h3 class="box-title">TINGKAT KEPUASAN MASYARAKAT</h3>
                 	<div class="box-tools">
                         <a href="<?php echo site_url('tkm/add'); ?>" class="btn btn-success btn-sm">Add</a>
                     </div>
@@ -19,7 +19,7 @@
                         </tr>
                         <?php foreach($tkm as $T){ ?>
                         <tr>
-    						<td><?php echo $T['ID_TKM']; ?></td>
+    						<!-- <td><?php echo $T['ID_TKM']; ?></td> -->
     						<!-- <td><?php echo $T['ID_FORM']; ?></td> -->
     						<td><?php echo $T['QUESTION']; ?></td>
                             <?php if($T['QUESTION'] != 'BIAYA/TARIF'){ ?>
