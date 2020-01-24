@@ -44,7 +44,7 @@ class Tkm_question extends CI_Controller{
             );
 
             $tkm_question_id = $this->Model_tkm_question->add_tkm_question($params);
-            redirect('tkm_question/index');
+            redirect('/tkm/edit/'.$this->session->currentTKM);
         }
         else
         {
@@ -83,7 +83,9 @@ class Tkm_question extends CI_Controller{
                 );
 
                 $this->Model_tkm_question->update_tkm_question($ID_TKM_QUESTION,$params);
-                redirect('tkm_question/index');
+                // redirect('tkm_question/index');
+                redirect('/tkm/edit/'.$this->session->currentTKM);
+
             }
             else
             {
@@ -113,7 +115,7 @@ class Tkm_question extends CI_Controller{
         if(isset($tkm_question['ID_TKM_QUESTION']))
         {
             $this->Model_tkm_question->delete_tkm_question($ID_TKM_QUESTION);
-            redirect('tkm_question/index');
+            redirect('/tkm/edit/'.$this->session->currentTKM);
         }
         else
             show_error('The tkm_question you are trying to delete does not exist.');

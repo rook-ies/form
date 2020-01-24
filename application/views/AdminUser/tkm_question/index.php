@@ -5,9 +5,6 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Tkm Question Listing</h3>
-                	<div class="box-tools">
-                        <a href="<?php echo site_url('tkm_question/add'); ?>" class="btn btn-success btn-sm">Add</a>
-                    </div>
                 </div>
                 <div class="box-body">
                     <table class="table table-striped">
@@ -29,7 +26,28 @@
                         </tr>
                         <?php } ?>
                     </table>
-
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Tkm Question Add</h3>
+                    </div>
+                    <?php echo form_open('tkm_question/add'); ?>
+                    <div class="box-body">
+                        <div class="row clearfix">
+                            <?php echo form_hidden('ID_TKM',$this->session->currentTKM); ?>
+                            <div class="col-md-6">
+                                <label for="QUESTION" class="control-label"><span class="text-danger">*</span>QUESTION</label>
+                                <div class="form-group">
+                                    <textarea name="QUESTION" class="form-control" id="QUESTION"><?php echo $this->input->post('QUESTION'); ?></textarea>
+                                    <span class="text-danger"><?php echo form_error('QUESTION');?></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-check"></i> Save
+                        </button>
+                    </div>
+                    <?php echo form_close(); ?>
                 </div>
             </div>
         </div>

@@ -9,6 +9,7 @@ class Tkm extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Model_tkm');
+        $this->load->model('Model_tingkatKepuasanPelangganQuestion');
     }
 
     /*
@@ -44,7 +45,7 @@ class Tkm extends CI_Controller{
             );
 
             $tkm_id = $this->Model_tkm->add_tkm($params);
-            redirect('tkm/index');
+            redirect('/form/edit/'.$this->session->currentForm);
         }
         else
         {
@@ -67,7 +68,7 @@ class Tkm extends CI_Controller{
     {
         // check if the tkm exists before trying to edit it
         $data['tkm'] = $this->Model_tkm->get_tkm($ID_TKM);
-
+        $this->session->currentTKM = $ID_TKM;
         if(isset($data['tkm']['ID_TKM']))
         {
             $this->load->library('form_validation');
@@ -83,7 +84,7 @@ class Tkm extends CI_Controller{
                 );
 
                 $this->Model_tkm->update_tkm($ID_TKM,$params);
-                redirect('tkm/index');
+                redirect('/form/edit/'.$this->session->currentForm);
             }
             else
             {
@@ -93,8 +94,11 @@ class Tkm extends CI_Controller{
                 $data['_view'] = 'tkm/edit';
                 $data['title'] = 'Tingkat kepuasan masyarakat';
 
+                $data['tkm_question'] = $this->Model_tingkatKepuasanPelangganQuestion->listQuestion($this->session->currentTKM)->result_array();
+                print_r($data['tkm_question']);
                 $this->load->view('AdminUser/template/header',$data);
                 $this->load->view('AdminUser/tkm/edit',$data);
+                $this->load->view('AdminUser/tkm_question/index',$data);
                 $this->load->view('AdminUser/template/footer',$data);
             }
         }
@@ -113,7 +117,7 @@ class Tkm extends CI_Controller{
         if(isset($tkm['ID_TKM']))
         {
             $this->Model_tkm->delete_tkm($ID_TKM);
-            redirect('tkm/index');
+            redirect('/form/edit/'.$this->session->currentForm);
         }
         else
             show_error('The tkm you are trying to delete does not exist.');

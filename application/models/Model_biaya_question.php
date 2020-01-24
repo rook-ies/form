@@ -28,6 +28,13 @@ class Model_biaya_question extends CI_Model
         return $this->db->get('BIAYA_QUESTION')->result_array();
     }
 
+    public function get_all_biaya_question_per_form($ID_FORM)
+    {
+        $this->db->where('ID_FORM',$ID_FORM);
+        $this->db->order_by('ID_BIAYA_QUESTION', 'desc');
+        return $this->db->get('BIAYA_QUESTION')->result_array();
+    }
+
     /*
      * function to add new biaya_question
      */
