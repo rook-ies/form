@@ -98,7 +98,7 @@
               <span class="menu-title">TYPE</span>
             </a>
           </li><li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>mockupSuperAdmin/dashboard">
+            <a class="nav-link" href="<?php echo base_url(); ?>mockupSuperAdmin/serviceType">
               <i class="menu-icon mdi mdi-settings"></i>
               <span class="menu-title">SERVICE TYPE</span>
             </a>
