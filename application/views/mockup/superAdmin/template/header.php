@@ -93,7 +93,7 @@
               <span class="menu-title">CATEGORY</span>
             </a>
           </li><li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>mockupSuperAdmin/dashboard">
+            <a class="nav-link" href="<?php echo base_url(); ?>mockupSuperAdmin/type">
               <i class="menu-icon mdi mdi-tag-outline"></i>
               <span class="menu-title">TYPE</span>
             </a>

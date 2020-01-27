@@ -70,5 +70,22 @@ class mockupSuperAdmin extends CI_Controller{
       $this->load->view('mockup/superAdmin/placeCategory/edit');
       $this->load->view('mockup/superAdmin/template/footer');
   }
+  function type(){
+      $this->load->view('mockup/superAdmin/template/header');
+      $this->load->view('mockup/superAdmin/placeType/index');
+      $this->load->view('mockup/superAdmin/template/footer');
+  }
+  function typeAdd()
+  {
+      $this->load->view('mockup/superAdmin/template/header');
+      $this->load->view('mockup/superAdmin/placeType/add');
+      $this->load->view('mockup/superAdmin/template/footer');
+  }
+  function typeEdit()
+  {
+      $this->load->view('mockup/superAdmin/template/header');
+      $this->load->view('mockup/superAdmin/placeType/edit');
+      $this->load->view('mockup/superAdmin/template/footer');
+  }
 
 }
