@@ -5,9 +5,6 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">TINGKAT KEPUASAN MASYARAKAT</h3>
-                	<div class="box-tools">
-                        <a href="<?php echo site_url('tkm/add'); ?>" class="btn btn-success btn-sm">Add</a>
-                    </div>
                 </div>
                 <div class="box-body">
                     <table class="table table-striped">
@@ -45,6 +42,7 @@
                             <?php echo form_hidden('ID_FORM',$this->session->currentForm); ?>
         					<div class="col-md-6">
         						<label for="QUESTION" class="control-label"><span class="text-danger">*</span>QUESTION</label>
+                                <label for="QUESTION" class="control-label"><span class="text-danger"></span> [Gunakan "BIAYA/TARIF"  untuk pertanyaan tentang biaya dan tarif]</label>
         						<div class="form-group">
         							<input type="text" name="QUESTION" value="<?php echo $this->input->post('QUESTION'); ?>" class="form-control" id="QUESTION" />
         							<span class="text-danger"><?php echo form_error('QUESTION');?></span>

@@ -262,7 +262,7 @@ class Form extends CI_Controller{
               );
 
               $this->Model_form->update_form($ID_FORM,$params);
-              redirect('form/index');
+              redirect('form/list');
           }
           else
           {
@@ -301,7 +301,7 @@ class Form extends CI_Controller{
       if(isset($form['ID_FORM']))
       {
           $this->Model_form->delete_form($ID_FORM);
-          redirect('form/index');
+          redirect('form/list');
       }
       else
           show_error('The form you are trying to delete does not exist.');
