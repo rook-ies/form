@@ -13,7 +13,7 @@
            <tr>
                <td><?php echo chr($i+65).". ".$key->QUESTION; ?></td>
                <?php if ($identity[$i]['count']==0) {?>
-                <td><input type="text" name="identity<?php echo $i; ?>" style="width:200px;"></input> </td>
+                <td><input type="text" name="identity<?php echo $i; ?>" value="<?php $this->input->post('identity'.$i) ?>" style="width:200px;"></input> </td>
            </tr>
                 <?php } ?>
             <?php foreach ($identity[$i]['option'] as $key2 ): ?>
@@ -32,4 +32,5 @@
       </tr>
   </table>
   <?php echo form_hidden('jumlahIdentitas',$i); ?>
+  <?php echo form_hidden('idForm',$this->uri->segment(3)) ?>
 </center>

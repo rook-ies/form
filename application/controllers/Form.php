@@ -16,6 +16,15 @@ class Form extends CI_Controller{
     $this->load->model('Model_tingkatKepuasanPelanggan');
     $this->load->model('Model_tingkatKepuasanPelangganQuestion');
     $this->load->model('Model_biaya_question');
+    $this->load->model('Model_identity_answer');
+    $this->load->model('Model_submit');
+    $this->load->model('Model_additional_identity_answer');
+    $this->load->model('Model_tkm_answer');
+    $this->load->model('Model_experience');
+    $this->load->model('Model_form_detail');
+    $this->load->model('Model_priority');
+  }
+
     $this->logged_in();
     }
 
@@ -76,7 +85,7 @@ class Form extends CI_Controller{
      $data['TingkatKepuasanPelanggan'] = $this->Model_tingkatKepuasanPelanggan->listTingkatKepuasanPelanggan($this->uri->segment(3))->result();
      $i=0;
      foreach ($data['TingkatKepuasanPelanggan'] as $key) {
-         // if($i!=3){
+
         if($key->QUESTION!='BIAYA/TARIF'){
              $data['data'][$i]['count'] = $this->Model_tingkatKepuasanPelangganQuestion->countlistQuestion($key->ID_TKM);
              echo "find questi where id tkm = ".$key->ID_TKM;
@@ -110,41 +119,104 @@ class Form extends CI_Controller{
 
   public function simpan()
   {
-      echo "header";
-      echo "<br>".$this->input->post('noResponden');
-      echo "<br>".$this->input->post('kodeSurveyor');
-      echo "<br>".$this->input->post('unitPelayanan');
+    $data['form'] = $this->Model_form->get_all_form_per_place($this->session->id_place);
+    $this->load->library('form_validation');
 
-      echo "Identitas";
-      $jumlahIdentitas = $this->input->post('jumlahIdentitas');
-      for ($i=0; $i < $jumlahIdentitas ; $i++) {
-        echo "<br>";
-        if($this->input->post('identity'.$i) == 'lainnya'){
-          echo $this->input->post('pekerjaanLainnya');
-        }
+    $this->form_validation->set_rules('identity0','TYPE','max_length[1024]|required');
+    $this->form_validation->set_rules('identity1','NAME','max_length[255]|required');
+    $this->form_validation->set_rules('identity2','ADDRESS','max_length[255]|required');
+    $this->form_validation->set_rules('identity3','NO HP','max_length[255]|required');
+    $this->form_validation->set_rules('identity4','AGE','max_length[255]|required');
+    $this->form_validation->set_rules('identity5','GENDER','max_length[255]|required');
+    $this->form_validation->set_rules('identity6','EDUCATION','max_length[255]|required');
+    $this->form_validation->set_rules('identity7','JOB','required|max_length[255]');
 
-        else{
-          echo $this->input->post('identity'.$i);
+    if($this->form_validation->run())
+      {
+          if($this->input->post('identity7') == 'lainnya'){
+            $jobField = $this->input->post('pekerjaanLainnya');
+          }
+          else{
+            $jobField = $this->input->post('identity7');
+          }
+
+          $params = array(
+          'TYPE' => $this->input->post('identity0'),
+          'NAME'  => $this->input->post('identity1'),
+          'ADDRESS' => $this->input->post('identity2'),
+          'NO_HP' => $this->input->post('identity3'),
+          'AGE' => $this->input->post('identity4'),
+          'GENDER' => $this->input->post('identity5'),
+          'EDUCATION' => $this->input->post('identity6'),
+          'JOB' => $jobField,
+          );
+
+          $identity_answer_id = $this->Model_identity_answer->add_identity_answer($params);
+          //redirect('identity_answer/index');
+      }
+      else
+      {
+          echo validation_errors();
+          $data['_view'] = 'identity_answer/add';
+          //$this->load->view('layouts/main',$data);
+      }
+
+      echo "<br>";
+      echo "submit";
+      //submit
+      $this->form_validation->set_rules('harapanUnit','UNIT EXPECTANCY','required|max_length[1024]');
+  		$this->form_validation->set_rules('harapanPlace','PLACE EXPECTANCY','required|max_length[1024]');
+  		$this->form_validation->set_rules($identity_answer_id,'ID IDENTITY ANSWER','required');
+  		$this->form_validation->set_rules('idForm','ID FORM','required');
+
+  		if($this->form_validation->run())
+          {
+              $params = array(
+                'ID_IDENTITY_ANSWER' => $identity_answer_id,
+                //'ID_IDENTITY_ANSWER' => $this->input->post('ID_IDENTITY_ANSWER'),
+        				'ID_FORM' => $this->input->post('idForm'),
+        				'UNIT_EXPECTANCY' => $this->input->post('harapanUnit'),
+        				'PLACE_EXPECTANCY' => $this->input->post('harapanPlace'),
+              );
+
+              $submit_id = $this->Model_submit->add_submit($params);
+          }
+          else
+          {
+              echo validation_errors();
+              $data['_view'] = 'submit/add';
+              //$this->load->view('layouts/main',$data);
+          }
+
+      for ($j=0; $j < $this->input->post('jumlahIdentitasTambahan'); $j++) {
+      // additional identity0
+        $this->form_validation->set_rules('additionalIdentityAnswer'.$j,'VALUE','required|max_length[255]');
+    		$this->form_validation->set_rules($submit_id,'ID SUBMIT','required');
+    		$this->form_validation->set_rules('idAdditionalQuestion'.$j,'ID ADDITIONAL IDENTITY QUESTION','required');
+
+    		if($this->form_validation->run())
+        {
+            $params = array(
+            'ID_SUBMIT' => $submit_id,
+            'ID_ADDITIONAL_IDENTITY_QUESTION' => $this->input->post('idAdditionalQuestion'.$j),
+            'VALUE' => $this->input->post('additionalIdentityAnswer'.$j),
+            );
+
+            $additional_identity_answer_id = $this->Model_additional_identity_answer->add_additional_identity_answer($params);
+          }
+
+        else
+        {
+            echo validation_errors();
+            $data['_view'] = 'additional_identity_answer/add';
+            //$this->load->view('layouts/main',$data);
         }
       }
 
-      echo "Identitas tambahan";
-      $jumlahIdentitasTambahan = $this->input->post('jumlahIdentitasTambahan');
-      for ($i=0; $i < $jumlahIdentitas ; $i++) {
-        echo "<br>";
-        if($this->input->post('additionalIdentityAnswer'.$i) == 'lainnya'){
-          echo $this->input->post('additionalLainnya');
-        }
-        else{
-          echo $this->input->post('additionalIdentityAnswer'.$i);
-        }
-      }
-      echo "<br>bab2";
-
-      ///// bab 2 /////
+      //------------------------------TKM-----------------------------
       $jumlahBab = $this->input->post('TKMjumlahBab');
       $indk = $this->input->post('indeksBayar');
-      echo "indek bayar".$indk;
+      //echo "indek bayar".$indk;
       // echo "jumlah bab".$jumlahBab."-----";
       for ($i=0; $i < $jumlahBab ; $i++) {
           $avg=0;
@@ -179,23 +251,94 @@ class Form extends CI_Controller{
           }
           $avg = $avg/$pembagi;
           echo "rata rata : >".$avg."<";
-      }
-      echo "bab 3";
-      echo "<br>".$this->input->post('penglaman');
-      echo "<br>".$this->input->post('pengalamanTidakMenyenangkan');
-      echo "<br>".$this->input->post('location');
-      echo "<br>".$this->input->post('waktu');
 
-      echo "bab4";
-      echo "<br>".$this->input->post('harapanUnit');
-      echo "<br>".$this->input->post('harapanPlace');
-      // echo $count;
-      echo "<br>bab5";
-      //// bab 5 ////
-      for ($i=0; $i < $jumlahBab ; $i++) {
-          echo "<br>";
-          echo $this->input->post('nilaiPrioritas'.$i);
+          $params = array(
+    				'ID_SUBMIT' => $submit_id,
+    				'ID_TKM' => $this->input->post('idTKM'.$i),
+    				'VALUE' => $avg,
+          );
+
+          $tkm_answer_id = $this->Model_tkm_answer->add_tkm_answer($params);
+          //redirect('tkm_answer/index');
+
       }
+
+      // ------------------------------EXPERIENCE-----------------------------
+      if($this->input->post('pengalaman') == 'iya'){
+        $this->form_validation->set_rules($submit_id,'ID SUBMIT','required');
+    		$this->form_validation->set_rules('pengalamanTidakMenyenangkan','UNPLEASANT EXPERIENCE','required|max_length[1024]');
+    		$this->form_validation->set_rules('location','LOCATION','required|max_length[255]');
+    		$this->form_validation->set_rules('tanggal','TIME','required');
+
+    		if($this->form_validation->run())
+            {
+                $params = array(
+          				'ID_SUBMIT' => $submit_id,
+          				'UNPLEASANT_EXPERIENCE' => $this->input->post('pengalamanTidakMenyenangkan'),
+          				'LOCATION' => $this->input->post('location'),
+          				'TIME' => $this->input->post('tanggal'),
+                );
+
+                $experience_id = $this->Model_experience->add_experience($params);
+                //redirect('experience/index');
+            }
+          else
+          {
+              echo validation_errors();
+              $data['_view'] = 'experience/add';
+              //$this->load->view('layouts/main',$data);
+          }
+      }
+      else{
+          $params = array(
+            'ID_SUBMIT' => $submit_id,
+            'UNPLEASANT_EXPERIENCE' => "-----",
+            'LOCATION' => "-----",
+            'TIME' => "-----",
+          );
+
+          $experience_id = $this->Model_experience->add_experience($params);
+      }
+
+       //----------------------------------------PRIORITAS-------------------------------
+        for ($i=0; $i < $this->input->post('jumlahTKM') ; $i++) {
+          $params = array(
+            'VALUE' => $this->input->post('nilaiPrioritas'.$i),
+            'ID_TKM' => $this->input->post('idTKM2'.$i),
+            'ID_SUBMIT' => $submit_id,
+          );
+
+          $priority_id = $this->Model_priority->add_priority($params);
+        }
+
+      // //-----------------------------FORM DETAIL------------------------------------
+      $this->form_validation->set_rules($submit_id,'ID SUBMIT','required');
+  		$this->form_validation->set_rules('noResponden','NO RESPONDEN','required|integer');
+  		$this->form_validation->set_rules('kodeSurveyor','KODE SURVEYOR','required|max_length[255]');
+  		$this->form_validation->set_rules('unitPelayanan','UNIT PELAYANAN','required|max_length[100]');
+
+  		if($this->form_validation->run())
+        {
+            $params = array(
+    				'ID_SUBMIT' => $submit_id,
+    				'NO_RESPONDEN' => $this->input->post('noResponden'),
+    				'KODE_SURVEYOR' => $this->input->post('kodeSurveyor'),
+    				'UNIT_PELAYANAN' => $this->input->post('unitPelayanan'),
+            );
+
+            $form_detail_id = $this->Model_form_detail->add_form_detail($params);
+            //redirect('form_detail/index');
+        }
+        else
+        {
+            echo validation_errors();
+      			$this->load->model('Model_submit');
+      			$data['all_submit'] = $this->Model_submit->get_all_submit();
+
+            $data['_view'] = 'form_detail/add';
+            //$this->load->view('layouts/main',$data);
+        }
+
   }
 
   function add()

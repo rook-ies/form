@@ -35,7 +35,7 @@
         <td> Waktu </td>
       </tr>
       <tr>
-        <td><input type="date" name="waktu" placeholder="DD-MM-YYYY"></td>
+        <td><input type="date" name="tanggal" placeholder="DD-MM-YYYY"></td>
       </tr>
   </table>
 </center>
