@@ -28,6 +28,18 @@ class Model_biaya_question extends CI_Model
         return $this->db->get('BIAYA_QUESTION')->result_array();
     }
 
+    public function get_all_biaya_question_per_form($ID_FORM)
+    {
+        $this->db->select('BQ.ID_BIAYA_QUESTION,BQ.QUESTION,TB.NAMA_TYPE_BAYAR')
+           ->from('TIPE_BAYAR AS TB,BIAYA_QUESTION AS BQ')
+           ->where('TB.ID_TYPE_BAYAR = BQ.ID_TIPE_BAYAR')
+           ->where('BQ.ID_FORM',$ID_FORM);
+        return $this->db->get()->result_array();
+        // $this->db->where('ID_FORM',$ID_FORM);
+        // $this->db->order_by('ID_BIAYA_QUESTION', 'desc');
+        // return $this->db->get('BIAYA_QUESTION')->result_array();
+    }
+
     /*
      * function to add new biaya_question
      */

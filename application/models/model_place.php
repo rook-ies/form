@@ -32,8 +32,14 @@ class model_place extends CI_Model{
    */
   function get_all_place()
   {
-      $this->db->order_by('ID_PLACE', 'desc');
-      return $this->db->get('PLACE')->result_array();
+      $place = $this->db->select('p.ID_PLACE as ID_PLACE,p.NAMA, pt.TYPE,pc.CATEGORY')
+            ->from('PLACE AS p, PLACE_TYPE AS pt,PLACE_CATEGORY AS pc')
+            ->where('p.ID_PLACE_TYPE = pt.ID_PLACE_TYPE')
+            ->where('p.ID_PLACE_CATEGORY = pc.ID_PLACE_CATEGORY');
+        $place = $this->db->get();
+        return $place->result_array();
+      // $this->db->order_by('ID_PLACE', 'desc');
+      // return $this->db->get('PLACE')->result_array();
   }
 
   /*

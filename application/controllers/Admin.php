@@ -48,7 +48,7 @@ class Admin extends CI_Controller{
 				'ID_PLACE' => $this->input->post('ID_PLACE'),
 				'NAMA' => $this->input->post('NAMA'),
 				'EMAIL' => $this->input->post('EMAIL'),
-				'PASSWORD' => $this->input->post('PASSWORD'),
+				'PASSWORD' => sha1($this->input->post('PASSWORD')),
             );
 
             $admin_id = $this->Model_admin->add_admin($params);
@@ -90,7 +90,7 @@ class Admin extends CI_Controller{
 					'ID_PLACE' => $this->input->post('ID_PLACE'),
 					'NAMA' => $this->input->post('NAMA'),
 					'EMAIL' => $this->input->post('EMAIL'),
-					'PASSWORD' => $this->input->post('PASSWORD'),
+					'PASSWORD' => sha1($this->input->post('PASSWORD')),
                 );
 
                 $this->Model_admin->update_admin($ID_ADMIN,$params);

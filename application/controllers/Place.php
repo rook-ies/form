@@ -105,6 +105,7 @@ class Place extends CI_Controller{
 
                 $data['title'] = 'Edit place';
                 $data['_view'] = 'place/edit';
+                print_r($data['place']);
                 $this->load->view('SuperAdmin/template/header',$data);
                 $this->load->view('SuperAdmin/place/edit',$data);
                 $this->load->view('SuperAdmin/template/footer',$data);

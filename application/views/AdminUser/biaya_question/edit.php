@@ -26,23 +26,8 @@
     							<span class="text-danger"><?php echo form_error('ID_TIPE_BAYAR');?></span>
     						</div>
     					</div>
-    					<div class="col-md-6">
-    						<label for="ID_FORM" class="control-label"><span class="text-danger">*</span>Form</label>
-    						<div class="form-group">
-    							<select name="ID_FORM" class="form-control">
-    								<option value="">select form</option>
-    								<?php
-    								foreach($all_form as $form)
-    								{
-    									$selected = ($form['ID_FORM'] == $biaya_question['ID_FORM']) ? ' selected="selected"' : "";
-
-    									echo '<option value="'.$form['ID_FORM'].'" '.$selected.'>'.$form['TITLE'].'</option>';
-    								}
-    								?>
-    							</select>
-    							<span class="text-danger"><?php echo form_error('ID_FORM');?></span>
-    						</div>
-    					</div>
+                        <?php echo form_hidden('ID_TYPE_BAYAR',$this->input->post('ID_TYPE_BAYAR')); ?>
+                        <?php echo form_hidden('ID_FORM',$this->session->currentForm); ?>
     					<div class="col-md-6">
     						<label for="QUESTION" class="control-label"><span class="text-danger">*</span>QUESTION</label>
     						<div class="form-group">
@@ -56,7 +41,7 @@
                 	<button type="submit" class="btn btn-success">
     					<i class="fa fa-check"></i> Save
     				</button>
-            <?php echo anchor(base_url('biaya_question'), 'Cancel'); ?>
+            <?php echo anchor(base_url('biaya_question/load/'.$this->session->currentForm), 'back'); ?>
     	        </div>
     			<?php echo form_close(); ?>
     		</div>

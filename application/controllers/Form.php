@@ -25,6 +25,15 @@ class Form extends CI_Controller{
     $this->load->model('Model_priority');
   }
 
+    $this->logged_in();
+    }
+
+      private function logged_in() {
+        if(! $this->session->userdata('authenticated')) {
+            redirect('AdminUser/login');
+        }
+    }
+
   function index()
   {
       $data['form'] = $this->Model_form->get_all_form();
@@ -44,7 +53,7 @@ class Form extends CI_Controller{
 
       $data['title'] = 'Form';
       $data['_view'] = 'form/index';
-
+      // print_r($data['form']);
       $this->load->view('AdminUser/template/header',$data);
       $this->load->view('AdminUser/form/index',$data);
       $this->load->view('AdminUser/template/footer',$data);
@@ -76,7 +85,8 @@ class Form extends CI_Controller{
      $data['TingkatKepuasanPelanggan'] = $this->Model_tingkatKepuasanPelanggan->listTingkatKepuasanPelanggan($this->uri->segment(3))->result();
      $i=0;
      foreach ($data['TingkatKepuasanPelanggan'] as $key) {
-         if($key->QUESTION != 'BIAYA/TARIF'){
+
+        if($key->QUESTION!='BIAYA/TARIF'){
              $data['data'][$i]['count'] = $this->Model_tingkatKepuasanPelangganQuestion->countlistQuestion($key->ID_TKM);
              echo "find questi where id tkm = ".$key->ID_TKM;
              $data['data'][$i]['question'] = $this->Model_tingkatKepuasanPelangganQuestion->listQuestion($key->ID_TKM)->result();
@@ -92,7 +102,7 @@ class Form extends CI_Controller{
     }
     $data['service'] = $this->Model_service_type->showService($this->uri->segment(3))->row_array();
 
-     print_r($data);
+     // print_r($data);
      $this->load->view('template/Header');
      $this->load->view('form/Header',$data);
      $this->load->view('form/Identitas',$data);
@@ -406,6 +416,8 @@ class Form extends CI_Controller{
 			$data['all_service_type'] = $this->Model_service_type->get_all_service_type();
 
             $data['additional_identity_question'] = $this->Model_additional_identity->listQuestion($this->session->currentForm)->result_array();
+            // $data['tkm_question'] = $this->Model_tkm_question->get_all_tkm_question_per_Form($this->session->currentForm);
+            $data['tkm'] = $this->Model_tingkatKepuasanPelanggan->listTingkatKepuasanPelanggan($this->session->currentForm)->result_array();
 
               $data['title'] = 'Edit form';
               $data['_view'] = 'form/edit';
@@ -413,6 +425,7 @@ class Form extends CI_Controller{
               $this->load->view('AdminUser/template/header',$data);
               $this->load->view('AdminUser/form/edit',$data);
               $this->load->view('AdminUser/additional_identity_question/index',$data);
+              $this->load->view('AdminUser/tkm/index',$data);
               $this->load->view('AdminUser/template/footer',$data);
           }
       }

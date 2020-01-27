@@ -11,7 +11,7 @@
 								<?php
 								foreach($all_place_type as $place_type)
 								{
-									$selected = ($place_type['ID_PLACE_TYPE'] == $this->input->post('ID_PLACE_TYPE')) ? ' selected="selected"' : "";
+									$selected = ($place_type['ID_PLACE_TYPE'] == $place['ID_PLACE_TYPE'] ) ? ' selected="selected"' : "";
 
 									echo '<option value="'.$place_type['ID_PLACE_TYPE'].'" '.$selected.'>'.$place_type['TYPE'].'</option>';
 								}
@@ -29,7 +29,7 @@
 								<?php
 								foreach($all_place_category as $place_category)
 								{
-									$selected = ($place_category['ID_PLACE_CATEGORY'] == $this->input->post('ID_PLACE_CATEGORY')) ? ' selected="selected"' : "";
+									$selected = ($place_category['ID_PLACE_CATEGORY'] == $place['ID_PLACE_CATEGORY']) ? ' selected="selected"' : "";
 
 									echo '<option value="'.$place_category['ID_PLACE_CATEGORY'].'" '.$selected.'>'.$place_category['CATEGORY'].'</option>';
 								}
@@ -41,12 +41,13 @@
 			<div class="form-group row">
               <label for="exampleInputEmail2" class="col-sm-3 col-form-label">NAMA</label>
               <div class="col-sm-9">
-                <input class="form-control" type="text" name="NAMA" value="<?php echo $this->input->post('NAMA'); ?>" />
+                <input class="form-control" type="text" name="NAMA" value="<?php echo $place['NAMA'] ?>" />
 								<span class="text-danger"><?php echo form_error('NAMA');?></span>
 							</div>
-          <button type="submit" class="btn btn-success mr-2">Submit</button>
+          <button type="submit" class="btn btn-success mr-2">Submit </button>
 		  <?php echo anchor(base_url('place'), 'Cancel'); ?>
 		 <?php echo form_close(); ?>
       </div>
   </div>
+</div>
 </div>

@@ -63,7 +63,7 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="<?php echo base_url()."assetsAdminBiasa"; ?>/assets/images/avatars/1.jpg" alt="">
+                                            <!-- <img width="42" class="rounded-circle" src="<?php echo base_url()."assetsAdminBiasa"; ?>/assets/images/avatars/1.jpg" alt=""> -->
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
@@ -90,9 +90,9 @@
             </div>
         </div>
         <div class="ui-theme-settings">
-            <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
+            <!-- <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
                 <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
-            </button>
+            </button> -->
             <div class="theme-settings__inner">
                 <div class="scrollbar-container">
                     <div class="theme-settings__options-wrapper">
@@ -416,39 +416,9 @@
                                 </li>
                                 <li class="app-sidebar__heading">Forms</li>
                                 <li>
-                                    <a href="forms-controls.html">
-                                        <i class="metismenu-icon pe-7s-mouse">
-                                        </i>Forms Controls
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="forms-layouts.html">
-                                        <i class="metismenu-icon pe-7s-eyedropper">
-                                        </i>Forms Layouts
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="forms-validation.html">
-                                        <i class="metismenu-icon pe-7s-pendrive">
-                                        </i>Forms Validation
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="metismenu-icon pe-7s-magic-wand">
-                                        </i>FORM BARU
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="<?php echo base_url() ?>form/list">
                                         <i class="metismenu-icon pe-7s-magic-wand">
                                         </i>My Form
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="metismenu-icon pe-7s-magic-wand">
-                                        </i>dll
                                     </a>
                                 </li>
                             </ul>
