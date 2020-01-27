@@ -2,7 +2,7 @@
 	<div class="col-lg-12 grid-margin stretch-card">
 		<div class="card">
 			<div class="card-body">
-                  <h4 class="card-title">admin [all]</h4>
+                  <h4 class="card-title">place [all]</h4>
 				  <div class="table-responsive">
             <table class="table">
               <thead>

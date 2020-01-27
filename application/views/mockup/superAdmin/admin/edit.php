@@ -2,7 +2,7 @@
     <div class="col-12 stretch-card">
       <div class="card">
     	  <div class="card-body">
-            <h4 class="card-title">admin [all]</h4>
+            <h4 class="card-title">admin edit</h4>
     		  <div class="form-group row">
     	          <label for="exampleFormControlSelect2" class="col-sm-3 col-form-label">Place</label>
     			  <div class="col-sm-9">
