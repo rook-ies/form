@@ -86,6 +86,7 @@
                     <?php $k++; ?>
                 <?php endforeach; ?>
             <?php } ?>
+            <?php echo form_hidden('idTKM'.$i,$key->ID_TKM); ?>
             <?php $i++; ?>
         <?php endforeach; ?>
         <?php echo form_hidden('TKMjumlahBab',$i); ?>

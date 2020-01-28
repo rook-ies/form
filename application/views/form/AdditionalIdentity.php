@@ -29,8 +29,9 @@
             </tr>
              <?php endforeach; ?>
         <?php
+                 echo form_hidden('idAdditionalQuestion'.$i,$key->ID_ADDITIONAL_IDENTITY_QUESTION);
          $i++;
         endforeach; ?>
   </table>
-  <?php echo form_hidden('$jumlahIdentitasTambahan',$i); ?>
+  <?php echo form_hidden('jumlahIdentitasTambahan',$i); ?>
 </center>
