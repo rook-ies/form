@@ -23,7 +23,7 @@ class Form extends CI_Controller{
     $this->load->model('Model_experience');
     $this->load->model('Model_form_detail');
     $this->load->model('Model_priority');
-  }
+
 
     $this->logged_in();
     }
@@ -119,47 +119,47 @@ class Form extends CI_Controller{
 
   public function simpan()
   {
-    $data['form'] = $this->Model_form->get_all_form_per_place($this->session->id_place);
-    $this->load->library('form_validation');
-
-    $this->form_validation->set_rules('identity0','TYPE','max_length[1024]|required');
-    $this->form_validation->set_rules('identity1','NAME','max_length[255]|required');
-    $this->form_validation->set_rules('identity2','ADDRESS','max_length[255]|required');
-    $this->form_validation->set_rules('identity3','NO HP','max_length[255]|required');
-    $this->form_validation->set_rules('identity4','AGE','max_length[255]|required');
-    $this->form_validation->set_rules('identity5','GENDER','max_length[255]|required');
-    $this->form_validation->set_rules('identity6','EDUCATION','max_length[255]|required');
-    $this->form_validation->set_rules('identity7','JOB','required|max_length[255]');
-
-    if($this->form_validation->run())
-      {
-          if($this->input->post('identity7') == 'lainnya'){
-            $jobField = $this->input->post('pekerjaanLainnya');
-          }
-          else{
-            $jobField = $this->input->post('identity7');
-          }
-
-          $params = array(
-          'TYPE' => $this->input->post('identity0'),
-          'NAME'  => $this->input->post('identity1'),
-          'ADDRESS' => $this->input->post('identity2'),
-          'NO_HP' => $this->input->post('identity3'),
-          'AGE' => $this->input->post('identity4'),
-          'GENDER' => $this->input->post('identity5'),
-          'EDUCATION' => $this->input->post('identity6'),
-          'JOB' => $jobField,
-          );
-
-          $identity_answer_id = $this->Model_identity_answer->add_identity_answer($params);
-          //redirect('identity_answer/index');
-      }
-      else
-      {
-          echo validation_errors();
-          $data['_view'] = 'identity_answer/add';
-          //$this->load->view('layouts/main',$data);
-      }
+    // $data['form'] = $this->Model_form->get_all_form_per_place($this->session->id_place);
+    // $this->load->library('form_validation');
+    //
+    // $this->form_validation->set_rules('identity0','TYPE','max_length[1024]|required');
+    // $this->form_validation->set_rules('identity1','NAME','max_length[255]|required');
+    // $this->form_validation->set_rules('identity2','ADDRESS','max_length[255]|required');
+    // $this->form_validation->set_rules('identity3','NO HP','max_length[255]|required');
+    // $this->form_validation->set_rules('identity4','AGE','max_length[255]|required');
+    // $this->form_validation->set_rules('identity5','GENDER','max_length[255]|required');
+    // $this->form_validation->set_rules('identity6','EDUCATION','max_length[255]|required');
+    // $this->form_validation->set_rules('identity7','JOB','required|max_length[255]');
+    //
+    // if($this->form_validation->run())
+    //   {
+    //       if($this->input->post('identity7') == 'lainnya'){
+    //         $jobField = $this->input->post('pekerjaanLainnya');
+    //       }
+    //       else{
+    //         $jobField = $this->input->post('identity7');
+    //       }
+    //
+    //       $params = array(
+    //       'TYPE' => $this->input->post('identity0'),
+    //       'NAME'  => $this->input->post('identity1'),
+    //       'ADDRESS' => $this->input->post('identity2'),
+    //       'NO_HP' => $this->input->post('identity3'),
+    //       'AGE' => $this->input->post('identity4'),
+    //       'GENDER' => $this->input->post('identity5'),
+    //       'EDUCATION' => $this->input->post('identity6'),
+    //       'JOB' => $jobField,
+    //       );
+    //
+    //       $identity_answer_id = $this->Model_identity_answer->add_identity_answer($params);
+    //       //redirect('identity_answer/index');
+    //   }
+    //   else
+    //   {
+    //       echo validation_errors();
+    //       $data['_view'] = 'identity_answer/add';
+    //       //$this->load->view('layouts/main',$data);
+    //   }
 
       echo "<br>";
       echo "submit";
