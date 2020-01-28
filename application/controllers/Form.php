@@ -166,13 +166,11 @@ class Form extends CI_Controller{
       //submit
       $this->form_validation->set_rules('harapanUnit','UNIT EXPECTANCY','required|max_length[1024]');
   		$this->form_validation->set_rules('harapanPlace','PLACE EXPECTANCY','required|max_length[1024]');
-  		$this->form_validation->set_rules($identity_answer_id,'ID IDENTITY ANSWER','required');
   		$this->form_validation->set_rules('idForm','ID FORM','required');
 
   		if($this->form_validation->run())
           {
               $params = array(
-                'ID_IDENTITY_ANSWER' => $identity_answer_id,
                 //'ID_IDENTITY_ANSWER' => $this->input->post('ID_IDENTITY_ANSWER'),
         				'ID_FORM' => $this->input->post('idForm'),
         				'UNIT_EXPECTANCY' => $this->input->post('harapanUnit'),
