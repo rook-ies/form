@@ -1,3 +1,4 @@
+<?php echo form_open('dashboardAdminBiasa/submit'); ?>
 <div class="app-page-title">
     <div class="page-title-wrapper">
         <div class="page-title-heading">
@@ -12,91 +13,15 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content bg-midnight-bloom">
-            <div class="widget-content-wrapper text-white">
-                <div class="widget-content-left">
-                    <div class="widget-heading">Total Orders</div>
-                    <div class="widget-subheading">Last year expenses</div>
-                </div>
-                <div class="widget-content-right">
-                    <div class="widget-numbers text-white"><span>1896</span></div>
-                </div>
+    <div class="row">
+        <?php foreach($form as $F){ ?>
+        <div class="col-12 col-lg-4">
+            <div class="mb-3 text-center card card-body">
+              <a href="<?php echo base_url() ?>dashboardAdminBiasa/submit/<?php echo $F['ID_FORM']; ?>">
+                <h5 class="card-title"><?php echo $F['TITLE']; ?></h5>
+                <h5 class="description"><?php echo $F['SERVICE_TYPE']; ?></h5>
             </div>
         </div>
-    </div>
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content bg-arielle-smile">
-            <div class="widget-content-wrapper text-white">
-                <div class="widget-content-left">
-                    <div class="widget-heading">Clients</div>
-                    <div class="widget-subheading">Total Clients Profit</div>
-                </div>
-                <div class="widget-content-right">
-                    <div class="widget-numbers text-white"><span>$ 568</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content bg-grow-early">
-            <div class="widget-content-wrapper text-white">
-                <div class="widget-content-left">
-                    <div class="widget-heading">Followers</div>
-                    <div class="widget-subheading">People Interested</div>
-                </div>
-                <div class="widget-content-right">
-                    <div class="widget-numbers text-white"><span>46%</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Total Orders</div>
-                        <div class="widget-subheading">Last year expenses</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-success">1896</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Products Sold</div>
-                        <div class="widget-subheading">Revenue streams</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-warning">$3M</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Followers</div>
-                        <div class="widget-subheading">People Interested</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-danger">45,9%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <?php } ?>
     </div>
 </div>
