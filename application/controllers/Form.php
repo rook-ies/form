@@ -254,6 +254,7 @@ class Form extends CI_Controller{
     				'ID_SUBMIT' => $submit_id,
     				'ID_TKM' => $this->input->post('idTKM'.$i),
     				'VALUE' => $avg,
+            'PRIORITY' => $this->input->post('nilaiPrioritas'.$i),
           );
 
           $tkm_answer_id = $this->Model_tkm_answer->add_tkm_answer($params);
@@ -299,15 +300,15 @@ class Form extends CI_Controller{
       }
 
        //----------------------------------------PRIORITAS-------------------------------
-        for ($i=0; $i < $this->input->post('jumlahTKM') ; $i++) {
-          $params = array(
-            'VALUE' => $this->input->post('nilaiPrioritas'.$i),
-            'ID_TKM' => $this->input->post('idTKM2'.$i),
-            'ID_SUBMIT' => $submit_id,
-          );
-
-          $priority_id = $this->Model_priority->add_priority($params);
-        }
+        // for ($i=0; $i < $this->input->post('jumlahTKM') ; $i++) {
+        //   $params = array(
+        //     'VALUE' => $this->input->post('nilaiPrioritas'.$i),
+        //     'ID_TKM' => $this->input->post('idTKM2'.$i),
+        //     'ID_SUBMIT' => $submit_id,
+        //   );
+        //
+        //   $priority_id = $this->Model_priority->add_priority($params);
+        // }
 
       // //-----------------------------FORM DETAIL------------------------------------
       $this->form_validation->set_rules($submit_id,'ID SUBMIT','required');
