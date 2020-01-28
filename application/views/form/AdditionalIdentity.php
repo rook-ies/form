@@ -1,13 +1,16 @@
 <center>
   <table border="0"  width="80%">
-
+      <tr>
+          <td colspan="3">
+              <b>I. Identitas Responden</b>
+          </td>
+      </tr>
           <?php
-            $j = 8;
             $i=0;
             foreach ($additionalIdentityQuestion as $key):
            ?>
            <tr>
-               <td><?php echo chr($j+65)?></td>
+               <td><?php echo chr($i+65)?></td>
                <td><?php echo $key->QUESTION; ?></td>
                <?php if ($additionalIdentityOption[$i]['count']==0) {?>
                 <td><textarea name="additionalIdentityAnswer<?php echo $i; ?>" width="100%" ></textarea> </td>
@@ -28,7 +31,6 @@
         <?php
                  echo form_hidden('idAdditionalQuestion'.$i,$key->ID_ADDITIONAL_IDENTITY_QUESTION);
          $i++;
-         $j++;
         endforeach; ?>
   </table>
   <?php echo form_hidden('jumlahIdentitasTambahan',$i); ?>

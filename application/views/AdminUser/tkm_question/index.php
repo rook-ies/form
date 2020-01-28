@@ -9,15 +9,15 @@
                 <div class="box-body">
                     <table class="table table-striped">
                         <tr>
-    						<th>ID TKM QUESTION</th>
-    						<th>ID TKM</th>
+    						<!-- <th>ID TKM QUESTION</th>
+    						<th>ID TKM</th> -->
     						<th>QUESTION</th>
     						<th>Actions</th>
                         </tr>
                         <?php foreach($tkm_question as $T){ ?>
                         <tr>
-    						<td><?php echo $T['ID_TKM_QUESTION']; ?></td>
-    						<td><?php echo $T['ID_TKM']; ?></td>
+    						<!-- <td><?php echo $T['ID_TKM_QUESTION']; ?></td>
+    						<td><?php echo $T['ID_TKM']; ?></td> -->
     						<td><?php echo $T['QUESTION']; ?></td>
     						<td>
                                 <a href="<?php echo site_url('tkm_question/edit/'.$T['ID_TKM_QUESTION']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>

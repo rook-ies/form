@@ -95,7 +95,7 @@ class Tkm extends CI_Controller{
                 $data['title'] = 'Tingkat kepuasan masyarakat';
 
                 $data['tkm_question'] = $this->Model_tingkatKepuasanPelangganQuestion->listQuestion($this->session->currentTKM)->result_array();
-                print_r($data['tkm_question']);
+                //print_r($data['tkm_question']);
                 $this->load->view('AdminUser/template/header',$data);
                 $this->load->view('AdminUser/tkm/edit',$data);
                 $this->load->view('AdminUser/tkm_question/index',$data);
