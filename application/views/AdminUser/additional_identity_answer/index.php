@@ -18,12 +18,8 @@
                     <tr>
 						<td><?php echo $A['ID_ADDITIONAL_IDENTITY_ANSWER']; ?></td>
 						<td><?php echo $A['ID_SUBMIT']; ?></td>
-						<td><?php echo $A['ID_ADDITIONAL_IDENTITY_QUESTION']; ?></td>
+						<td><?php echo $A['QUESTION']; ?></td>
 						<td><?php echo $A['VALUE']; ?></td>
-						<td>
-                            <a href="<?php echo site_url('additional_identity_answer/edit/'.$A['ID_ADDITIONAL_IDENTITY_ANSWER']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
-                            <a href="<?php echo site_url('additional_identity_answer/remove/'.$A['ID_ADDITIONAL_IDENTITY_ANSWER']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
-                        </td>
                     </tr>
                     <?php } ?>
                 </table>

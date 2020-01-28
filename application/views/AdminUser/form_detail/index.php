@@ -20,10 +20,6 @@
 						<td><?php echo $F['NO_RESPONDEN']; ?></td>
 						<td><?php echo $F['KODE_SURVEYOR']; ?></td>
 						<td><?php echo $F['UNIT_PELAYANAN']; ?></td>
-						<td>
-                            <a href="<?php echo site_url('form_detail/edit/'.$F['ID']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
-                            <a href="<?php echo site_url('form_detail/remove/'.$F['ID']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
-                        </td>
                     </tr>
                     <?php } ?>
                 </table>

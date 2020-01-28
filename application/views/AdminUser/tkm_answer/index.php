@@ -11,17 +11,15 @@
 						<th>ID SUBMIT</th>
 						<th>ID TKM</th>
 						<th>VALUE</th>
+            <th>PRIORTIY</th>
                     </tr>
                     <?php foreach($tkm_answer as $T){ ?>
                     <tr>
 						<td><?php echo $T['ID_TKM_ANSWER']; ?></td>
 						<td><?php echo $T['ID_SUBMIT']; ?></td>
-						<td><?php echo $T['ID_TKM']; ?></td>
+						<td><?php echo $T['QUESTION']; ?></td>
 						<td><?php echo $T['VALUE']; ?></td>
-						<td>
-                            <a href="<?php echo site_url('tkm_answer/edit/'.$T['ID_TKM_ANSWER']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
-                            <a href="<?php echo site_url('tkm_answer/remove/'.$T['ID_TKM_ANSWER']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
-                        </td>
+            <td><?php echo $T['PRIORITY']; ?></td>
                     </tr>
                     <?php } ?>
                 </table>
