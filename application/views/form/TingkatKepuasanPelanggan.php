@@ -51,7 +51,7 @@
                 <?php echo form_hidden('indeksBayar', $i); ?>
                 <tr>
                     <td></td>
-                    <td>Pasien BPJS/Asuransi (Non Bayar Sendiri)</td>
+                    <td>Non Bayar Sendiri</td>
                     <td colspan="4"><?php echo form_radio('TKMpilihanBayar', '1', TRUE); ?></td>
                 </tr>
                 <?php $k=0; ?>
@@ -69,7 +69,7 @@
                 <?php endforeach; ?>
                 <tr>
                     <td></td>
-                    <td>Pasien Umum/ Bayar Sendiri</td>
+                    <td>Bayar Sendiri</td>
                     <td colspan="4"><?php echo form_radio('TKMpilihanBayar', '2', FALSE); ?></td>
                 </tr>
                 <?php $k=0; ?>

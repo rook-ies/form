@@ -55,14 +55,14 @@ class Form extends CI_Controller{
      $data['form'] = $this->Model_form->showForm($this->uri->segment(3))->row_array();
      $data['place'] = $this->Model_place->showPlace($data['form']['ID_PLACE']);
 
-     $data['identityQuestion'] = $this->Model_identity_question->listQuestion()->result();
-     //$data['identityOption'] = $this->Model_identity_question->listOption()->result();
-     $options = 0;
-     foreach ($data['identityQuestion'] as $iq) {
-       $data['identity'][$options]['count'] = $this->Model_identity_question->countOption($iq->ID_IDENTITY_QUESTION);
-       $data['identity'][$options]['option'] = $this->Model_identity_question->listOption($iq->ID_IDENTITY_QUESTION)->result();
-       $options++;
-     }
+     // $data['identityQuestion'] = $this->Model_identity_question->listQuestion()->result();
+     // //$data['identityOption'] = $this->Model_identity_question->listOption()->result();
+     // $options = 0;
+     // foreach ($data['identityQuestion'] as $iq) {
+     //   $data['identity'][$options]['count'] = $this->Model_identity_question->countOption($iq->ID_IDENTITY_QUESTION);
+     //   $data['identity'][$options]['option'] = $this->Model_identity_question->listOption($iq->ID_IDENTITY_QUESTION)->result();
+     //   $options++;
+     // }
      $data['additionalIdentityQuestion'] = $this->Model_additional_identity->listQuestion($this->uri->segment(3))->result();
 
      $additionalOptions = 0;
@@ -96,7 +96,7 @@ class Form extends CI_Controller{
      // print_r($data);
      $this->load->view('template/Header');
      $this->load->view('form/Header',$data);
-     $this->load->view('form/Identitas',$data);
+     //$this->load->view('form/Identitas',$data);
      $this->load->view('form/AdditionalIdentity',$data);
 
 
