@@ -53,7 +53,7 @@ class dashboardAdminBiasa extends CI_Controller{
       $data['title'] = 'Form detail';
       $this->load->view('AdminUser/form_detail/index',$data);
       //$this->load->view('AdminUser/identity_answer/index', $data);
-      $data['title'] = 'Additional identity answer';
+      $data['title'] = 'Iddentitas';
       $this->load->view('AdminUser/additional_identity_answer/index', $data);
 
       $data['title'] = 'TKM answer';
