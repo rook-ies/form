@@ -4,12 +4,43 @@
             <div class="col-md-12">
               	<div class="box box-info">
                     <div class="box-header with-border">
-                      	<h3 class="box-title"><?php echo $title; ?></h3>
+                      	<h3 class="box-title">Data graph</h3>
+                        <?php echo anchor('dashboardAdminBiasa', 'back'); ?>
                     </div>
         			<div class="box-body">
                         <table class="table table-striped">
                             <tr>
-        						<th>ID SUBMIT</th>
+        						<th>TKM question</th>
+                                <th>TKM nilai</th>
+                                <th>TKM prioritas</th>
+                            </tr>
+                            <?php foreach($chart as $var){ ?>
+                            <tr>
+                                <!-- <td><?php print_r($var) ?></td> -->
+                                <td><?php echo $var['QUESTION']; ?></td>
+                                <td><?php echo $var['TKM']; ?></td>
+                                <td><?php echo $var['PRIORITY']; ?></td>
+                            </tr>
+                            <?php } ?>
+                        </table>
+        			</div>
+        		</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+              	<div class="box box-info">
+                    <div class="box-header with-border">
+                      	<h3 class="box-title"><?php echo $titleForm['TITLE']; ?></h3>
+                    </div>
+        			<div class="box-body">
+                        <table class="table table-striped">
+                            <tr>
+        						<th>Nomer RESPONDEN</th>
         						<!-- <th>ID FORM</th> -->
         						<th>UNIT EXPECTANCY</th>
         						<th>PLACE EXPECTANCY</th>
@@ -23,6 +54,7 @@
                             </tr>
                             <?php } ?>
                         </table>
+                        <?php echo $this->pagination->create_links();	?>
         			</div>
         		</div>
             </div>

@@ -16,17 +16,17 @@
                 <td colspan="3"><?php echo $service['SERVICE_TYPE']; ?></td>
             </tr>
             <tr>
-                <td>NO. RESPONDEN</td>
-                <td><input type="input" name="noResponden"></td>
+                <!-- <td>NO. RESPONDEN</td>
+                <td><input type="input" name="noResponden"></td> -->
                 <td width="200">TANGGAL SURVEI</td>
                 <td><?php echo @date('d-m-Y'); ?></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>KODE SURVEYOR</td>
                 <td><input type="input" name="kodeSurveyor"></td>
                 <td width="200">UNIT PELAYANAN</td>
                 <td><input type="input" name="unitPelayanan"></td>
-            </tr>
+            </tr> -->
         </table>
         <table border="0"  width="80%">
             <tr>

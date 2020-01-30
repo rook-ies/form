@@ -7,7 +7,7 @@
       </tr>
       <tr>
         <td>
-          a.	Dalam 1 tahun terakhir menggunakan pelayanan Puskesmas, apakah Anda pernah mengalami pengalaman yang tidak menyenangkan?
+          a.	Dalam 1 tahun terakhir menggunakan pelayanan <?php echo $place['TYPE']; ?>, apakah Anda pernah mengalami pengalaman yang tidak menyenangkan?
         </td>
       </tr>
       <tr>
