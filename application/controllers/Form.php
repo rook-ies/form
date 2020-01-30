@@ -77,7 +77,7 @@ class Form extends CI_Controller{
      $additionalOptions = 0;
      foreach ($data['additionalIdentityQuestion'] as $aiq) {
        $data['additionalIdentityOption'][$additionalOptions]['count'] = $this->Model_additional_identity->countOption($aiq->ID_ADDITIONAL_IDENTITY_QUESTION);
-       echo "count ".$additionalOptions."=".$data['additionalIdentityOption'][$additionalOptions]['count'];
+       // echo "count ".$additionalOptions."=".$data['additionalIdentityOption'][$additionalOptions]['count'];
        $data['additionalIdentityOption'][$additionalOptions]['option'] = $this->Model_additional_identity->listOption($aiq->ID_ADDITIONAL_IDENTITY_QUESTION)->result();
        $additionalOptions++;
      }
@@ -88,15 +88,15 @@ class Form extends CI_Controller{
 
         if($key->QUESTION!='BIAYA/TARIF'){
              $data['data'][$i]['count'] = $this->Model_tingkatKepuasanPelangganQuestion->countlistQuestion($key->ID_TKM);
-             echo "find questi where id tkm = ".$key->ID_TKM;
+             // echo "find questi where id tkm = ".$key->ID_TKM;
              $data['data'][$i]['question'] = $this->Model_tingkatKepuasanPelangganQuestion->listQuestion($key->ID_TKM)->result();
         }else {
             $data['data'][$i]['non_bayar']['count'] = $this->Model_biaya_question->countlistQuestion($this->uri->segment(3),1);
             $data['data'][$i]['non_bayar']['question'] = $this->Model_biaya_question->listQuestion($this->uri->segment(3),1)->result();
             $data['data'][$i]['bayar']['count'] = $this->Model_biaya_question->countlistQuestion($this->uri->segment(3),2);
             $data['data'][$i]['bayar']['question'] = $this->Model_biaya_question->listQuestion($this->uri->segment(3),2)->result();
-            echo "jumlah non bayar".$data['data'][$i]['non_bayar']['count'];
-            echo "jumlah bayar".$data['data'][$i]['bayar']['count'];
+            // echo "jumlah non bayar".$data['data'][$i]['non_bayar']['count'];
+            // echo "jumlah bayar".$data['data'][$i]['bayar']['count'];
         }
         $i++;
     }

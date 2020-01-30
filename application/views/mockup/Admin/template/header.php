@@ -402,9 +402,9 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Dashboards</li>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>mockupAdmin/reviewForm">
+                                    <a href="<?php echo base_url(); ?>mockupAdmin/dashboard">
                                         <i class="metismenu-icon pe-7s-rocket"></i>
-                                        Dashboard Example 1
+                                        Dashboard
                                     </a>
                                 </li>
                                 <li>

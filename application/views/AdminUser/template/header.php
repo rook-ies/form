@@ -405,7 +405,7 @@
                                 <li>
                                     <a href="<?php echo base_url() ?>dashboardAdminBiasa">
                                         <i class="metismenu-icon pe-7s-rocket"></i>
-                                        Dashboard Example 1
+                                        Dashboard
                                     </a>
                                 </li>
                                 <li>

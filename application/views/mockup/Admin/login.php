@@ -43,7 +43,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <a href="mockupAdmin/dashboard"><button class="btn btn-primary submit-btn btn-block">Login</button</a>
+                  <a href="dashboard"><button class="btn btn-primary submit-btn btn-block">Login</button</a>
                 </div>
                 <?php if($this->session->flashdata('message')) { ?>
                     <div class="alert alert-danger">
