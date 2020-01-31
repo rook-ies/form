@@ -14,7 +14,7 @@
         <td><?php echo form_radio("pengalaman", 'iya', FALSE); ?>Ya</td>
       </tr>
       <tr>
-        <td><?php echo form_radio("pengalaman", 'tidak', FALSE); ?>Tidak</td>
+        <td><?php echo form_radio("pengalaman", 'tidak', TRUE); ?>Tidak</td>
       </tr>
       <tr>
         <td>b.	Mohon sebutkan pengalaman tidak menyenangkan yang pernah Anda alami beserta lokasi dan waktu kejadiannya</td>
@@ -38,4 +38,3 @@
         <td><input type="date" name="tanggal" placeholder="DD-MM-YYYY"></td>
       </tr>
   </table>
-</center>
