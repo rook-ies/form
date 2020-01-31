@@ -68,8 +68,13 @@ class dashboardAdminBiasa extends CI_Controller{
           // echo " = ".$sum;
           // echo " >>>> ". $sum/$j;
           $hitungan['QUESTION'] = $key->QUESTION;
-          $hitungan['TKM'] = $sum/$j;
-          $hitungan['PRIORITY'] = $sum2/$j;
+          if($j!=0){
+              $hitungan['TKM'] = $sum/$j;
+              $hitungan['PRIORITY'] = $sum2/$j;
+          }else{
+              $hitungan['TKM'] = 0;
+              $hitungan['PRIORITY'] = 1;
+          }
 
           $data['chart'][$i] = $hitungan;
           // $data['chart'] = $hitungan;

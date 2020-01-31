@@ -10,7 +10,7 @@ class model_place extends CI_Model{
   }
 
   public function showPlace($idPlace){
-    $place = $this->db->select('p.NAMA, pt.TYPE,pc.CATEGORY')
+    $place = $this->db->select('p.NAMA, pt.TYPE,pc.CATEGORY ,p.ID_PLACE')
           ->from('PLACE AS p, PLACE_TYPE AS pt,PLACE_CATEGORY AS pc')
           ->where('p.ID_PLACE_TYPE = pt.ID_PLACE_TYPE')
           ->where('p.ID_PLACE_CATEGORY = pc.ID_PLACE_CATEGORY')

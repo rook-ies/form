@@ -4,16 +4,19 @@
 </h1>
         <table border="1" cellspacing="0" cellpadding="5" width="80%">
             <tr>
-                <td width="200">NAMA <?php echo $place['TYPE']; ?> </td>
+                <td width="200">NAMA <?php echo $place['TYPE']; ?></td>
                 <td colspan="3"><?php echo $place['NAMA'] ?></td>
+                <?php echo form_hidden('kodeSurveyor',$place['ID_PLACE']); ?>
             </tr>
             <tr>
                 <td>JENIS <?php echo $place['TYPE']; ?></td>
                 <td colspan="3"><?php echo $place['CATEGORY']; ?></td>
+                <?php echo form_hidden('noResponden',1); ?>
             </tr>
             <tr>
-                <td>JENIS LAYANAN</td>
+                <td>JENIS LAYANAN </td>
                 <td colspan="3"><?php echo $service['SERVICE_TYPE']; ?></td>
+                <?php echo form_hidden('unitPelayanan',$service['ID_SERVICE_TYPE']); ?>
             </tr>
             <tr>
                 <!-- <td>NO. RESPONDEN</td>
