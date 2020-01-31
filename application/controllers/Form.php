@@ -282,8 +282,12 @@ class Form extends CI_Controller{
                             }
                         }
                     }
-                    $avg = $avg/$pembagi;
-                    echo "rata rata : >".$avg."<";
+                    if($pembagi!=0){
+                        $avg = $avg/$pembagi;
+                    } else {
+                        $avg = 0;
+                    }
+                    // echo "rata rata : >".$avg."<";
 
                     $params = array(
               				'ID_SUBMIT' => $submit_id,
@@ -294,8 +298,8 @@ class Form extends CI_Controller{
 
                     $tkm_answer_id = $this->Model_tkm_answer->add_tkm_answer($params);
                     //redirect('tkm_answer/index');
-
                 }
+                echo "Berhasil Mengisi data";
           } else {
               echo validation_errors();
               $data['_view'] = 'submit/add';
