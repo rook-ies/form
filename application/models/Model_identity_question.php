@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class model_identity_question extends CI_Model{
+class Model_identity_question extends CI_Model{
 
   public function __construct()
   {
@@ -31,7 +31,7 @@ class model_identity_question extends CI_Model{
 
     //return $count;
   }
-  
+
     /*
      * Get identity_question by ID_IDENTITY_QUESTION
      */

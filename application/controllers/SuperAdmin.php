@@ -7,7 +7,7 @@ class SuperAdmin extends CI_Controller{
     {
         parent::__construct();
         //Codeigniter : Write Less Do More
-        $this->load->model('model_superAdmin');
+        $this->load->model('Model_superAdmin');
 
     }
 
@@ -37,7 +37,7 @@ class SuperAdmin extends CI_Controller{
             $email = $this->security->xss_clean($this->input->post('username'));
             $password = $this->security->xss_clean($this->input->post('password'));
 
-            $user = $this->model_superAdmin->login($email, $password);
+            $user = $this->Model_superAdmin->login($email, $password);
 
             if($user){
                 $userdata = array(
