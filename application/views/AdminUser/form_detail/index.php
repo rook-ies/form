@@ -5,7 +5,7 @@
               	<div class="box box-info">
                     <div class="box-header with-border">
                       	<h3 class="box-title"><?php echo $title; ?></h3>
-                        <?php echo anchor('dashboardAdminBiasa/submit/'.$this->session->currentForm, 'back'); ?>
+                        <?php echo anchor(site_url('dashboardAdminBiasa/submit/'.$this->session->currentForm), 'back'); ?>
                     </div>
         			<div class="box-body">
                         <table class="table table-striped">

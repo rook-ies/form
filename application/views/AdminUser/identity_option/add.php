@@ -6,7 +6,7 @@
                 <div class="box-header with-border">
                   	<h3 class="box-title"><?php echo $title; ?></h3>
                 </div>
-                <?php echo form_open('identity_option/add'); ?>
+                <?php echo form_open(site_url('Identity_option/add')); ?>
               	<div class="box-body">
               		<div class="row clearfix">
     					<div class="col-md-6">
@@ -33,7 +33,7 @@
                 	<button type="submit" class="btn btn-success">
                 		<i class="fa fa-check"></i> Save
                 	</button>
-                  <?php echo anchor(base_url('identity_option'), 'Cancel'); ?>
+                  <?php echo anchor(site_url('Identity_option'), 'Cancel'); ?>
               	</div>
                 <?php echo form_close(); ?>
           	</div>

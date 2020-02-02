@@ -18,14 +18,14 @@
                             <td><?php echo $S['ID_SERVICE_TYPE']; ?></td>
                     		<td><?php echo $S['SERVICE_TYPE']; ?></td>
                     		<td>
-                                <a href="<?php echo site_url('service_type/edit/'.$S['ID_SERVICE_TYPE']); ?>">Edit</a> |
-                                <a href="<?php echo site_url('service_type/remove/'.$S['ID_SERVICE_TYPE']); ?>">Delete</a>
+                                <a href="<?php echo site_url('Service_type/edit/'.$S['ID_SERVICE_TYPE']); ?>">Edit</a> |
+                                <a href="<?php echo site_url('Service_type/remove/'.$S['ID_SERVICE_TYPE']); ?>">Delete</a>
                             </td>
                         </tr>
                         	<?php } ?>
                       </tbody>
                     </table>
-                    <a href=<?php echo base_url('service_type/add') ?>><button class="btn btn-success mr-2">Tambah</button></a>
+                    <a href=<?php echo site_url('Service_type/add') ?>><button class="btn btn-success mr-2">Tambah</button></a>
                   </div>
                 </div>
 		</div>

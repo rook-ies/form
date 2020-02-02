@@ -71,34 +71,34 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>dashboardAdmin">
+            <a class="nav-link" href="<?php echo site_url((); ?>/DashboardAdmin">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>admin">
+            <a class="nav-link" href="<?php echo site_url(); ?>/Admin">
               <i class="menu-icon mdi mdi-account"></i>
               <span class="menu-title">ADMIN</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>place">
+            <a class="nav-link" href="<?php echo site_url(); ?>/Place">
               <i class="menu-icon mdi mdi-hospital-marker"></i>
               <span class="menu-title">PLACE</span>
             </a>
           </li><li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>place_category">
+            <a class="nav-link" href="<?php echo site_url(); ?>/Place_category">
               <i class="menu-icon mdi mdi-google-circles-extended"></i>
               <span class="menu-title">CATEGORY</span>
             </a>
           </li><li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>place_type">
+            <a class="nav-link" href="<?php echo site_url(); ?>/Place_type">
               <i class="menu-icon mdi mdi-tag-outline"></i>
               <span class="menu-title">TYPE</span>
             </a>
           </li><li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>service_type">
+            <a class="nav-link" href="<?php echo site_url(); ?>/Service_type">
               <i class="menu-icon mdi mdi-settings"></i>
               <span class="menu-title">SERVICE TYPE</span>
             </a>

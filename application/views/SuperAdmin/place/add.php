@@ -2,7 +2,7 @@
   <div class="card">
 	  <div class="card-body">
         <h4 class="card-title"><?php echo $title ?></h4>
-		<?php echo form_open('place/add'); ?>
+		<?php echo form_open(site_url('Place/add')); ?>
 		  <div class="form-group row">
 	          <label for="exampleFormControlSelect2" class="col-sm-3 col-form-label">Place Type</label>
 			  <div class="col-sm-9">
@@ -45,7 +45,7 @@
 								<span class="text-danger"><?php echo form_error('NAMA');?></span>
 							</div>
           <button type="submit" class="btn btn-success mr-2">Submit</button>
-		  <?php echo anchor(base_url('place'), 'Cancel'); ?>
+		  <?php echo anchor(site_url('Place'), 'Cancel'); ?>
 		 <?php echo form_close(); ?>
       </div>
   </div>

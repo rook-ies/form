@@ -6,7 +6,7 @@
                 <div class="box-header">
                     <h3 class="box-title"><?php echo $title; ?></h3>
                 	<div class="box-tools">
-                        <a href="<?php echo site_url('identity_question/add'); ?>" class="btn btn-success btn-sm">Add</a>
+                        <a href="<?php echo site_url('Identity_question/add'); ?>" class="btn btn-success btn-sm">Add</a>
                     </div>
                 </div>
                 <div class="box-body">
@@ -21,8 +21,8 @@
     						<td><?php echo $I['ID_IDENTITY_QUESTION']; ?></td>
     						<td><?php echo $I['QUESTION']; ?></td>
     						<td>
-                                <a href="<?php echo site_url('identity_question/edit/'.$I['ID_IDENTITY_QUESTION']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
-                                <a href="<?php echo site_url('identity_question/remove/'.$I['ID_IDENTITY_QUESTION']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
+                                <a href="<?php echo site_url('Identity_question/edit/'.$I['ID_IDENTITY_QUESTION']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
+                                <a href="<?php echo site_url('Identity_question/remove/'.$I['ID_IDENTITY_QUESTION']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                             </td>
                         </tr>
                         <?php } ?>

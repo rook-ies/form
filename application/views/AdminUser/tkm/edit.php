@@ -6,7 +6,7 @@
                 <div class="box-header with-border">
                   	<h3 class="box-title"><?php echo $title; ?></h3>
                 </div>
-    			<?php echo form_open('tkm/edit/'.$tkm['ID_TKM']); ?>
+    			<?php echo form_open(site_url('Tkm/edit/'.$tkm['ID_TKM'])); ?>
     			<div class="box-body">
     				<div class="row clearfix">
                         <?php echo form_hidden('ID_FORM',$this->session->currentForm); ?>
@@ -23,7 +23,7 @@
                 	<button type="submit" class="btn btn-success">
     					<i class="fa fa-check"></i> Save
     				</button>
-            <?php echo anchor(base_url('/form/edit/'.$this->session->currentForm), 'back'); ?>
+            <?php echo anchor(site_url('/form/edit/'.$this->session->currentForm), 'back'); ?>
     	        </div>
     			<?php echo form_close(); ?>
     		</div>

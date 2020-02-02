@@ -1,7 +1,7 @@
 <div class="main-card mb-3 card">
     <div class="card-body">
         <h5 class="card-title">Ganti Password</h5>
-        <form method="post" class="needs-validation" novalidate="" action="<?php echo base_url() ?>/AdminUser/SavePassword">
+        <form method="post" class="needs-validation" novalidate="" action="<?php echo site_url() ?>/AdminUser/SavePassword">
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom01">Old Password</label>

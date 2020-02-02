@@ -6,7 +6,7 @@
 
                 <div class="box-header">
                     <h3 class="box-title">BIAYA/TARIF</h3>
-                    <a href="<?php echo base_url(); ?>form/edit/<?php echo $this->session->currentForm; ?>">Kembali</a>
+                    <a href="<?php echo site_url(); ?>form/edit/<?php echo $this->session->currentForm; ?>">Kembali</a>
                 </div>
                 <div class="box-body">
                     <table class="table table-striped">
@@ -24,8 +24,8 @@
     						<!-- <td><?php echo $B['ID_FORM']; ?></td> -->
     						<td><?php echo $B['QUESTION']; ?></td>
     						<td>
-                                <a href="<?php echo site_url('biaya_question/edit/'.$B['ID_BIAYA_QUESTION']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
-                                <a href="<?php echo site_url('biaya_question/remove/'.$B['ID_BIAYA_QUESTION']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
+                                <a href="<?php echo site_url('Biaya_question/edit/'.$B['ID_BIAYA_QUESTION']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
+                                <a href="<?php echo site_url('Biaya_question/remove/'.$B['ID_BIAYA_QUESTION']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                             </td>
                         </tr>
                         <?php } ?>
@@ -33,7 +33,7 @@
                     <div class="box-header">
                         <h3 class="box-title">Tambahkan data baru</h3>
                     </div>
-                    <?php echo form_open('biaya_question/add'); ?>
+                    <?php echo form_open(site_url('Biaya_question/add')); ?>
                     <div class="col-md-6">
                         <label for="ID_TIPE_BAYAR" class="control-label"><span class="text-danger">*</span>Tipe Bayar</label>
                         <div class="form-group">

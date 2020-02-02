@@ -6,7 +6,7 @@
                 <div class="box-header with-border">
                   	<h3 class="box-title"><?php echo $title; ?></h3>
                 </div>
-                <?php echo form_open('additional_identity_option/add'); ?>
+                <?php echo form_open(site_url('Additional_identity_option/add')); ?>
               	<div class="box-body">
               		<div class="row clearfix">
     					<!-- <div class="col-md-6">
@@ -57,7 +57,7 @@
                 	<button type="submit" class="btn btn-success">
                 		<i class="fa fa-check"></i> Save
                 	</button>
-                  <?php echo anchor(base_url('additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion), 'Cancel'); ?>
+                  <?php echo anchor(site_url('Additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion), 'Cancel'); ?>
               	</div>
                 <?php echo form_close(); ?>
           	</div>
