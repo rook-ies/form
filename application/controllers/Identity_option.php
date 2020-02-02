@@ -40,7 +40,7 @@ class Identity_option extends CI_Controller{
             );
 
             $identity_option_id = $this->Model_identity_option->add_identity_option($params);
-            redirect('identity_option/index');
+            redirect(site_url('Identity_option/index'));
         }
         else
         {
@@ -72,7 +72,7 @@ class Identity_option extends CI_Controller{
                 );
 
                 $this->Model_identity_option->update_identity_option($ID_IDENTITY_OPTION,$params);
-                redirect('identity_option/index');
+                redirect(site_url('Identity_option/index'));
             }
             else
             {
@@ -99,7 +99,7 @@ class Identity_option extends CI_Controller{
         if(isset($identity_option['ID_IDENTITY_OPTION']))
         {
             $this->Model_identity_option->delete_identity_option($ID_IDENTITY_OPTION);
-            redirect('identity_option/index');
+            redirect(site_url('Identity_option/index'));
         }
         else
             show_error('The identity_option you are trying to delete does not exist.');

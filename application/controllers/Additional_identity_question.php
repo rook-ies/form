@@ -46,7 +46,7 @@ class Additional_identity_question extends CI_Controller{
             );
 
             $additional_identity_question_id = $this->Model_additional_identity_question->add_additional_identity_question($params);
-            redirect('form/edit/'.$this->input->post('ID_FORM'));
+            redirect(site_url('Form/edit/'.$this->input->post('ID_FORM')));
         }
         else
         {
@@ -86,7 +86,7 @@ class Additional_identity_question extends CI_Controller{
                 );
 
                 $this->Model_additional_identity_question->update_additional_identity_question($ID_ADDITIONAL_IDENTITY_QUESTION,$params);
-                redirect('form/edit/'.$this->session->currentForm);
+                redirect(site_url('Form/edit/'.$this->session->currentForm));
             }
             else
             {
@@ -120,7 +120,7 @@ class Additional_identity_question extends CI_Controller{
         if(isset($additional_identity_question['ID_ADDITIONAL_IDENTITY_QUESTION']))
         {
             $this->Model_additional_identity_question->delete_additional_identity_question($ID_ADDITIONAL_IDENTITY_QUESTION);
-            redirect('form/edit/'.$this->session->currentForm);
+            redirect(site_url('Form/edit/'.$this->session->currentForm));
         }
         else
             show_error('The additional_identity_question you are trying to delete does not exist.');

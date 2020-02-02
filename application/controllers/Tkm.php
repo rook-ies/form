@@ -45,7 +45,7 @@ class Tkm extends CI_Controller{
             );
 
             $tkm_id = $this->Model_tkm->add_tkm($params);
-            redirect('/form/edit/'.$this->session->currentForm);
+            redirect(site_url('Form/edit/'.$this->session->currentForm));
         }
         else
         {
@@ -84,7 +84,7 @@ class Tkm extends CI_Controller{
                 );
 
                 $this->Model_tkm->update_tkm($ID_TKM,$params);
-                redirect('/form/edit/'.$this->session->currentForm);
+                redirect(site_url('Form/edit/'.$this->session->currentForm));
             }
             else
             {
@@ -117,7 +117,7 @@ class Tkm extends CI_Controller{
         if(isset($tkm['ID_TKM']))
         {
             $this->Model_tkm->delete_tkm($ID_TKM);
-            redirect('/form/edit/'.$this->session->currentForm);
+            redirect(site_url('Form/edit/'.$this->session->currentForm));
         }
         else
             show_error('The tkm you are trying to delete does not exist.');

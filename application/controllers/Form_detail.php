@@ -41,7 +41,7 @@ class Form_detail extends CI_Controller{
             );
 
             $form_detail_id = $this->Model_form_detail->add_form_detail($params);
-            redirect('form_detail/index');
+            redirect(site_url('Form_detail/index'));
         }
         else
         {
@@ -70,7 +70,7 @@ class Form_detail extends CI_Controller{
                 );
 
                 $this->Model_form_detail->update_form_detail($ID,$params);
-                redirect('form_detail/index');
+                redirect(site_url('Form_detail/index'));
             }
             else
             {
@@ -93,7 +93,7 @@ class Form_detail extends CI_Controller{
         if(isset($form_detail['ID']))
         {
             $this->Model_form_detail->delete_form_detail($ID);
-            redirect('form_detail/index');
+            redirect(site_url('Form_detail/index'));
         }
         else
             show_error('The form_detail you are trying to delete does not exist.');

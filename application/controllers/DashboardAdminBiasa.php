@@ -20,7 +20,7 @@ class DashboardAdminBiasa extends CI_Controller{
 
       private function logged_in() {
         if(! $this->session->userdata('authenticated')) {
-            redirect('AdminUser/login');
+            redirect(site_url('AdminUser/login'));
         }
     }
 

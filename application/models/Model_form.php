@@ -45,7 +45,8 @@ class Model_form extends CI_Model{
         $form = $this->db->select('F.ID_FORM,F.TITLE,F.DESCRIPTION,ST.SERVICE_TYPE')
               ->from('FORM AS F,SERVICE_TYPE AS ST')
               ->where('F.ID_SERVICE_TYPE = ST.ID_SERVICE_TYPE')
-              ->where('F.ID_PLACE',$ID_PLACE);
+              ->where('F.ID_PLACE',$ID_PLACE)
+              ->order_by('ID_FORM','desc');
           $form = $this->db->get();
           return $form->result_array();
         // $this->db->where('ID_PLACE',$ID_PLACE);

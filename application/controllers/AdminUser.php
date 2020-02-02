@@ -10,14 +10,6 @@ class AdminUser extends CI_Controller{
     $this->load->model('Model_admin');
   }
 
-  private function logged_in()
-  {
-      if( ! $this->session->userdata('authenticated')){
-          $this->login();
-          //echo "belum login";
-      }
-  }
-
   public function login()
   {
       $data['title'] = "Login";
@@ -35,10 +27,10 @@ class AdminUser extends CI_Controller{
       else {
           $email = $this->security->xss_clean($this->input->post('email'));
           $password = $this->security->xss_clean($this->input->post('password'));
-          echo $email;
-          echo $password;
+          // echo $email;
+          // echo $password;
           $user = $this->Model_admin->login($email, $password);
-          print_r($user);
+          // print_r($user);
           if($user){
               $this->load->model('Model_place');
               $namaPlace = $this->Model_place->get_place($user->ID_PLACE);
@@ -54,11 +46,11 @@ class AdminUser extends CI_Controller{
 
               $this->session->set_userdata($userdata);
               //echo "bisa login";
-              redirect('dashboardAdminBiasa');
+              redirect(site_url('DashboardAdminBiasa'));
           }
           else {
               $this->session->set_flashdata('message', 'Invalid email or password');
-              redirect('AdminUser/login');
+              redirect(site_url('AdminUser/login'));
               //echo "gabisa login";
           }
       }
@@ -69,7 +61,7 @@ class AdminUser extends CI_Controller{
       $this->session->sess_destroy();
       //redirect('users/login');
       //echo "bisa logout";
-      redirect('AdminUser/login');
+      redirect(site_url('AdminUser/login'));
   }
   public function gantiPassword()
   {
@@ -95,7 +87,7 @@ class AdminUser extends CI_Controller{
         if ($this->form_validation->run() == FALSE)
         {
             $this->session->set_flashdata('messagePassword', 'Harap isi dengan Benar');
-            redirect('AdminUser/gantiPassword');
+            redirect(site_url('AdminUser/gantiPassword'));
         }
         else
         {
@@ -108,13 +100,11 @@ class AdminUser extends CI_Controller{
             // echo "<br>".$this->session->password;
             if(sha1($password) != $this->session->password){
                 $this->session->set_flashdata('messagePassword', 'Password lama salah');
-                redirect('AdminUser/gantiPassword');
                 //echo "lama salah";
             }
             else if($newpassword != $newCpassword){
                 $this->session->set_flashdata('messagePassword', 'Password konfirmasi salah');
                 // echo "baru gak sama";
-                redirect('AdminUser/gantiPassword');
             } else {
                 $this->session->set_flashdata('messagePasswordSusscess', 'Berhasil Mengganti Password');
 
@@ -125,8 +115,8 @@ class AdminUser extends CI_Controller{
                 $this->Model_admin->update_admin($this->session->id_admin,$params);
                 $this->session->password = sha1($newpassword);
 
-                redirect('AdminUser/gantiPassword');
             }
+            redirect(site_url('AdminUser/gantiPassword'));
         }
   }
 

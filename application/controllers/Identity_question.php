@@ -42,7 +42,7 @@ class Identity_question extends CI_Controller{
             );
 
             $identity_question_id = $this->Model_identity_question->add_identity_question($params);
-            redirect('identity_question/index');
+            redirect(site_url('Identity_question/index'));
         }
         else
         {
@@ -76,7 +76,7 @@ class Identity_question extends CI_Controller{
                 );
 
                 $this->Model_identity_question->update_identity_question($ID_IDENTITY_QUESTION,$params);
-                redirect('identity_question/index');
+                redirect(site_url('Identity_question/index'));
             }
             else
             {
@@ -103,7 +103,7 @@ class Identity_question extends CI_Controller{
         if(isset($identity_question['ID_IDENTITY_QUESTION']))
         {
             $this->Model_identity_question->delete_identity_question($ID_IDENTITY_QUESTION);
-            redirect('identity_question/index');
+            redirect(site_url('Identity_question/index'));
         }
         else
             show_error('The identity_question you are trying to delete does not exist.');

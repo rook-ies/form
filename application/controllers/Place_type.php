@@ -14,7 +14,7 @@ class Place_type extends CI_Controller{
 
     private function logged_in() {
         if(! $this->session->userdata('authenticated')) {
-            redirect('superAdmin/login');
+            redirect(site_url('SuperAdmin/login'));
         }
     }
     /*
@@ -47,7 +47,7 @@ class Place_type extends CI_Controller{
                 );
 
             $place_type_id = $this->Model_place_type->add_place_type($params);
-            redirect('place_type/index');
+            redirect(site_url('Place_type/index'));
         }
         else
         {
@@ -80,7 +80,7 @@ class Place_type extends CI_Controller{
                 );
 
                 $this->Model_place_type->update_place_type($ID_PLACE_TYPE,$params);
-                redirect('place_type/index');
+                redirect(site_url('Place_type/index'));
             }
             else
             {
@@ -106,7 +106,7 @@ class Place_type extends CI_Controller{
         if(isset($place_type['ID_PLACE_TYPE']))
         {
             $this->Model_place_type->delete_place_type($ID_PLACE_TYPE);
-            redirect('place_type/index');
+            redirect(site_url('place_type/index'));
         }
         else
             show_error('The place_type you are trying to delete does not exist.');

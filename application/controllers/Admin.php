@@ -13,7 +13,7 @@ class Admin extends CI_Controller{
 
     private function logged_in() {
         if(! $this->session->userdata('authenticated')) {
-            redirect('superAdmin/login');
+            redirect(site_url('SuperAdmin/login'));
         }
     }
     /*
@@ -52,7 +52,7 @@ class Admin extends CI_Controller{
             );
 
             $admin_id = $this->Model_admin->add_admin($params);
-            redirect('admin/index');
+            redirect(site_url('Admin/index'));
         }
         else
         {
@@ -94,7 +94,7 @@ class Admin extends CI_Controller{
                 );
 
                 $this->Model_admin->update_admin($ID_ADMIN,$params);
-                redirect('admin/index');
+                redirect(site_url('Admin/index'));
             }
             else
             {
@@ -122,7 +122,7 @@ class Admin extends CI_Controller{
         if(isset($admin['ID_ADMIN']))
         {
             $this->Model_admin->delete_admin($ID_ADMIN);
-            redirect('admin/index');
+            redirect(site_url('Admin/index'));
         }
         else
             show_error('The admin you are trying to delete does not exist.');
