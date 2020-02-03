@@ -106,7 +106,7 @@ class Place_type extends CI_Controller{
         if(isset($place_type['ID_PLACE_TYPE']))
         {
             $this->Model_place_type->delete_place_type($ID_PLACE_TYPE);
-            redirect(site_url('place_type/index'));
+            redirect(site_url('Place_type/index'));
         }
         else
             show_error('The place_type you are trying to delete does not exist.');

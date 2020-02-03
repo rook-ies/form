@@ -50,7 +50,7 @@ class Place extends CI_Controller{
             );
 
             $place_id = $this->Model_place->add_place($params);
-            redirect(site_url('place/index'));
+            redirect(site_url('Place/index'));
         }
         else
         {
