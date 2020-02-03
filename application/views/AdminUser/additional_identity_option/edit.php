@@ -6,7 +6,7 @@
                 <div class="box-header with-border">
                   	<h3 class="box-title"><?php echo $title; ?></h3>
                 </div>
-    			<?php echo form_open('additional_identity_option/edit/'.$additional_identity_option['ID_ADDITIONAL_IDENTITY_OPTION'].'/'.$this->uri->segment(4).'/'.$this->uri->segment(5)); ?>
+    			<?php echo form_open(site_url('Additional_identity_option/edit/'.$additional_identity_option['ID_ADDITIONAL_IDENTITY_OPTION'].'/'.$this->uri->segment(4).'/'.$this->uri->segment(5))); ?>
     			<div class="box-body">
     				<div class="row clearfix">
                         <?php echo form_hidden('ID_ADDITIONAL_IDENTITY_QUESTION',$this->session->currentAdditionalIdentityQuestion); ?>
@@ -40,7 +40,7 @@
                 	<button type="submit" class="btn btn-success">
     					<i class="fa fa-check"></i> Save
     				</button>
-            <?php echo anchor(base_url('additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion), 'back'); ?>
+            <?php echo anchor(site_url('Additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion), 'back'); ?>
     	        </div>
     			<?php echo form_close(); ?>
     		</div>

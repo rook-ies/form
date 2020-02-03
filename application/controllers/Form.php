@@ -25,11 +25,6 @@ class Form extends CI_Controller{
     // $this->logged_in();
     }
 
-    private function logged_in() {
-        if(! $this->session->userdata('authenticated')) {
-            redirect('AdminUser/login');
-        }
-    }
 
     public function listTempat() {
         $data['place'] = $this->Model_place->get_all_place();
@@ -479,7 +474,7 @@ class Form extends CI_Controller{
           );
 
           $form_id = $this->Model_form->add_form($params);
-          redirect('form/list');
+          redirect(site_url('Form/list'));
       }
       else
       {
@@ -524,7 +519,7 @@ class Form extends CI_Controller{
               );
 
               $this->Model_form->update_form($ID_FORM,$params);
-              redirect('form/list');
+              redirect(site_url('Form/list'));
           }
           else
           {
@@ -563,7 +558,7 @@ class Form extends CI_Controller{
       if(isset($form['ID_FORM']))
       {
           $this->Model_form->delete_form($ID_FORM);
-          redirect('form/list');
+          redirect(site_url('Form/list'));
       }
       else
           show_error('The form you are trying to delete does not exist.');

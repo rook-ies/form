@@ -1,4 +1,4 @@
-<?php echo form_open('form/simpan'); ?>
+<?php echo form_open(site_url('form/simpan')); ?>
 <center>
         <h1><?php echo $form['TITLE']; ?>
 </h1>

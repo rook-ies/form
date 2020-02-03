@@ -14,7 +14,7 @@ class Place_category extends CI_Controller{
 
     private function logged_in() {
         if(! $this->session->userdata('authenticated')) {
-            redirect('superAdmin/login');
+            redirect(site_url('SuperAdmin/login'));
         }
     }
     /*
@@ -47,7 +47,7 @@ class Place_category extends CI_Controller{
             );
 
             $place_category_id = $this->Model_place_category->add_place_category($params);
-            redirect('place_category/index');
+            redirect(site_url('Place_category/index'));
         }
         else
         {
@@ -81,7 +81,7 @@ class Place_category extends CI_Controller{
                 );
 
                 $this->Model_place_category->update_place_category($ID_PLACE_CATEGORY,$params);
-                redirect('place_category/index');
+                redirect(site_url('place_category/index'));
             }
             else
             {
@@ -107,7 +107,7 @@ class Place_category extends CI_Controller{
         if(isset($place_category['ID_PLACE_CATEGORY']))
         {
             $this->Model_place_category->delete_place_category($ID_PLACE_CATEGORY);
-            redirect('place_category/index');
+            redirect(site_url('Place_category/index'));
         }
         else
             show_error('The place_category you are trying to delete does not exist.');

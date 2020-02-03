@@ -27,8 +27,8 @@
 						<td><?php echo $I['EDUCATION']; ?></td>
 						<td><?php echo $I['JOB']; ?></td>
 						<td>
-                            <a href="<?php echo site_url('identity_answer/edit/'.$I['ID_IDENTITY_ANSWER']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
-                            <a href="<?php echo site_url('identity_answer/remove/'.$I['ID_IDENTITY_ANSWER']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
+                            <a href="<?php echo site_url('Identity_answer/edit/'.$I['ID_IDENTITY_ANSWER']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
+                            <a href="<?php echo site_url('Identity_answer/remove/'.$I['ID_IDENTITY_ANSWER']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                         </td>
                     </tr>
                     <?php } ?>

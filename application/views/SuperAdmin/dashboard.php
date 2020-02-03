@@ -1,1 +1,1 @@
-<h1>dasboard admin</h1>
+<h1>dasboard super admin</h1>

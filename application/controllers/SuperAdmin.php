@@ -48,11 +48,11 @@ class SuperAdmin extends CI_Controller{
 
                 $this->session->set_userdata($userdata);
                 //echo "bisa login";
-                redirect('dashboardAdmin');
+                redirect(site_url('DashboardAdmin'));
             }
             else {
                 $this->session->set_flashdata('message', 'Invalid email or password');
-                redirect('superAdmin/login');
+                redirect(site_url('SuperAdmin/login'));
                 //echo "gabisa login";
             }
         }
@@ -63,7 +63,7 @@ class SuperAdmin extends CI_Controller{
         $this->session->sess_destroy();
         //redirect('users/login');
         //echo "bisa logout";
-        redirect('superAdmin/login');
+        redirect(site_url('SuperAdmin/login'));
     }
 
 }

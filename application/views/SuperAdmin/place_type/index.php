@@ -18,14 +18,14 @@
               		<td><?php echo $P['ID_PLACE_TYPE']; ?></td>
               		<td><?php echo $P['TYPE']; ?></td>
               		<td>
-                          <a href="<?php echo site_url('place_type/edit/'.$P['ID_PLACE_TYPE']); ?>">Edit</a> |
-                          <a href="<?php echo site_url('place_type/remove/'.$P['ID_PLACE_TYPE']); ?>">Delete</a>
+                          <a href="<?php echo site_url('Place_type/edit/'.$P['ID_PLACE_TYPE']); ?>">Edit</a> |
+                          <a href="<?php echo site_url('Place_type/remove/'.$P['ID_PLACE_TYPE']); ?>">Delete</a>
                       </td>
                   </tr>
               	<?php } ?>
               </tbody>
             </table>
-             <a href=<?php echo base_url('place_type/add') ?>><button class="btn btn-success mr-2">Tambah</button></a>
+             <a href=<?php echo site_url('Place_type/add') ?>><button class="btn btn-success mr-2">Tambah</button></a>
           </div>
         </div>
     </div>

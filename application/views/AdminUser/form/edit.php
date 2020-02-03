@@ -6,7 +6,7 @@
                 <div class="box-header with-border">
                   	<h3 class="box-title"><?php echo $title; ?></h3>
                 </div>
-    			<?php echo form_open('form/edit/'.$form['ID_FORM']); ?>
+    			<?php echo form_open(site_url('form/edit/'.$form['ID_FORM'])); ?>
     			<div class="box-body">
     				<div class="row clearfix">
     					<!-- <div class="col-md-6">

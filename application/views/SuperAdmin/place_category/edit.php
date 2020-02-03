@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title"><?php echo $title ?></h4>
-          <?php echo form_open('place_category/edit/'.$place_category['ID_PLACE_CATEGORY']); ?>
+          <?php echo form_open(site_url('Place_category/edit/'.$place_category['ID_PLACE_CATEGORY'])); ?>
             <div class="form-group row">
               <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Type</label>
               <div class="col-sm-9">
@@ -13,7 +13,7 @@
 							</div>
             </div>
             <button type="submit" class="btn btn-success mr-2">Save</button>
-            <?php echo anchor(base_url('place_category'), 'Cancel'); ?>
+            <?php echo anchor(site_url('Place_category'), 'Cancel'); ?>
           <?php echo form_close(); ?>
         </div>
       </div>

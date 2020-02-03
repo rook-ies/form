@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class dashboardAdminBiasa extends CI_Controller{
+class DashboardAdminBiasa extends CI_Controller{
 
     public function __construct()
     {
@@ -20,7 +20,7 @@ class dashboardAdminBiasa extends CI_Controller{
 
       private function logged_in() {
         if(! $this->session->userdata('authenticated')) {
-            redirect('AdminUser/login');
+            redirect(site_url('AdminUser/login'));
         }
     }
 
@@ -52,6 +52,9 @@ class dashboardAdminBiasa extends CI_Controller{
 
       // print_r($data['tkm']);
       $i=0;
+      $data['chart'][0]['TKM'] = "";
+      $data['chart'][0]['PRIORITY'] = "";
+      $data['chart'][0]['QUESTION'] = "";
       foreach ($data['tkm'] as $key) {
           // echo "<br>id TKM".$key->QUESTION.' =>>>';
           $num = $this->Model_tkm_answer->get_tkm_answer_per_tkm($key->ID_TKM)->result_array();

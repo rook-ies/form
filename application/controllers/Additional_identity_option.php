@@ -46,7 +46,7 @@ class Additional_identity_option extends CI_Controller{
             );
 
             $additional_identity_option_id = $this->Model_additional_identity_option->add_additional_identity_option($params);
-            redirect('additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion);
+            redirect(site_url('Additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion));
         }
         else
         {
@@ -91,7 +91,7 @@ class Additional_identity_option extends CI_Controller{
 
                 $this->Model_additional_identity_option->update_additional_identity_option($ID_ADDITIONAL_IDENTITY_OPTION,$params);
                 //echo "bisa";
-                redirect('additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion);
+                redirect(site_url('Additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion));
             }
             else
             {
@@ -125,7 +125,7 @@ class Additional_identity_option extends CI_Controller{
         if(isset($additional_identity_option['ID_ADDITIONAL_IDENTITY_OPTION']))
         {
             $this->Model_additional_identity_option->delete_additional_identity_option($ID_ADDITIONAL_IDENTITY_OPTION);
-            redirect('additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion);
+            redirect(site_url('Additional_identity_question/edit/'.$this->session->currentAdditionalIdentityQuestion));
         }
         else
             show_error('The additional_identity_option you are trying to delete does not exist.');

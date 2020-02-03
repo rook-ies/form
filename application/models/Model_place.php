@@ -35,7 +35,8 @@ class Model_place extends CI_Model{
       $place = $this->db->select('p.ID_PLACE as ID_PLACE,p.NAMA, pt.TYPE,pc.CATEGORY')
             ->from('PLACE AS p, PLACE_TYPE AS pt,PLACE_CATEGORY AS pc')
             ->where('p.ID_PLACE_TYPE = pt.ID_PLACE_TYPE')
-            ->where('p.ID_PLACE_CATEGORY = pc.ID_PLACE_CATEGORY');
+            ->where('p.ID_PLACE_CATEGORY = pc.ID_PLACE_CATEGORY')
+            ->order_by('p.ID_PLACE','asc');
         $place = $this->db->get();
         return $place->result_array();
       // $this->db->order_by('ID_PLACE', 'desc');

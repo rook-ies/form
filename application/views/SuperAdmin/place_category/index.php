@@ -18,8 +18,8 @@
                   <td><?php echo $P['ID_PLACE_CATEGORY']; ?></td>
                   <td><?php echo $P['CATEGORY']; ?></td>
                   <td>
-                          <a href="<?php echo site_url('place_category/edit/'.$P['ID_PLACE_CATEGORY']); ?>">Edit</a> |
-                          <a href="<?php echo site_url('place_category/remove/'.$P['ID_PLACE_CATEGORY']); ?>">Delete</a>
+                          <a href="<?php echo site_url('Place_category/edit/'.$P['ID_PLACE_CATEGORY']); ?>">Edit</a> |
+                          <a href="<?php echo site_url('Place_category/remove/'.$P['ID_PLACE_CATEGORY']); ?>">Delete</a>
                       </td>
                   </tr>
                 <?php } ?>

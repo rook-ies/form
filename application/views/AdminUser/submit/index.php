@@ -147,7 +147,7 @@
               	<div class="box box-info">
                     <div class="box-header with-border">
                       	<h3 class="box-title">Data graph <?php echo $titleForm['TITLE']; ?></h3>
-                        <?php echo anchor('dashboardAdminBiasa', 'back'); ?>
+                        <?php echo anchor(site_url('DashboardAdminBiasa'), 'back'); ?>
                     </div>
         			<div class="box-body">
                         <div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
@@ -191,7 +191,7 @@
                             </tr>
                             <?php foreach($submit as $S){ ?>
                             <tr>
-        						<td><a href="<?php echo base_url() ?>dashboardAdminBiasa/submitDetail/<?php echo $S['ID_SUBMIT']; ?>"><?php echo $S['ID_SUBMIT']; ?></td>
+        						<td><a href="<?php echo site_url() ?>/DashboardAdminBiasa/submitDetail/<?php echo $S['ID_SUBMIT']; ?>"><?php echo $S['ID_SUBMIT']; ?></td>
         						<!-- <td><?php echo $S['ID_FORM']; ?></td> -->
         						<td><?php echo $S['UNIT_EXPECTANCY']; ?></td>
         						<td><?php echo $S['PLACE_EXPECTANCY']; ?></td>

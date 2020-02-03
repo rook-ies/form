@@ -14,7 +14,7 @@ class Service_type extends CI_Controller{
 
       private function logged_in() {
         if(! $this->session->userdata('authenticated')) {
-            redirect('superAdmin/login');
+            redirect(site_url('SuperAdmin/login'));
         }
     }
     /*
@@ -47,7 +47,7 @@ class Service_type extends CI_Controller{
             );
 
             $service_type_id = $this->Model_service_type->add_service_type($params);
-            redirect('service_type/index');
+            redirect(site_url('Service_type/index'));
         }
         else
         {
@@ -80,7 +80,7 @@ class Service_type extends CI_Controller{
                 );
 
                 $this->Model_service_type->update_service_type($ID_SERVICE_TYPE,$params);
-                redirect('service_type/index');
+                redirect(site_url('Service_type/index'));
             }
             else
             {
@@ -106,7 +106,7 @@ class Service_type extends CI_Controller{
         if(isset($service_type['ID_SERVICE_TYPE']))
         {
             $this->Model_service_type->delete_service_type($ID_SERVICE_TYPE);
-            redirect('service_type/index');
+            redirect(site_url('Service_type/index'));
         }
         else
             show_error('The service_type you are trying to delete does not exist.');

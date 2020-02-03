@@ -6,7 +6,7 @@
                 <div class="box-header with-border">
                   	<h3 class="box-title"><?php echo $title; ?></h3>
                 </div>
-                <?php echo form_open('biaya_question/add'); ?>
+                <?php echo form_open(site_url('Biaya_question/add')); ?>
               	<div class="box-body">
               		<div class="row clearfix">
     					<div class="col-md-6">
@@ -40,7 +40,7 @@
                 	<button type="submit" class="btn btn-success">
                 		<i class="fa fa-check"></i> Save
                 	</button>
-                  <?php echo anchor(base_url('biaya_question/load/'.$this->session->currentForm), 'back'); ?>
+                  <?php echo anchor(site_url('Biaya_question/load/'.$this->session->currentForm), 'back'); ?>
               	</div>
                 <?php echo form_close(); ?>
           	</div>

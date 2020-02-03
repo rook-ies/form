@@ -6,7 +6,7 @@
                 <div class="box-header with-border">
                   	<h3 class="box-title">Tkm Question Add</h3>
                 </div>
-                <?php echo form_open('tkm_question/add'); ?>
+                <?php echo form_open(site_url('Tkm_question/add')); ?>
               	<div class="box-body">
               		<div class="row clearfix">
                         <?php echo form_hidden('ID_TKM',$this->session->currentTKM); ?>
@@ -23,7 +23,7 @@
                 	<button type="submit" class="btn btn-success">
                 		<i class="fa fa-check"></i> Save
                 	</button>
-                  <?php echo anchor(base_url('tkm/edit/'.$this->session->currentTKM), 'back'); ?>
+                  <?php echo anchor(site_url('Tkm/edit/'.$this->session->currentTKM), 'back'); ?>
               	</div>
                 <?php echo form_close(); ?>
           	</div>

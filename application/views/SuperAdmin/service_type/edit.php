@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-body">
       <h4 class="card-title"><?php echo $title ?></h4>
-	  <?php echo form_open('service_type/edit/'.$service_type['ID_SERVICE_TYPE']); ?>
+	  <?php echo form_open(site_url('Service_type/edit/'.$service_type['ID_SERVICE_TYPE'])); ?>
         <div class="form-group row">
           <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Service Type</label>
           <div class="col-sm-9">
@@ -11,7 +11,7 @@
         </div>
 		<span class="text-danger"><?php echo form_error('SERVICE_TYPE');?></span>
         <button type="submit" class="btn btn-success mr-2">Submit</button>
-		<?php echo anchor(base_url('service_type'), 'Cancel'); ?>
+		<?php echo anchor(site_url('Service_type'), 'Cancel'); ?>
 	  <?php echo form_close(); ?>
     </div>
   </div>

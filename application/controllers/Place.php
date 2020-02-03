@@ -13,7 +13,7 @@ class Place extends CI_Controller{
 
     private function logged_in() {
         if(! $this->session->userdata('authenticated')) {
-            redirect('superAdmin/login');
+            redirect(site_url('SuperAdmin/login'));
         }
     }
     /*
@@ -50,7 +50,7 @@ class Place extends CI_Controller{
             );
 
             $place_id = $this->Model_place->add_place($params);
-            redirect('place/index');
+            redirect(site_url('place/index'));
         }
         else
         {
@@ -93,7 +93,7 @@ class Place extends CI_Controller{
                 );
 
                 $this->Model_place->update_place($ID_PLACE,$params);
-                redirect('place/index');
+                redirect(site_url('Place/index'));
             }
             else
             {
@@ -105,7 +105,7 @@ class Place extends CI_Controller{
 
                 $data['title'] = 'Edit place';
                 $data['_view'] = 'place/edit';
-                print_r($data['place']);
+                //print_r($data['place']);
                 $this->load->view('SuperAdmin/template/header',$data);
                 $this->load->view('SuperAdmin/place/edit',$data);
                 $this->load->view('SuperAdmin/template/footer',$data);
@@ -126,7 +126,7 @@ class Place extends CI_Controller{
         if(isset($place['ID_PLACE']))
         {
             $this->Model_place->delete_place($ID_PLACE);
-            redirect('place/index');
+            redirect(site_url('Place/index'));
         }
         else
             show_error('The place you are trying to delete does not exist.');
