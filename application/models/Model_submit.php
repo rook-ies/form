@@ -19,6 +19,18 @@ class Model_submit extends CI_Model
         return $this->db->get_where('SUBMIT',array('ID_SUBMIT'=>$ID_SUBMIT))->row_array();
     }
 
+    function data($idForm,$number,$offset){
+        $this->db->where('ID_FORM', $idForm);
+        $this->db->order_by('ID_SUBMIT', 'desc');
+		return $query = $this->db->get('SUBMIT',$number,$offset);
+	}
+
+	function jumlah_data($idForm){
+        $this->db->where('ID_FORM', $idForm);
+        $this->db->order_by('ID_SUBMIT', 'desc');
+		return $this->db->get('SUBMIT')->num_rows();
+	}
+
     /*
      * Get all submit
      */

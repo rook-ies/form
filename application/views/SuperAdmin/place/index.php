@@ -22,14 +22,14 @@
               		<td><?php echo $P['CATEGORY']; ?></td>
               		<td><?php echo $P['NAMA']; ?></td>
               		<td>
-                          <a href="<?php echo site_url('place/edit/'.$P['ID_PLACE']); ?>">Edit</a> |
-                          <a href="<?php echo site_url('place/remove/'.$P['ID_PLACE']); ?>">Delete</a>
+                          <a href="<?php echo site_url('Place/edit/'.$P['ID_PLACE']); ?>">Edit</a> |
+                          <a href="<?php echo site_url('Place/remove/'.$P['ID_PLACE']); ?>">Delete</a>
                       </td>
                   </tr>
               	<?php } ?>
               </tbody>
             </table>
-             <a href=<?php echo base_url('place/add') ?>><button class="btn btn-success mr-2">Tambah</button></a>
+             <a href=<?php echo site_url('Place/add') ?>><button class="btn btn-success mr-2">Tambah</button></a>
           </div>
         </div>
     </div>

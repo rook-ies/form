@@ -22,8 +22,8 @@
     						<td><?php echo $A['TYPE']; ?></td>
     						<td><?php echo $A['OPTION']; ?></td>
     						<td>
-                                <a href="<?php echo site_url('additional_identity_option/edit/'.$A['ID_ADDITIONAL_IDENTITY_OPTION']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
-                                <a href="<?php echo site_url('additional_identity_option/remove/'.$A['ID_ADDITIONAL_IDENTITY_OPTION']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
+                                <a href="<?php echo site_url('Additional_identity_option/edit/'.$A['ID_ADDITIONAL_IDENTITY_OPTION']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
+                                <a href="<?php echo site_url('Additional_identity_option/remove/'.$A['ID_ADDITIONAL_IDENTITY_OPTION']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                             </td>
                         </tr>
                         <?php } ?>
@@ -31,7 +31,7 @@
                     <div class="box-header">
                         <h3 class="box-title">Tambahkan data Baru</h3>
                     </div>
-                    <?php echo form_open('additional_identity_option/add'); ?>
+                    <?php echo form_open(site_url('Additional_identity_option/add')); ?>
                     <div class="row clearfix">
                         <?php echo form_hidden('ID_ADDITIONAL_IDENTITY_QUESTION',$this->uri->segment(3)); ?>
                         <?php echo form_hidden('ID_FORM',$this->uri->segment(4)); ?>

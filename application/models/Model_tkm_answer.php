@@ -39,6 +39,18 @@ class Model_tkm_answer extends CI_Model
 
         //return $this->db->get_where('TKM_ANSWER',array('ID_SUBMIT'=>$idSubmit));
     }
+    function get_tkm_answer_per_tkm($idTKM){
+      $answer = $this->db
+            // ->select('t.ID_TKM_ANSWER,t.ID_SUBMIT, t.VALUE ,t.PRIORITY, tq.QUESTION' )
+            ->from('TKM_ANSWER AS t')
+            // ->where('t.ID_TKM = tq.ID_TKM')
+            ->where('t.ID_TKM',$idTKM);
+      $answer = $this->db->get();
+
+      return $answer;
+
+        //return $this->db->get_where('TKM_ANSWER',array('ID_SUBMIT'=>$idSubmit));
+    }
     /*
      * function to add new tkm_answer
      */

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class model_place extends CI_Model{
+class Model_place extends CI_Model{
 
   public function __construct()
   {
@@ -10,7 +10,7 @@ class model_place extends CI_Model{
   }
 
   public function showPlace($idPlace){
-    $place = $this->db->select('p.NAMA, pt.TYPE,pc.CATEGORY')
+    $place = $this->db->select('p.NAMA, pt.TYPE,pc.CATEGORY ,p.ID_PLACE')
           ->from('PLACE AS p, PLACE_TYPE AS pt,PLACE_CATEGORY AS pc')
           ->where('p.ID_PLACE_TYPE = pt.ID_PLACE_TYPE')
           ->where('p.ID_PLACE_CATEGORY = pc.ID_PLACE_CATEGORY')
@@ -35,7 +35,8 @@ class model_place extends CI_Model{
       $place = $this->db->select('p.ID_PLACE as ID_PLACE,p.NAMA, pt.TYPE,pc.CATEGORY')
             ->from('PLACE AS p, PLACE_TYPE AS pt,PLACE_CATEGORY AS pc')
             ->where('p.ID_PLACE_TYPE = pt.ID_PLACE_TYPE')
-            ->where('p.ID_PLACE_CATEGORY = pc.ID_PLACE_CATEGORY');
+            ->where('p.ID_PLACE_CATEGORY = pc.ID_PLACE_CATEGORY')
+            ->order_by('p.ID_PLACE','asc');
         $place = $this->db->get();
         return $place->result_array();
       // $this->db->order_by('ID_PLACE', 'desc');

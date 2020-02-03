@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class model_additional_identity extends CI_Model{
+class Model_additional_identity extends CI_Model{
 
   public function __construct()
   {

@@ -20,8 +20,8 @@
     						<td><?php echo $T['ID_TKM']; ?></td> -->
     						<td><?php echo $T['QUESTION']; ?></td>
     						<td>
-                                <a href="<?php echo site_url('tkm_question/edit/'.$T['ID_TKM_QUESTION']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
-                                <a href="<?php echo site_url('tkm_question/remove/'.$T['ID_TKM_QUESTION']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
+                                <a href="<?php echo site_url('Tkm_question/edit/'.$T['ID_TKM_QUESTION']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
+                                <a href="<?php echo site_url('Tkm_question/remove/'.$T['ID_TKM_QUESTION']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                             </td>
                         </tr>
                         <?php } ?>

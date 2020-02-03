@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class mockupAdmin extends CI_Controller{
+class MockupAdmin extends CI_Controller{
 
   public function __construct()
   {
@@ -77,6 +77,18 @@ class mockupAdmin extends CI_Controller{
   {
       $this->load->view('mockup/Admin/template/header');
       $this->load->view('mockup/Admin/form/editTKMQuestionBayarSub');
+      $this->load->view('mockup/Admin/template/footer');
+  }
+  function reviewForm()
+  {
+      $this->load->view('mockup/Admin/template/header');
+      $this->load->view('mockup/Admin/form/reviewForm');
+      $this->load->view('mockup/Admin/template/footer');
+  }
+  function detailSubmit()
+  {
+      $this->load->view('mockup/Admin/template/header');
+      $this->load->view('mockup/Admin/form/detailSubmit');
       $this->load->view('mockup/Admin/template/footer');
   }
 }

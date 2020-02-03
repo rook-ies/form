@@ -15,14 +15,14 @@
     <div class="row">
                 <div class="col-12 col-lg-4">
             <div class="mb-3 text-center card card-body">
-              <a href="#">
+              <a href="reviewForm">
                 <h5 class="card-title">kuis 2019</h5>
                 <h5 class="description">Rawat Jalan</h5>
             </div>
         </div>
             <div class="col-12 col-lg-4">
             <div class="mb-3 text-center card card-body">
-              <a href="#">
+              <a href="reviewForm">
                 <h5 class="card-title">form baru dibuat oleh saya</h5>
                 <h5 class="description">type service baru</h5>
             </div>

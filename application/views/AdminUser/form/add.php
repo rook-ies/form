@@ -6,7 +6,7 @@
                 <div class="box-header with-border">
                   	<h3 class="box-title"><?php echo $title; ?></h3>
                 </div>
-                <?php echo form_open('form/add'); ?>
+                <?php echo form_open(site_url('Form/add')); ?>
               	<div class="box-body">
               		<div class="row clearfix">
     					<!-- <div class="col-md-6">
@@ -64,7 +64,7 @@
                 	<button type="submit" class="btn btn-success">
                 		<i class="fa fa-check"></i> Save
                 	</button>
-                  <?php echo anchor(base_url('form/list'), 'Cancel'); ?>
+                  <?php echo anchor(site_url('form/list'), 'Cancel'); ?>
               	</div>
                 <?php echo form_close(); ?>
           	</div>

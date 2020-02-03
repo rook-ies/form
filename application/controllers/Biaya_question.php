@@ -59,7 +59,7 @@ class Biaya_question extends CI_Controller{
             );
 
             $biaya_question_id = $this->Model_biaya_question->add_biaya_question($params);
-            redirect('biaya_question/load/'.$this->session->currentForm);
+            redirect(site_url('Biaya_question/load/'.$this->session->currentForm));
         }
         else
         {
@@ -102,7 +102,7 @@ class Biaya_question extends CI_Controller{
                 );
 
                 $this->Model_biaya_question->update_biaya_question($ID_BIAYA_QUESTION,$params);
-                redirect('biaya_question/load/'.$this->session->currentForm);
+                redirect(site_url('Biaya_question/load/'.$this->session->currentForm));
             }
             else
             {
@@ -134,7 +134,7 @@ class Biaya_question extends CI_Controller{
         if(isset($biaya_question['ID_BIAYA_QUESTION']))
         {
             $this->Model_biaya_question->delete_biaya_question($ID_BIAYA_QUESTION);
-            redirect('biaya_question/load/'.$this->session->currentForm);
+            redirect(site_url('Biaya_question/load/'.$this->session->currentForm));
         }
         else
             show_error('The biaya_question you are trying to delete does not exist.');

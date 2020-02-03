@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class dashboardAdmin extends CI_Controller{
+class DashboardAdmin extends CI_Controller{
 
     public function __construct()
     {
@@ -12,7 +12,7 @@ class dashboardAdmin extends CI_Controller{
 
       private function logged_in() {
         if(! $this->session->userdata('authenticated')) {
-            redirect('superAdmin/login');
+            redirect(site_url('SuperAdmin/login'));
         }
     }
 

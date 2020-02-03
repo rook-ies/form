@@ -17,7 +17,7 @@
         <?php foreach($form as $F){ ?>
         <div class="col-12 col-lg-4">
             <div class="mb-3 text-center card card-body">
-              <a href="<?php echo base_url() ?>dashboardAdminBiasa/submit/<?php echo $F['ID_FORM']; ?>">
+              <a href="<?php echo site_url() ?>/DashboardAdminBiasa/submit/<?php echo $F['ID_FORM']; ?>">
                 <h5 class="card-title"><?php echo $F['TITLE']; ?></h5>
                 <h5 class="description"><?php echo $F['SERVICE_TYPE']; ?></h5>
             </div>

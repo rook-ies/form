@@ -67,7 +67,7 @@
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                            <a href="<?php echo base_url() ?>AdminUser/logout"><button type="button" tabindex="0" class="dropdown-item">Log Out</button></a>
+                                            <a href="<?php echo site_url() ?>/AdminUser/logout"><button type="button" tabindex="0" class="dropdown-item">Log Out</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -403,20 +403,20 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Dashboards</li>
                                 <li>
-                                    <a href="<?php echo base_url() ?>dashboardAdminBiasa">
+                                    <a href="<?php echo site_url() ?>/dashboardAdminBiasa">
                                         <i class="metismenu-icon pe-7s-rocket"></i>
-                                        Dashboard Example 1
+                                        Dashboard
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url() ?>AdminUser/gantiPassword">
+                                    <a href="<?php echo site_url() ?>/AdminUser/gantiPassword">
                                         <i class="metismenu-icon pe-7s-key"></i>
                                         Ganti Password
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading">Forms</li>
                                 <li>
-                                    <a href="<?php echo base_url() ?>form/list">
+                                    <a href="<?php echo site_url() ?>/form/list">
                                         <i class="metismenu-icon pe-7s-magic-wand">
                                         </i>My Form
                                     </a>

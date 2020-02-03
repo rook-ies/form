@@ -21,13 +21,13 @@
     						<td><?php echo $T['QUESTION']; ?></td>
                             <?php if($T['QUESTION'] != 'BIAYA/TARIF'){ ?>
     						<td>
-                                <a href="<?php echo site_url('tkm/edit/'.$T['ID_TKM']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
-                                <a href="<?php echo site_url('tkm/remove/'.$T['ID_TKM']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
+                                <a href="<?php echo site_url('Tkm/edit/'.$T['ID_TKM']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
+                                <a href="<?php echo site_url('Tkm/remove/'.$T['ID_TKM']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                             </td>
                         <?php } else { ?>
                             <td>
-                                <a href="<?php echo site_url('biaya_question/load/'.$T['ID_FORM']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
-                                <a href="<?php echo site_url('tkm/remove/'.$T['ID_TKM']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
+                                <a href="<?php echo site_url('Biaya_question/load/'.$T['ID_FORM']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
+                                <a href="<?php echo site_url('Tkm/remove/'.$T['ID_TKM']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                             </td>
                         <?php } ?>
                         </tr>
@@ -36,7 +36,7 @@
                     <div class="box-header">
                         <h3 class="box-title">Tambahkan data Baru</h3>
                     </div>
-                    <?php echo form_open('tkm/add'); ?>
+                    <?php echo form_open(site_url('Tkm/add')); ?>
                   	<div class="box-body">
                   		<div class="row clearfix">
                             <?php echo form_hidden('ID_FORM',$this->session->currentForm); ?>

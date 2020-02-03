@@ -63,9 +63,9 @@
             <h5 class="card-title"><?php echo $F['SERVICE_TYPE']; ?></h5>
             <?php echo $F['DESCRIPTION']; ?>
             <br><br>
-            <a href="<?php echo site_url('form/edit/'.$F['ID_FORM']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
+            <a href="<?php echo site_url('Form/edit/'.$F['ID_FORM']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
             <br>
-            <a href="<?php echo site_url('form/remove/'.$F['ID_FORM']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
+            <a href="<?php echo site_url('Form/remove/'.$F['ID_FORM']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
         </div>
     </div>
 <?php } ?>
