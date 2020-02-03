@@ -71,7 +71,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo site_url((); ?>/DashboardAdmin">
+            <a class="nav-link" href="<?php echo site_url(); ?>/DashboardAdmin">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Dashboard</span>
             </a>
