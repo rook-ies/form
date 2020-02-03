@@ -52,6 +52,9 @@ class DashboardAdminBiasa extends CI_Controller{
 
       // print_r($data['tkm']);
       $i=0;
+      $data['chart'][0]['TKM'] = "";
+      $data['chart'][0]['PRIORITY'] = "";
+      $data['chart'][0]['QUESTION'] = "";
       foreach ($data['tkm'] as $key) {
           // echo "<br>id TKM".$key->QUESTION.' =>>>';
           $num = $this->Model_tkm_answer->get_tkm_answer_per_tkm($key->ID_TKM)->result_array();

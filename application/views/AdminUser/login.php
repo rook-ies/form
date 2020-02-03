@@ -27,7 +27,7 @@
         <div class="row w-100">
           <div class="col-lg-4 mx-auto">
             <div class="auto-form-wrapper">
-              <?php echo form_open(site_url('AdminUser/login', array('id' => 'loginForm'))); ?>
+              <?php echo form_open(site_url('AdminUser/login'), array('id' => 'loginForm')); ?>
                 <div class="form-group">
                   <label class="label">Username</label>
                   <div class="input-group">
